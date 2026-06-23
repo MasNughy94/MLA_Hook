@@ -225,30 +225,45 @@ static void execute_lua_string(lua_State *L, const char *code) {
 //=============================================================================
 static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
                                  const char *name) {
-    LOGI("load: %s (%zu bytes)", name ? name : "?", sz);
+    // Skip spam: UpdateAllService runs every frame
+    if (name && strstr(name, "UpdateAllService")) {
+        return g_orig_luaL_loadbuffer(L, buff, sz, name);
+    }
+
+    // Log script loads (truncate inline content names)
+    const char *n = name ? name : "?";
+    if (sz > 0 && sz < 256) {
+        LOGI("load: %s (%zu bytes)", n, sz);
+    } else {
+        LOGI("load: [%zu bytes]", sz);
+    }
 
     int ret = g_orig_luaL_loadbuffer(L, buff, sz, name);
 
     if (ret == 0 && name) {
-        const char *n = name;
-        const char *slash = strrchr(n, '/');
-        if (slash) n = slash + 1;
+        // Skip inline-content names (they're our injected mod code, not filenames)
+        if (strncmp(name, "if not MLA_MOD", 14) == 0) return ret;
+        if (strncmp(name, "do local _", 10) == 0) return ret;
+
+        const char *basename = name;
+        const char *slash = strrchr(name, '/');
+        if (slash) basename = slash + 1;
 
         // Dump scripts matching key patterns for analysis
-        if (strstr(n, "battle") || strstr(n, "Battle") ||
-            strstr(n, "result") || strstr(n, "Result") ||
-            strstr(n, "fight") || strstr(n, "Fight") ||
-            strstr(n, "vip") || strstr(n, "Vip") || strstr(n, "VIP") ||
-            strstr(n, "shop") || strstr(n, "Shop") ||
-            strstr(n, "gacha") || strstr(n, "Gacha") ||
-            strstr(n, "gashapon") || strstr(n, "Gashapon")) {
+        if (strstr(basename, "battle") || strstr(basename, "Battle") ||
+            strstr(basename, "result") || strstr(basename, "Result") ||
+            strstr(basename, "fight") || strstr(basename, "Fight") ||
+            strstr(basename, "vip") || strstr(basename, "Vip") || strstr(basename, "VIP") ||
+            strstr(basename, "shop") || strstr(basename, "Shop") ||
+            strstr(basename, "gacha") || strstr(basename, "Gacha") ||
+            strstr(basename, "gashapon") || strstr(basename, "Gashapon")) {
             LOGI("=== Dumping %s (%zu bytes) ===", name, sz);
             dump_script(name, buff, sz);
         }
 
         // Inject mod code on core init scripts
-        if (strstr(n, "main") || strstr(n, "init") || strstr(n, "App") ||
-            strstr(n, "start") || strstr(n, "boot") || strstr(n, "login")) {
+        if (strstr(basename, "main") || strstr(basename, "init") || strstr(basename, "App") ||
+            strstr(basename, "start") || strstr(basename, "boot") || strstr(basename, "login")) {
             LOGI("Injecting mod code after %s", name);
             execute_lua_string(L, MOD_LUA_SCRIPT);
         }
