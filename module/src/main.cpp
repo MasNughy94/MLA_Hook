@@ -2,81 +2,324 @@
 #include "dobby.h"
 
 #include <cstring>
-#include <vector>
-#include <unordered_map>
+#include <cstdio>
 #include <dlfcn.h>
 
 namespace mla {
 
-// Example hook structure
-struct HookEntry {
-    void *target_addr;
-    dobby_dummy_func_t replace_func;
-    dobby_dummy_func_t orig_func;
-    bool active;
-};
+//=============================================================================
+// Lua API type definitions (Lua 5.1, as used by Cocos2d-x)
+//=============================================================================
+typedef struct lua_State lua_State;
 
-static std::vector<HookEntry> s_hooks;
+typedef int   (*luaL_loadbuffer_t)(lua_State *, const char *, size_t, const char *);
+typedef int   (*luaL_loadstring_t)(lua_State *, const char *);
+typedef int   (*lua_pcall_t)(lua_State *, int, int, int);
+typedef void  (*lua_settop_t)(lua_State *, int);
+typedef int   (*lua_gettop_t)(lua_State *);
+typedef void  (*lua_pushstring_t)(lua_State *, const char *);
+typedef void  (*lua_pushinteger_t)(lua_State *, int);
+typedef void  (*lua_pushboolean_t)(lua_State *, int);
+typedef void  (*lua_getfield_t)(lua_State *, int, const char *);
+typedef void  (*lua_setfield_t)(lua_State *, int, const char *);
+typedef const char* (*lua_tostring_t)(lua_State *, int);
 
-// Example: Hook a function by symbol name from a library
-static void *resolve_symbol(const char *lib_name, const char *sym_name) {
-    void *handle = dlopen(lib_name, RTLD_NOLOAD);
-    if (!handle) {
-        handle = dlopen(lib_name, RTLD_NOW);
+//=============================================================================
+// Gloabl state
+//=============================================================================
+static void *g_libagame = nullptr;
+static luaL_loadbuffer_t g_orig_luaL_loadbuffer = nullptr;
+
+// Resolved Lua API functions (for mod code injection)
+static struct {
+    lua_settop_t        settop;
+    lua_gettop_t        gettop;
+    lua_pushstring_t    pushstring;
+    lua_pushinteger_t   pushinteger;
+    lua_pushboolean_t   pushboolean;
+    lua_getfield_t      getfield;
+    lua_setfield_t      setfield;
+    lua_tostring_t      tostring;
+    luaL_loadstring_t   loadstring;
+    lua_pcall_t         pcall;
+} lua;
+
+// Injected Lua mod script
+static const char MOD_LUA_SCRIPT[] =
+    "if not MLA_MOD then\n"
+    "  MLA_MOD = true\n"
+    "\n"
+    "  -- Control globals (can be toggled via other hooks later)\n"
+    "  MLA_AUTO_WIN = true\n"
+    "  MLA_FORCE_SKIP = true\n"
+    "  MLA_FORCE_VIP = true\n"
+    "\n"
+    "  -- Safe logging fallback (some game environments lack 'print')\n"
+    "  local log = (type(print) == 'function' and print)\n"
+    "             or (type(__LogD) == 'function' and __LogD)\n"
+    "             or (type(log) == 'function' and log)\n"
+    "             or function() end\n"
+    "\n"
+    "  -- Utility: wrap a global function to force auto-win\n"
+    "  local function override_auto_win(name)\n"
+    "    local orig = _G[name]\n"
+    "    if orig then\n"
+    "      log('[MLA_MOD] Patching: ' .. name)\n"
+    "      _G[name] = function(...)\n"
+    "        if MLA_AUTO_WIN then\n"
+    "          return orig(true, ...)\n"
+    "        end\n"
+    "        return orig(...)\n"
+    "      end\n"
+    "      return true\n"
+    "    end\n"
+    "    return false\n"
+    "  end\n"
+    "\n"
+    "  -- Try known battle result function names\n"
+    "  local BATTLE_NAMES = {\n"
+    "    'showBattleResult', 'onBattleEnd', 'onFightEnd',\n"
+    "    'battleEnd', 'BattleEnd', 'onBattleFinish',\n"
+    "    'resultView', 'showResult', 'onStageResult',\n"
+    "    'setResult', 'SetResult', 'finishBattle',\n"
+    "    'onFinishFight', 'getBattleResult', 'recordBattle',\n"
+    "    'onResult', 'Result', 'battleCallback',\n"
+    "  }\n"
+    "  for _, n in ipairs(BATTLE_NAMES) do\n"
+    "    override_auto_win(n)\n"
+    "  end\n"
+    "\n"
+    "  -- Walk common module tables and patch methods there too\n"
+    "  local function patch_table(tbl, name)\n"
+    "    if type(tbl) ~= 'table' then return end\n"
+    "    for k, v in pairs(tbl) do\n"
+    "      local ks = tostring(k)\n"
+    "      if type(v) == 'function' then\n"
+    "        for _, pat in ipairs(BATTLE_NAMES) do\n"
+    "          if ks == pat or ks:find(pat) then\n"
+    "            tbl[k] = (function(orig)\n"
+    "              return function(self, ...)\n"
+    "                if MLA_AUTO_WIN then\n"
+    "                  return orig(self, true, ...)\n"
+    "                end\n"
+    "                return orig(self, ...)\n"
+    "              end\n"
+    "            end)(v)\n"
+    "          end\n"
+    "        end\n"
+    "      end\n"
+    "    end\n"
+    "  end\n"
+    "\n"
+    "  -- Try common tolua++ module names\n"
+    "  local MODULES = { 'app', 'game', 'cc', 'fighter',\n"
+    "                    'Battle', 'Fight', 'Stage', 'Scene',\n"
+    "                    'g_Battle', 'g_battle', 'Game' }\n"
+    "  for _, m in ipairs(MODULES) do\n"
+    "    local ok, tbl = pcall(function() return _G[m] end)\n"
+    "    if ok and type(tbl) == 'table' then\n"
+    "      patch_table(tbl, m)\n"
+    "    end\n"
+    "  end\n"
+    "\n"
+    "  -- Force VIP: override VIP check functions\n"
+    "  local function override_vip(name)\n"
+    "    local orig = _G[name]\n"
+    "    if orig then\n"
+    "      if name:find('isVip') or name:find('IsVip') or\n"
+    "         name:find('getVip') or name:find('GetVip') or\n"
+    "         name:find('getVIP') then\n"
+    "        _G[name] = function(self, ...)\n"
+    "          if MLA_FORCE_VIP then return 15 end\n"
+    "          return orig(self, ...)\n"
+    "        end\n"
+    "      end\n"
+    "      return true\n"
+    "    end\n"
+    "    return false\n"
+    "  end\n"
+    "\n"
+    "  local VIP_NAMES = {\n"
+    "    'isVip', 'IsVip', 'getVipLevel', 'getVIPLevel',\n"
+    "    'GetVipLevel', 'GetVIPLevel', 'checkVip',\n"
+    "    'isVipValid', 'getPlayerVip',\n"
+    "  }\n"
+    "  for _, n in ipairs(VIP_NAMES) do\n"
+    "    override_vip(n)\n"
+    "  end\n"
+    "\n"
+    "  -- Patch VIP check in module tables\n"
+    "  local function patch_vip_table(tbl, name)\n"
+    "    if type(tbl) ~= 'table' then return end\n"
+    "    for k, v in pairs(tbl) do\n"
+    "      local ks = tostring(k)\n"
+    "      if type(v) == 'function' then\n"
+    "        for _, pat in ipairs(VIP_NAMES) do\n"
+    "          if ks == pat or ks:find(pat) then\n"
+    "            tbl[k] = (function(orig)\n"
+    "              return function(self, ...)\n"
+    "                if MLA_FORCE_VIP then return 15 end\n"
+    "                return orig(self, ...)\n"
+    "              end\n"
+    "            end)(v)\n"
+    "          end\n"
+    "        end\n"
+    "      end\n"
+    "    end\n"
+    "  end\n"
+    "  for _, m in ipairs(MODULES) do\n"
+    "    local ok, tbl = pcall(function() return _G[m] end)\n"
+    "    if ok and type(tbl) == 'table' then\n"
+    "      patch_vip_table(tbl, m)\n"
+    "    end\n"
+    "  end\n"
+    "end\n";
+
+//=============================================================================
+// Dump first N bytes of a buffer to logcat
+//=============================================================================
+static void dump_script(const char *name, const char *buff, size_t sz) {
+    if (!buff || sz == 0) return;
+    size_t dump = sz > 1024 ? 1024 : sz;
+    // Log in 128-byte hex+ascii lines
+    char line[512];
+    for (size_t i = 0; i < dump; i += 64) {
+        int pos = 0;
+        pos += snprintf(line + pos, sizeof(line) - pos, "[%.4zx] ", i);
+        for (size_t j = 0; j < 64 && i + j < dump; j++) {
+            pos += snprintf(line + pos, sizeof(line) - pos, "%02x",
+                           (unsigned char)buff[i + j]);
+            if ((j + 1) % 16 == 0) pos += snprintf(line + pos, sizeof(line) - pos, " ");
+        }
+        pos += snprintf(line + pos, sizeof(line) - pos, "  |");
+        for (size_t j = 0; j < 64 && i + j < dump; j++) {
+            unsigned char c = buff[i + j];
+            pos += snprintf(line + pos, sizeof(line) - pos, "%c",
+                           c >= 32 && c <= 126 ? c : '.');
+        }
+        pos += snprintf(line + pos, sizeof(line) - pos, "|");
+        LOGI("  %s", line);
     }
-    if (!handle) {
-        LOGE("Failed to open library: %s", lib_name);
-        return nullptr;
-    }
-    void *addr = dlsym(handle, sym_name);
-    if (!addr) {
-        LOGE("Symbol not found: %s", sym_name);
-    }
-    return addr;
+    if (sz > dump) LOGI("  ... (%zu bytes total)", sz);
 }
 
-// Example hook callback template
-// Replace this with your actual hook logic
-static void example_hook_replacement() {
-    LOGI("Example hook triggered!");
+//=============================================================================
+// Execute a Lua string on the given state
+//=============================================================================
+static void execute_lua_string(lua_State *L, const char *code) {
+    if (!L || !code) return;
+
+    if (lua.loadstring(L, code) != 0) {
+        lua.settop(L, lua.gettop(L) - 1);
+        return;
+    }
+    if (lua.pcall(L, 0, 0, 0) != 0) {
+        const char *err = lua.tostring(L, -1);
+        if (err) LOGW("Lua mod error: %s", err);
+        lua.settop(L, lua.gettop(L) - 1);
+    }
 }
 
-// Setup all your hooks here
+//=============================================================================
+// Hook: luaL_loadbuffer
+//=============================================================================
+static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
+                                 const char *name) {
+    LOGI("load: %s (%zu bytes)", name ? name : "?", sz);
+
+    int ret = g_orig_luaL_loadbuffer(L, buff, sz, name);
+
+    if (ret == 0 && name) {
+        const char *n = name;
+        const char *slash = strrchr(n, '/');
+        if (slash) n = slash + 1;
+
+        // Dump scripts matching key patterns for analysis
+        if (strstr(n, "battle") || strstr(n, "Battle") ||
+            strstr(n, "result") || strstr(n, "Result") ||
+            strstr(n, "fight") || strstr(n, "Fight") ||
+            strstr(n, "vip") || strstr(n, "Vip") || strstr(n, "VIP") ||
+            strstr(n, "shop") || strstr(n, "Shop") ||
+            strstr(n, "gacha") || strstr(n, "Gacha") ||
+            strstr(n, "gashapon") || strstr(n, "Gashapon")) {
+            LOGI("=== Dumping %s (%zu bytes) ===", name, sz);
+            dump_script(name, buff, sz);
+        }
+
+        // Inject mod code on core init scripts
+        if (strstr(n, "main") || strstr(n, "init") || strstr(n, "App") ||
+            strstr(n, "start") || strstr(n, "boot") || strstr(n, "login")) {
+            LOGI("Injecting mod code after %s", name);
+            execute_lua_string(L, MOD_LUA_SCRIPT);
+        }
+    }
+    return ret;
+}
+
+//=============================================================================
+// Initialize
+//=============================================================================
 bool initialize() {
-    LOGI("MLA Hook initializing...");
+    LOGI("MLA Hook v2 initializing...");
 
-    // Hook a test function: example_hook_replacement -> self-hook demo
-    dobby_dummy_func_t orig = nullptr;
+    // Get libagame.so handle
+    g_libagame = dlopen("libagame.so", RTLD_NOLOAD);
+    if (!g_libagame) {
+        g_libagame = dlopen("libagame.so", RTLD_NOW);
+    }
+    if (!g_libagame) {
+        LOGE("Failed to open libagame.so: %s", dlerror());
+        return false;
+    }
+    LOGI("libagame.so handle: %p", g_libagame);
 
-    if (DobbyHook((void *)example_hook_replacement, (dobby_dummy_func_t)example_hook_replacement, &orig) == 0) {
-        HookEntry entry;
-        entry.target_addr = (void *)example_hook_replacement;
-        entry.replace_func = (dobby_dummy_func_t)example_hook_replacement;
-        entry.orig_func = orig;
-        entry.active = true;
-        s_hooks.push_back(entry);
-        LOGI("DobbyHook installed successfully (self-hook demo)");
+    // Resolve Lua API functions via dlsym on libagame handle
+    // (RTLD_DEFAULT may not see LOCAL-loaded library symbols)
+    lua.settop      = (lua_settop_t)     dlsym(g_libagame, "lua_settop");
+    lua.gettop      = (lua_gettop_t)     dlsym(g_libagame, "lua_gettop");
+    lua.pushstring  = (lua_pushstring_t) dlsym(g_libagame, "lua_pushstring");
+    lua.pushinteger = (lua_pushinteger_t)dlsym(g_libagame, "lua_pushinteger");
+    lua.pushboolean = (lua_pushboolean_t)dlsym(g_libagame, "lua_pushboolean");
+    lua.getfield    = (lua_getfield_t)   dlsym(g_libagame, "lua_getfield");
+    lua.setfield    = (lua_setfield_t)   dlsym(g_libagame, "lua_setfield");
+    lua.tostring    = (lua_tostring_t)   dlsym(g_libagame, "lua_tostring");
+    lua.loadstring  = (luaL_loadstring_t)dlsym(g_libagame, "luaL_loadstring");
+    lua.pcall       = (lua_pcall_t)      dlsym(g_libagame, "lua_pcall");
+
+    if (!lua.settop || !lua.pushstring || !lua.loadstring || !lua.pcall) {
+        LOGE("Failed to resolve Lua API functions");
+        dlclose(g_libagame);
+        return false;
+    }
+    LOGI("Lua API functions resolved");
+
+    // Hook luaL_loadbuffer
+    void *loadbuffer = dlsym(g_libagame, "luaL_loadbuffer");
+    if (!loadbuffer) {
+        LOGE("Cannot find luaL_loadbuffer");
+        dlclose(g_libagame);
+        return false;
+    }
+    LOGI("luaL_loadbuffer at %p", loadbuffer);
+
+    if (DobbyHook(loadbuffer,
+                  (dobby_dummy_func_t)luaL_loadbuffer_hook,
+                  (dobby_dummy_func_t *)&g_orig_luaL_loadbuffer) != 0) {
+        LOGE("Failed to hook luaL_loadbuffer");
     } else {
-        LOGI("DobbyHook demo skipped (expected for self-hook, API is working)");
+        LOGI("luaL_loadbuffer hooked successfully");
     }
 
-    // For real use, hook a function by symbol name:
-    // void *target = resolve_symbol("libil2cpp.so", "SomeFunction");
-    // if (target && DobbyHook(target, (void *)example_hook_replacement, &entry.orig_addr) == 0) { ... }
-
-    LOGI("MLA Hook initialized");
+    LOGI("MLA Hook v2 initialized");
     return true;
 }
 
 void cleanup() {
-    LOGI("Cleaning up hooks...");
-    for (auto &entry : s_hooks) {
-        if (entry.active) {
-            DobbyDestroy(entry.target_addr);
-            entry.active = false;
-        }
+    LOGI("MLA Hook v2 cleanup");
+    if (g_libagame) {
+        dlclose(g_libagame);
+        g_libagame = nullptr;
     }
-    s_hooks.clear();
 }
 
 } // namespace mla
