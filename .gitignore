@@ -1,0 +1,11 @@
+build/
+*.zip
+*.o
+*.so
+*.a
+__pycache__/
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo

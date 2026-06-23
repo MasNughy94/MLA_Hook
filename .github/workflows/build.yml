@@ -1,0 +1,77 @@
+name: Build MLA Hook (arm64-v8a)
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+env:
+  DOBBY_PREBUILT_URL: https://raw.githubusercontent.com/shadow3aaa/dobby-api/master/prebuilt/android/arm64-v8a
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        abi: [arm64-v8a]
+        api: [24]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Setup Android NDK
+      uses: nttld/setup-ndk@v1
+      with:
+        ndk-version: r27c
+        add-to-path: true
+
+    - name: Setup CMake
+      uses: jwlawson/actions-setup-cmake@v2
+      with:
+        cmake-version: '3.31.x'
+
+    - name: Download prebuilt Dobby
+      run: |
+        mkdir -p module/prebuilt/${{ matrix.abi }}
+        curl -fSL "${{ env.DOBBY_PREBUILT_URL }}/libdobby.so" -o module/prebuilt/${{ matrix.abi }}/libDobby.so
+        curl -fSL "${{ env.DOBBY_PREBUILT_URL }}/libdobby.a" -o module/prebuilt/${{ matrix.abi }}/libDobby.a
+
+    - name: Create build directory
+      run: mkdir -p build/android
+
+    - name: Configure CMake
+      working-directory: build/android
+      run: |
+        cmake -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK_HOME/build/cmake/android.toolchain.cmake \
+              -DANDROID_ABI=${{ matrix.abi }} \
+              -DANDROID_PLATFORM=android-${{ matrix.api }} \
+              -DANDROID_STL=c++_shared \
+              -DCMAKE_BUILD_TYPE=Release \
+              -DCMAKE_SYSTEM_NAME=Android \
+              $GITHUB_WORKSPACE/module
+
+    - name: Build
+      working-directory: build/android
+      run: cmake --build . --config Release --parallel $(nproc)
+
+    - name: List output
+      working-directory: build/android
+      run: |
+        echo "=== Build output ==="
+        find . -name "*.so" -type f
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: mla_hook-${{ matrix.abi }}
+        path: build/android/**/*.so
+        if-no-files-found: error
