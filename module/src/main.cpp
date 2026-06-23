@@ -256,10 +256,39 @@ static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
 
     int ret = g_orig_luaL_loadbuffer(L, buff, sz, name);
 
-    if (ret == 0 && name) {
+    if (ret == 0) {
         // Skip inline-content names (they're our injected mod code, not filenames)
-        if (strncmp(name, "if not MLA_MOD", 14) == 0) return ret;
-        if (strncmp(name, "do local _", 10) == 0) return ret;
+        if (name) {
+            if (strncmp(name, "if not MLA_MOD", 14) == 0) return ret;
+            if (strncmp(name, "do local _", 10) == 0) return ret;
+        }
+
+        // Unnamed large scripts (>1KB) — these are the game logic Lua sources!
+        if (!name || name[0] == '\0') {
+            if (sz > 1024) {
+                size_t dump = sz > 512 ? 512 : sz;
+                LOGI("=== Unnamed script (%zu bytes) - first %zu bytes ===", sz, dump);
+                // Log as text (these are decrypted Lua sources)
+                char line[1024];
+                for (size_t i = 0; i < dump; i += 128) {
+                    size_t remain = dump - i;
+                    size_t copy = remain > 127 ? 127 : remain;
+                    memcpy(line, buff + i, copy);
+                    line[copy] = '\0';
+                    // Sanitize non-printable chars
+                    for (size_t j = 0; j < copy; j++) {
+                        if (line[j] < 32 && line[j] != '\n' && line[j] != '\t') line[j] = '.';
+                    }
+                    LOGI("  %s", line);
+                }
+            }
+            // Inject mod code on large script loads (first big script = game init)
+            if (sz > 100000) {
+                LOGI("Injecting mod code after unnamed script (%zu bytes)", sz);
+                execute_lua_string(L, MOD_LUA_SCRIPT);
+            }
+            return ret;
+        }
 
         const char *basename = name;
         const char *slash = strrchr(name, '/');
