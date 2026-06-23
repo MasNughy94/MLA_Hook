@@ -29,6 +29,7 @@ typedef const char* (*lua_tostring_t)(lua_State *, int);
 //=============================================================================
 static void *g_libagame = nullptr;
 static luaL_loadbuffer_t g_orig_luaL_loadbuffer = nullptr;
+static lua_pcall_t g_orig_lua_pcall = nullptr;
 
 // Resolved Lua API functions (for mod code injection)
 static struct {
@@ -221,6 +222,21 @@ static void execute_lua_string(lua_State *L, const char *code) {
 }
 
 //=============================================================================
+//=============================================================================
+// Hook: lua_pcall — count calls to detect battle Lua activity
+//=============================================================================
+static int g_pcall_count = 0;
+
+static int lua_pcall_hook(lua_State *L, int nargs, int nresults, int errfunc) {
+    g_pcall_count++;
+    // Log every 500th call to show Lua is active
+    if (g_pcall_count % 500 == 0) {
+        LOGI("pcall count: %d", g_pcall_count);
+    }
+    return g_orig_lua_pcall(L, nargs, nresults, errfunc);
+}
+
+//=============================================================================
 // Hook: luaL_loadbuffer
 //=============================================================================
 static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
@@ -307,6 +323,16 @@ bool initialize() {
         return false;
     }
     LOGI("Lua API functions resolved");
+
+    // Hook lua_pcall
+    void *pcall = dlsym(g_libagame, "lua_pcall");
+    if (pcall) {
+        if (DobbyHook(pcall,
+                      (dobby_dummy_func_t)lua_pcall_hook,
+                      (dobby_dummy_func_t *)&g_orig_lua_pcall) == 0) {
+            LOGI("lua_pcall hooked");
+        }
+    }
 
     // Hook luaL_loadbuffer
     void *loadbuffer = dlsym(g_libagame, "luaL_loadbuffer");
