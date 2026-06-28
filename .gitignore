@@ -1,0 +1,91 @@
+# === Binaries (copyrighted, don't distribute) ===
+libagame.so
+MLADVENTURE.apk
+MLADVENTURE2/
+libfrida-gadget.so
+*.mt
+*.mt2
+*.roo
+
+# === Extracted / decrypted output ===
+decrypted_output/
+mt_dump/
+DEC-ASSET/
+PROJECT/cache/
+PROJECT/database/
+PROJECT/decrypted_data/
+PROJECT/imports/
+
+# === Android SDK / tools ===
+platform-tools/
+build-tools/
+apktool.bat
+apktool.jar
+debug.keystore
+ghidra_*/
+ghidra_*.zip
+
+# === Build outputs ===
+mla_hook_module/libs/
+mla_hook_module/obj/
+mla_hook_module/prebuilt/
+
+# === Dobby submodule build artifacts ===
+Dobby/build/
+
+# === Experiment scripts (one-off analysis) ===
+_*.py
+_*.md
+tea_*.py
+xxtea_*.py
+aes_*.py
+try_*.py
+disasm_*.py
+dump_*.py
+search_*.py
+scan_*.py
+hook_*.py
+run_*.py
+spawn_*.py
+respawn_*.py
+patch_*.py
+analyze_*.py
+examine_*.py
+parse_*.py
+check_*.py
+read_global_structure.py
+comprehensive_*.py
+decrypt_all.py
+decrypt_more.py
+decrypt_try_all.py
+decrypt_cocos.py
+decrypt_bapmod.py
+decrypt_aes.py
+decrypt_xxtea.py
+decrypt_xxtealib.py
+decrypt_mt.py
+decrypt_mt_v2.py
+decrypt_mt_v3.py
+mt_tool.py
+mt_structure_test.py
+symsearch.py
+dex_lookup.py
+secion_analysis.py
+extract_func_pattern.py
+find_error_str.py
+*.txt
+logcat.txt
+session.md
+
+# === Python cache ===
+__pycache__/
+*.pyc
+
+# === IDE ===
+.idea/
+.vscode/
+*.swp
+
+# === System ===
+Thumbs.db
+.DS_Store
