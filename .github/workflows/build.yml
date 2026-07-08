@@ -26,7 +26,7 @@ jobs:
       - name: Patch Dobby
         run: python3 patches/fix_osarch_features.py
 
-      - name: Build Dobby (shared)
+      - name: Build Dobby (static)
         run: |
           mkdir -p Dobby/build/android
           cd Dobby/build/android
@@ -38,12 +38,12 @@ jobs:
             -DDOBBY_BUILD_EXAMPLE=OFF \
             -DDOBBY_BUILD_TEST=OFF \
             -DDOBBY_DEBUG=OFF
-          make -j$(nproc) dobby
+          make -j$(nproc) dobby_static
 
       - name: Copy libs
         run: |
           mkdir -p mla_hook_module/prebuilt/arm64-v8a
-          cp Dobby/build/android/libdobby.so mla_hook_module/prebuilt/arm64-v8a/
+          cp Dobby/build/android/libdobby.a mla_hook_module/prebuilt/arm64-v8a/
 
       - name: Build mla_hook
         run: |
@@ -56,5 +56,4 @@ jobs:
           name: mla_hook-arm64-v8a
           path: |
             mla_hook_module/libs/arm64-v8a/libmla_hook.so
-            mla_hook_module/prebuilt/arm64-v8a/libdobby.so
           if-no-files-found: error
