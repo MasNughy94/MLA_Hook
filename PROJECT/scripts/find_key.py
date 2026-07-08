@@ -1,6 +1,6 @@
-import struct, os, re
+﻿import struct, os, re
 
-BINARY = r'C:\Users\NGEONG\Videos\MLA\libagame.so'
+BINARY = r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so'
 with open(BINARY, 'rb') as f:
     data = f.read()
 endian = '<'

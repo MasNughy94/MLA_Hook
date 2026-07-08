@@ -1,4 +1,4 @@
-"""
+﻿"""
 Crack the 3-byte record encoding by correlating zero-tag records with data records.
 Key finding: 7749 non-(0,0) zero records = 7749 template defaults.
 """
@@ -6,7 +6,7 @@ import os
 from collections import defaultdict
 
 HDR_SIZE = 69
-DEC_BATCH = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\dec_batch'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\dec_batch'
 
 def parse_records(body):
     records = []

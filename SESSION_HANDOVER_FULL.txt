@@ -1,0 +1,1034 @@
+SESSION HANDOVER FULL
+
+================================================================================
+PROJECT OVERVIEW
+================================================================================
+
+Tujuan project ini adalah melakukan reverse engineering terhadap game Mobile
+Legends Adventure (MLA) untuk memanipulasi sistem battle dan formasi hero.
+
+Project mencakup dua area utama:
+
+AREA 1: BYPASS HERO OWNERSHIP CHECK
+  Memungkinkan player memilih hero TAK TEROWNED (tidak dimiliki) ke dalam slot
+  formasi battle. Ini dilakukan dengan mem-patch bytecode Lua file
+  CommonArrangeHelper, mengganti method call "isHeroNotOwned" menjadi
+  "getHeroSelected" — keduanya memiliki panjang 14 karakter sehingga size
+  field constant table tidak perlu diubah.
+
+AREA 2: DUPLICATE SLOT / BYPASS MAX HERO LIMIT
+  Memungkinkan player mendeploy LEBIH DARI 5 hero dalam satu formasi battle.
+  Normalnya game membatasi maksimal 5 hero per stage. Dengan mem-patch
+  method HeroSelectHelper dan CommonArrangeHelper, batas ini dinaikkan
+  menjadi 10 hero.
+
+Game: Mobile Legends Adventure (MLA)
+Developer: Moonton
+Platform: Android (LDPlayer Emulator + Real Device)
+Teknologi: Unity Engine + tolua++ (C++ binding untuk Lua) + Cocos2d-x
+File target: assets/1/189b07cc4bd84b827a5328770329e9a3.mt (CommonArrangeHelper)
+            assets/5/5ebc64abedbf55a2e4ab8fb34260f31a.mt (HeroSelectHelper)
+Device ID (real): 192.168.1.10:38025 (OnePlus NE2210 via ADB WiFi)
+Emulator: LDPlayer (localhost:5555 / emulator-5554)
+Package name: com.moonton.mobilehero
+
+================================================================================
+STATUS PROJECT SAAT INI
+================================================================================
+
+SUDAH BERHASIL:
+  1. File .mt berhasil di-decode dan di-parse oleh unluac
+  2. Disassembly berhasil di-generate (3906 lines untuk file CommonArrangeHelper)
+  3. Semua fungsi CommonArrangeHelper teridentifikasi (main/f0 sampai main/f49)
+  4. String "isHeroNotOwned" ditemukan di 4 offset dalam bytecode
+  5. Format bytecode Lua 5.1 berhasil di-reverse (termasuk size_t=4 bytes)
+  6. Struktur constant table berhasil dipahami dan didokumentasikan
+  7. Strategi string replacement (isHeroNotOwned -> getHeroSelected) dirancang
+  8. fopen/fread hooks diverifikasi berfungsi di LDPlayer
+  9. Dobby hook module (libmla_hook.so) berhasil di-build via GitHub Actions
+  10. GitHub Actions workflow berjalan sukses (30 build runs)
+  11. .so artifact berhasil di-download dan di-push ke real device
+  12. Slot duplication logic ditemukan:
+      - HeroSelectHelper.isHeroSelectedEnough (k21=5, line 9760)
+      - HeroSelectHelper.isHeroSelectedEnoughWithoutSubstitute (k3=5, line 9617)
+      - CommonArrangeHelper.init sets m_maxSelectCount = 5
+      - STRID_HeroListNew_TeamNumMax (toast notification)
+      - STRID_Battle_WrongNum3 (error notification)
+  13. Lua injection code untuk bypass max hero limit ditambahkan ke MOD_LUA_SCRIPT
+  14. Commit + push ke GitHub berhasil
+  15. Build #30 (slot bypass) sukses, artifact deployed ke device
+
+BELUM BERHASIL:
+  1. patch_hero_check.js BELUM di-test di LDPlayer atau real device
+  2. Dobby hook module (libmla_hook.so) BELUM di-inject ke game (via MT Manager)
+  3. Efek patch isHeroNotOwned -> getHeroSelected BELUM diverifikasi
+  4. Efek bypass max hero limit BELUM diverifikasi
+  5. Tidak yakin apakah selectHero (main/f11) memiliki internal check tambahan
+  6. Tidak yakin apakah UI layer akan mengizinkan tap pada hero tak terowned
+  7. Belum ada test untuk menentukan apakah replace ALL 4 occurrences atau spesifik
+  8. Anti-tamper game (CRC check, integrity verification) BELUM diuji
+  9. Server-side validation BELUM diuji
+
+================================================================================
+TARGET AKHIR PROJECT
+================================================================================
+
+1. Player bisa memilih hero TIDAK DIMILIKI di formasi battle
+2. Player bisa mendeploy LEBIH DARI 5 hero dalam satu formasi
+3. Hero hasil seleksi muncul dan bertarung di battle
+4. Tidak terdeteksi oleh anti-cheat game
+5. Solusi bisa di-reproduksi di berbagai perangkat
+
+================================================================================
+REVERSE ENGINEERING FINDINGS
+================================================================================
+
+1. FORMAT FILE .mt
+
+File .mt adalah format encrypted milik Roo/Anti-tamper. Diawali header "Antm".
+Setelah di-decode, menghasilkan file .mt.luac yang merupakan raw Lua 5.1 bytecode
+dengan header standar (1B 4C 75 61 = "\x1bLua"). Ukuran decoded file target
+CommonArrangeHelper adalah 38491 bytes. File .mt asli dari APK berukuran
+10497 bytes.
+
+2. MULTIPLE SCRIPTS CONCATENATED
+
+Satu file .mt dapat berisi MULTIPLE Lua scripts yang digabung (concatenated).
+Instruction count dari main function script pertama mencakup data dari script
+berikutnya. Script fix_and_decompile.py menggunakan pendekatan: find last
+valid RETURN instruction, truncate di sana.
+
+3. HEADER FILE .mt.luac (Lua 5.1 Standard, 12 bytes)
+
+  [0-3]   magic: 1B 4C 75 61 ("\x1bLua")
+  [4]     version: 0x51 (Lua 5.1)
+  [5]     format: 0x00 (official)
+  [6]     endianness: 0x01 (1 = little endian)
+  [7]     sizeof(int): 0x04 (4 bytes)
+  [8]     sizeof(size_t): 0x04 (4 bytes) [KRITIS: bukan 1 byte!]
+  [9]     sizeof(Instruction): 0x04 (4 bytes)
+  [10]    sizeof(lua_Number): 0x08 (8 bytes)
+  [11]    integral_flag: 0x00 (0 = float, not int)
+
+4. MAIN FUNCTION HEADER (dimulai dari offset 12)
+
+  [12-15] source_size: 00 00 00 00 = 0 (4 bytes size_t)
+  [16-19] linedefined: 00 00 00 00 = 0
+  [20-23] lastlinedefined: 00 00 00 00 = 0
+  [24]    nups: 00 = 0
+  [25]    numparams: 00 = 0
+  [26]    is_vararg: 02 = 2 (needs vararg)
+  [27]    maxstacksize: 04 = 4
+  [28-31] codesize: 9B 00 00 00 = 155 (4 bytes int)
+  [32+]   instructions: 155 * 4 = 620 bytes
+
+5. STRING FORMAT DI CONSTANT TABLE
+
+Lua 5.1 string format di bytecode:
+  [0-3]   size (4 bytes, size_t, little-endian)
+  [4..]   content (size bytes, null terminated)
+
+Jika size = 0, string adalah nil (null source, untuk main function).
+String SELALU null-terminated. sizeof(size_t) = 4 SESUAI header byte [8].
+
+6. CONSTANT TABLE FORMAT
+
+  type(1 byte) + data(bergantung type):
+    Type 0x00 = nil: no data
+    Type 0x01 = boolean: 1 byte (0/1)
+    Type 0x03 = number: 8 bytes (double, IEEE 754 little-endian)
+    Type 0x04 = string: size(4 bytes size_t) + content(null-terminated)
+
+7. OBFUSCATION
+
+Bytecode Lua di dalam file .mt.luac sudah mengalami obfuscation berat:
+  a. Control-flow flattening menggunakan pasangan FORPREP + FORLOOP dengan
+     nilai sBx = -131071. Ini membuat loop body berisi seluruh instruction
+     setelah FORPREP, dan nilai variabel loop mengontrol alur eksekusi.
+  b. Instruction palsu: SETGLOBAL r0, k1024 (k1024 out of range) dan
+     GETUPVAL r2, uXXXXX (XXXXX adalah nilai sangat besar/random).
+     Instruksi ini tidak pernah dieksekusi dan hanya sebagai filler.
+  c. RETURN instruction dengan nilai return count acak digunakan sebagai
+     jump target dalam control-flow flattening.
+  d. Operasi aritmatika palsu (MUL, ADD, POW) dengan register acak.
+
+8. OFFSET- OFFSET PENTING
+
+  Offset 0-11:   Header file (12 bytes)
+  Offset 12-15:  source_size main function
+  Offset 16-19:  linedefined main function
+  Offset 20-23:  lastlinedefined main function
+  Offset 24:     nups main function
+  Offset 25:     numparams main function
+  Offset 26:     is_vararg main function = 2
+  Offset 27:     maxstacksize main function = 4
+  Offset 28-31:  codesize main function = 155
+  Offset 32-651: Instructions main function (155 * 4)
+  Offset 652+:   Constants table
+  Offset 1355:   String "isHeroNotOwned" (main function constants - method registration)
+  Offset 4987:   String "isHeroNotOwned" (main/f7 - getHeroInfoNotOwnedForSelectView)
+  Offset 17339:  String "isHeroNotOwned" (main/f29 - inner helper)
+  Offset 27332:  String "isHeroNotOwned" (main/f40 - arrange pipeline)
+
+9. STRING "isHeroNotOwned" - 4 OFFSET
+
+  [1] Offset 1355 (0x54B)
+      Konteks: ...SelectView[null]isHeroNotOwned[null]isNotOwnedHeroSelected..
+      Fungsi: MAIN FUNCTION (METHOD REGISTRATION)
+      Constant index: k33
+      Digunakan: method name saat registrasi class method
+
+  [2] Offset 4987 (0x137B)
+      Konteks: ...[null]getHero[null]isHeroNotOwned[null]table[null]insert..
+      Fungsi: main/f7 (getHeroInfoNotOwnedForSelectView)
+      Constant index: k6
+      Digunakan: method call self:isHeroNotOwned(heroInfo)
+
+  [3] Offset 17339 (0x43BB)
+      Konteks: ...tedHeros[null]isHeroNotOwned[null]...[null][null]...
+      Fungsi: main/f29 (inner helper)
+      Constant index: k2
+      Digunakan: method call self:isHeroNotOwned(iHeroId)
+
+  [4] Offset 27332 (0x6AC4)
+      Konteks: ...roNotOwned[null]isHeroNotOwned[null]getHeroInfo...
+      Fungsi: main/f40 (arrange-related)
+      Constant index: k9
+      Digunakan: method call di arrange pipeline
+
+10. ANALISIS FUNGSI CommmonArrangeHelper (main/f0 - main/f49)
+
+  main       = Module registration, require("BaseHelper"), class("CommonArrangeHelper")
+  main/f0    = initMsgListener (line 9)
+  main/f1    = init (line 14) -> sets m_maxSelectCount=5, m_iPreBattleTeamMaxNum
+  main/f2    = initData (line 49)
+  main/f3    = isOpen (line 57)
+  main/f4    = isNew (line 67)
+  main/f5    = setNew (line 72)
+  main/f6    = initMsgListener (line 84)
+  main/f7    = getHeroInfoNotOwnedForSelectView (line 88) -> CALLS isHeroNotOwned
+  main/f8    = getHeroSelected (line 110)
+  main/f9    = isHeroSelectedEnough (line 124) -> checks m_numSelected >= 5
+  main/f10   = switchHeroPos (line 163) -> removes/inserts in m_selectedHeros
+  main/f11   = selectHero (line 182) -> checks isHeroSelected, inserts to table
+  main/f12   = getHeroArrangeIndex (line 225)
+  main/f13   = getHeroSelectedNum (line 247)
+  main/f14   = isHeroSelected (line 265)
+  main/f15   = isBaseHeroSelected (line 274)
+  main/f16   = cleanArrangeData (line 284)
+  main/f17   = getSelectHeroId (line 297)
+  main/f18   = setMapSelectHeroId (line 302)
+  main/f19   = getMapSelectHeroId (line 306)
+  main/f20   = setSelectMaxPowerHeroId (line 318)
+  main/f21   = getSelectMaxPowerHeroId (line 323)
+  main/f22   = getMaxHeroPower (line 330)
+  main/f23   = getAllSelectTarget (line 358)
+  main/f24   = isSelectTarget (line 374)
+  main/f25   = hasSelectTargetByBaseId (line 389)
+  main/f26   = getPowerHeroSelected (line 402)
+  main/f27   = getHeroInfoNotOwnedForSelectView (line 411)
+  main/f28   = [unknown - upvalue m_mapHeroNotOwned] (line 421)
+  main/f29   = inner helper (line 429) -> CALLS isHeroNotOwned per hero
+  main/f30   = requestSaveArrange (line 446) -> saves formation, 2 params
+  main/f30/f0 = requestSaveArrange sub-function (line 459)
+  main/f30/f1 = requestSaveArrange sub-function
+  main/f31   = [arrange management] (line 491)
+  main/f32   = [getArrangeByCmdHeroListNew] (line 509)
+  main/f32/f0 = getArrangeByCmdHeroListNew sub-function
+  main/f33-f49 = Arrange management, TextManager, UI helpers, slot management
+  main/f45   = reads m_iPreBattleTeamMaxNum (line 863)
+  main/f46   = hero list view handler (line 872-928) -> shows "team full" toast
+  main/f49   = getPreBattleTeamMaxNum (line 1002-1004)
+
+11. SLOT LIMIT / MAX HERO COUNT
+
+Slot limit 5 hero di-enforce oleh DUA file berbeda:
+
+  FILE 1: 5_5ebc64abedbf55a2e4ab8fb34260f31a.mt (HeroSelectHelper)
+    main/f40   = isHeroSelectedEnoughWithoutSubstitute
+       - Constant k3 = 5
+       - Line 9617: le 1 k3 r0 -> compares m_numSelected >= 5
+       - Returns true if >= 5 heroes selected
+    main/f41   = isHeroSelectedEnough(bTips)
+       - Constant k21 = 5
+       - Line 9760: le 1 k21 r1 -> compares m_numSelected >= 5
+       - Shows STRID_Battle_WrongNum3 if not enough
+       - Handles SeasonSubNormal, SeasonSubLineHelper special cases
+    main/f42   = hasArrangeFullTips
+       - Checks if team is full, shows toast
+    main/f108  = setMaxSelectCount(iMaxSelectCount)
+       - Defaults to 5 (constant k4)
+       - Sets m_maxSelectCount = iMaxSelectCount
+    main/f125  = initStageSetting
+       - Reads HeroSelectedNumMax from DesignConfig
+       - Calls setMaxSelectCount with configured value
+
+  FILE 2: 1_189b07cc4bd84b827a5328770329e9a3.mt (CommonArrangeHelper)
+    main/f1    = init
+       - Sets m_maxSelectCount = 5 (k11)
+       - Sets m_iPreBattleTeamMaxNum from DesignConfig
+    main/f8    = isHeroSelectedEnough
+       - Constant k7 = 5 (line 290 in constant declaration, actually in main function)
+       - Line 663: le 1 k7 r1 -> compares against 5
+
+12. STRING YANG DIGUNAKAN UNTUK NOTIFIKASI
+
+  STRID_HeroListNew_TeamNumMax -> "Team is full" notification
+  STRID_Battle_WrongNum3 -> "Please select {num} heroes" notification
+  STRID_HeroListNew_WordNumTips -> Word tips
+  STRID_Battle_WrongHero -> Wrong hero notification
+
+13. DEPENDENCY ANALYSIS
+
+  Hero selection pipeline di MLA:
+    UI Layer: HeroGridView -> getHeroInfoNotOwnedForSelectView -> isHeroNotOwned
+    Selection Logic: selectHero -> isHeroSelected -> insert ke m_selectedHeros
+    Limit Check: isHeroSelectedEnough -> m_numSelected >= m_maxSelectCount
+    Arrange Storage: requestSaveArrange -> addOneArrange -> m_selectedHeros
+
+  Ownership Check:
+    isHeroNotOwned (C++ via tolua++)
+    isNotOwnedHeroSelected (C++ via tolua++)
+    isBaseHeroSelected (C++ via tolua++)
+
+================================================================================
+BYTECODE ANALYSIS
+================================================================================
+
+1. FORMAT FILE
+
+File .mt adalah format encrypted milik Roo/Anti-tamper dengan header "Antm".
+Game memiliki mekanisme decrypt internal yang mengubah .mt (Antm) menjadi
+.mt.luac (Lua 5.1 standard bytecode). Proses decrypt hanya bisa dilakukan
+oleh binary game itu sendiri.
+
+Output decrypt adalah file .mt.luac dengan format standard Lua 5.1:
+   12 bytes header + main function + inline sub-functions + concatenated scripts
+
+2. HEADER FORMAT
+
+  Byte ke-0:  0x1B (magic)
+  Byte ke-1:  0x4C ('L')
+  Byte ke-2:  0x75 ('u')
+  Byte ke-3:  0x61 ('a')
+  Byte ke-4:  0x51 (Lua 5.1)
+  Byte ke-5:  0x00 (official format)
+  Byte ke-6:  0x01 (little endian)
+  Byte ke-7:  0x04 (sizeof(int)=4)
+  Byte ke-8:  0x04 (sizeof(size_t)=4) [KRITIS]
+  Byte ke-9:  0x04 (sizeof(Instruction)=4)
+  Byte ke-10: 0x08 (sizeof(lua_Number)=8)
+  Byte ke-11: 0x00 (integral flag = 0, floating point)
+
+3. OPCODE LUA 5.1
+
+Standard 38 opcodes (0-37):
+  0  OP_MOVE       1  OP_LOADK      2  OP_LOADBOOL   3  OP_LOADNIL
+  4  OP_GETUPVAL   5  OP_GETGLOBAL  6  OP_GETTABLE   7  OP_SETGLOBAL
+  8  OP_SETUPVAL   9  OP_SETTABLE   10 OP_NEWTABLE   11 OP_SELF
+  12 OP_ADD        13 OP_SUB        14 OP_MUL        15 OP_DIV
+  16 OP_MOD        17 OP_POW        18 OP_UNM        19 OP_NOT
+  20 OP_LEN        21 OP_CONCAT     22 OP_JMP        23 OP_EQ
+  24 OP_LT         25 OP_LE         26 OP_TEST       27 OP_TESTSET
+  28 OP_CALL       29 OP_TAILCALL   30 OP_RETURN     31 OP_FORLOOP
+  32 OP_FORPREP    33 OP_TFORLOOP   34 OP_SETLIST    35 OP_CLOSE
+  36 OP_CLOSURE    37 OP_VARARG
+
+4. INSTRUCTION FORMAT
+
+  iABC: opcode(6 bit) | A(8 bit) | C(9 bit) | B(9 bit)
+    SETTABLE: R[A][RK(B)] = RK(C)
+    CALL: R[A] = function, B-1 = args, C-1 = returns
+    SELF: R[A] = R[B], R[A+1] = RK(C) (method lookup)
+    LE: compare RK(B) <= RK(C), skip next if true
+
+  iABx: opcode(6 bit) | A(8 bit) | Bx(18 bit)
+    LOADK: R[A] = K[Bx]
+    CLOSURE: R[A] = closure(proto[Bx])
+
+  iAsBx: opcode(6 bit) | A(8 bit) | sBx(18 bit signed)
+    FORPREP: R[A] -= R[A+2], PC += sBx
+    JMP: PC += sBx
+
+5. CONSTANT TABLE FORMAT
+
+  Tiap constant entry diawali 1 byte type:
+    0x00 = nil (no data)
+    0x01 = boolean (1 byte: 0 atau 1)
+    0x03 = number (8 bytes double, IEEE 754 little-endian)
+    0x04 = string (4 bytes size_t + content null-terminated)
+
+  Contoh string entry "isHeroNotOwned":
+    04 0F 00 00 00 69 73 48 65 72 6F 4E 6F 74 4F 77 6E 65 64 00
+    type=0x04, size=15(14 chars+null), content="isHeroNotOwned\0"
+
+  Perubahan menjadi "getHeroSelected":
+    04 0F 00 00 00 67 65 74 48 65 72 6F 53 65 6C 65 63 74 65 64 00
+    type=0x04, size=15(14 chars+null), content="getHeroSelected\0"
+    Size field TETAP 15 karena kedua string 14 karakter.
+
+6. CONTROL-FLOW FLATTENING
+
+Obfuscation menggunakan pola FORPREP + FORLOOP sebagai dispatcher:
+  FORPREP rN -131071   ; Inisialisasi loop counter, sBx=-131071 (backward jump)
+  [real instructions]
+  FORLOOP rN -131071   ; Kembali ke FORPREP jika loop conditions terpenuhi
+
+sBx = -131071 adalah nilai maksimum negatif untuk sBx (18-bit signed),
+memastikan bahwa execution flow selalu "terjebak" di loop body.
+
+Di dalam loop body:
+  - Ada SETGLOBAL dengan constant index out-of-range (k1024, k4096, k7168)
+    yang TIDAK PERNAH dieksekusi (instruction palsu / filler)
+  - Ada GETUPVAL dengan index sangat besar (u256, u260, dll) yang juga filler
+  - Operasi aritmatika palsu (MUL, POW, ADD, LEN) dengan register acak
+  - SETTABLE dengan register yang sama (r1=r1, r2=r2) = no-op
+
+Real computation dilakukan via CLOSURE + GETUPVAL + SETTABLE dengan
+register yang benar, diselingi di antara filler instructions.
+
+7. PARSER BYTECODE
+
+Parser Python gagal karena:
+  a. Source string size dibaca sebagai 1 byte, padahal Lua 5.1 menggunakan
+     sizeof(size_t)=4 bytes. Ini menyebabkan seluruh offset function header
+     bergeser 3 byte.
+  b. String constant size juga menggunakan sizeof(size_t)=4 bytes.
+  c. Line info size (unsigned int 4 bytes) + line info array format
+     (beberapa implementasi custom menggunakan 4 bytes per entry)
+  d. Sub-function disimpan INLINE (bukan sebagai offset absolut),
+     parser yang salah membaca offset menyebabkan crash.
+
+Verifikasi format yang benar dilakukan dengan:
+  - unluac --disassemble berhasil mem-parse 49 sub-function
+  - Byte-level analisis header dan constant table
+  - Cross-check offset dengan hex dump
+
+8. DECOMPILER (unluac)
+
+  Tool: unluac.jar (di GAMEPROJECT/LUA/unluac.jar)
+  Command: java -jar unluac.jar --disassemble file.luac > output.txt
+  --disassemble flag menghasilkan output .function listings yang lebih
+  berguna daripada --output (decompile) karena obfuscation.
+
+  Pipeline: fix_and_decompile.py
+  - Membaca .luac raw
+  - Parse codesize, truncate di RETURN terakhir
+  - Simpan sebagai .fixed.luac
+  - Jalankan unluac untuk disassemble
+
+9. INSIGHT TEKNIS
+
+  - File .mt.luac adalah concatenation dari MULTIPLE scripts. Instruction
+    count main function (155) < instruction count real. fix_and_decompile.py
+    truncate di RETURN terakhir untuk memisahkan.
+  - size_t di Lua 5.1 SELALU 4 bytes, tidak peduli platform. Ini fixed
+    dalam spesifikasi format dump Lua.
+  - Semua function header target memiliki is_vararg=2 dan maxstacksize=4.
+  - Tidak ada CLOSURE instruction di main function. Sub-function dibuat
+    melalui tolua++ mechanism (C-side) dan di-load sebagai upvalue.
+  - MAIN FUNCTION STRING CONSTANTS (55 entries) mencakup seluruh method
+    class CommonArrangeHelper (module-level constants).
+  - SUB-FUNCTION STRING CONSTANTS hanya berisi string yang digunakan oleh
+    fungsi tersebut (e.g., main/f7 hanya punya ~10 constants).
+
+================================================================================
+PATCH STRATEGY
+================================================================================
+
+STRATEGI 1: MEMORY PATCH VIA FOPEN/FREAD HOOK (FRIDA)
+
+  Target: File 1_189b07cc4bd84b827a5328770329e9a3.mt
+  Method: Hook fopen/fread dari libc untuk intercept file .mt yang di-load game
+  Approach: String replacement "isHeroNotOwned" -> "getHeroSelected"
+
+  Alasan memilih fopen/fread hook:
+    1. fopen dan fread adalah fungsi libc x86_64 ASLI (bukan ARM translation).
+       Frida di sisi x86_64 bisa meng-intercept fungsi ini tanpa masalah.
+       Ini sudah diverifikasi: fopen/fread hooks BERHASIL fire di session
+       sebelumnya (find_battle_deploy.js).
+    2. Semua fungsi Lua API (lua_pcall, luaL_loadbuffer, dll) tidak bisa
+       diakses karena libagame.so di-link static dengan Lua library dan
+       libhoudini ARM translation membuat symbol tidak visible dari x86_64.
+    3. Dobby hook tidak work untuk libagame.so karena ARM code.
+
+  Alasan patch dilakukan di memory (bukan file):
+    1. File APK tidak bisa dimodifikasi langsung (signed APK).
+    2. File di data directory game mungkin di-verify integrity-nya.
+    3. Patch di memory hanya mempengaruhi runtime instance.
+    4. Frida memungkinkan WriteByteArray ke memory proses target.
+
+  Detail patch:
+    Mengganti "isHeroNotOwned" (14 chars) dengan "getHeroSelected" (14 chars).
+    Size field tetap 0x0F = 15, tidak perlu mengubah size field.
+    Efek: self:isHeroNotOwned(heroId) menjadi self:getHeroSelected(heroId).
+    getHeroSelected return nil untuk hero belum dipilih -> falsy -> skip check.
+
+  Lokasi patch di bytecode:
+    Offset 1355  -> method registration (main function)
+    Offset 4987  -> method call (main/f7)
+    Offset 17339 -> method call (main/f29)
+    Offset 27332 -> method call (main/f40)
+
+  Script: PROJECT/scripts/patch_hero_check.js
+
+  Flow script:
+    fopen -> deteksi file target 189b07cc
+    fread -> kumpulkan chunk buffer dengan pointer asli
+    setalah EOF -> reassemble buffer -> scan "isHeroNotOwned" -> patch
+    write balik ke buffer asli via Memory.writeByteArray()
+
+  Bug yang sudah di-fix di Sesi 2:
+    - Write-back mechanism sebelumnya broken (baris 117-118 original script):
+      Menggunakan ptr(info.chunks[0].data).readByteArray(full.length) yang
+      hanya membaca COPY lalu memodifikasi copy tanpa nulis balik ke native.
+    - Fix: Simpan buf pointer (NativePointer) di tiap chunk, write balik
+      per-chunk menggunakan Memory.writeByteArray().
+    - Module name: ganti null -> "libc.so" untuk Module.findExportByName
+      karena Frida 17.14.1 tidak resolve symbol dengan null module name.
+
+  Status: SCRIPT SUDAH DI-FIX, BELUM DI-TEST.
+
+STRATEGI 2: DOBBY HOOK LUA INJECTION
+
+  Target: Semua file .mt yang di-load game
+  Method: Dobby hook on luaL_loadbuffer untuk inject Lua code ke runtime
+  Tool: libmla_hook.so (ARM64 shared library)
+
+  Alasan memilih Dobby hook:
+    1. Dobby hook berjalan DI DALAM proses game (sebagai injected .so),
+       bukan dari luar seperti Frida.
+    2. dlopen("libagame.so") dari dalam proses seharusnya work karena
+       library sudah di-load oleh game.
+    3. dlsym untuk fungsi Lua API (luaL_loadbuffer, lua_pcall, lua_setfield)
+       seharusnya bisa di-resolve karena libhoudini mentranslate symbol juga.
+    4. DobbyHook bisa hook x86_64 translated code dari ARM64 library.
+    5. Lua injection memungkinkan modifikasi runtime tanpa patch bytecode.
+
+  Hook yang aktif:
+    1. luaL_loadbuffer - Inject MOD_LUA_SCRIPT + dump semua loaded script
+    2. lua_pcall - Battle detection + formation dumping + auto-win
+    3. lua_setfield - Force win untuk battle results
+
+  MOD_LUA_SCRIPT berisi:
+    1. Auto-win: override function showBattleResult, onBattleEnd, dll.
+    2. Force VIP: override isVip/getVipLevel return 15 (max).
+    3. Formation dumper: scan globals untuk formation-related functions.
+    4. Slot duplication bypass: override HeroSelectHelper dan
+       CommonArrangeHelper isHeroSelectedEnough -> return true,
+       setMaxSelectCount -> max(10), hasArrangeFullTips -> return false.
+
+  Build: GitHub Actions (build.yml) di MasNughy94/MLA_Hook
+  Artifact: mla_hook-arm64-v8a (libmla_hook.so, ~505KB)
+  Output: build/android/**/*.so
+
+  Injection method via MT Manager:
+    1. Copy libmla_hook.so dari /storage/emulated/0/Alarms/
+    2. Paste ke /data/app/~~HASH~/com.moonton.mobilehero-XXX/lib/arm64/
+    3. Buka game (mod aktif otomatis)
+
+  Status: BUILD SUKSES (30 runs), .so DI-PUSH KE DEVICE, BELUM DI-INJECT
+          Belum di-test karena perlu MT Manager untuk copy ke /data/app/
+
+================================================================================
+SCRIPT & ARTIFACT
+================================================================================
+
+1. patch_hero_check.js
+   Fungsi: Frida script untuk hook fopen/fread, patch bytecode "isHeroNotOwned"
+           menjadi "getHeroSelected" di memory, bypass hero ownership check.
+   Lokasi: PROJECT/scripts/patch_hero_check.js (156 lines)
+   Dependency: Frida, libc.so functions (fopen, fread)
+   Status: DI-FIX (write-back mechanism), BELUM DI-TEST
+   Commit: Tidak di-commit ke GitHub (berada di mla-tools repo berbeda)
+
+2. find_battle_deploy.js
+   Fungsi: Frida script untuk mencari Lua function formation/battle deploy
+           dengan hook dlsym, strlen, strcmp, fopen.
+   Lokasi: PROJECT/scripts/find_battle_deploy.js (364 lines)
+   Status: Selesai, digunakan untuk eksplorasi awal
+
+3. focused_tracker.js
+   Fungsi: Versi lama dari patcher dengan SELF/CALL/TEST/JMP pattern matching.
+           Tidak jadi dipakai karena obfuscation.
+   Lokasi: PROJECT/scripts/focused_tracker.js
+   Status: Tidak dipakai (dead end)
+
+4. parse_luac2.py
+   Fungsi: Parser bytecode Lua 5.1 berbasis class. Bisa parse main function
+           dan menampilkan string constants.
+   Lokasi: PROJECT/scripts/parse_luac2.py
+   Status: Gagal di sub-function karena debug info parsing complex
+
+5. parse_luac3.py
+   Fungsi: Decode main function instructions. Menampilkan opcode, register,
+           constants references.
+   Lokasi: PROJECT/scripts/parse_luac3.py
+   Status: Berguna untuk memahami struktur main function
+
+6. analyze_main.py
+   Fungsi: Dump main function instructions dengan decode opcode.
+   Lokasi: PROJECT/scripts/analyze_main.py
+   Status: Selesai
+
+7. analyze_main2.py
+   Fungsi: Filter non-obfuscated instructions dari main function.
+           Menampilkan SETTABLE, SETGLOBAL, GETUPVAL, dll.
+   Lokasi: PROJECT/scripts/analyze_main2.py
+   Status: Selesai
+
+8. find_all_isHeroNotOwned.py
+   Fungsi: Cari semua offset string "isHeroNotOwned" di file .luac.
+           Output: 4 occurrences dengan offset dan context hex.
+   Lokasi: PROJECT/scripts/find_all_isHeroNotOwned.py
+   Status: Selesai, output dikonfirmasi benar
+
+9. find_strings.py
+   Fungsi: Cari offset semua string target (selectHero, isHeroNotOwned, dll).
+   Lokasi: PROJECT/scripts/find_strings.py
+   Status: Selesai
+
+10. check_instrs.py
+    Fungsi: Verifikasi 20 instruction pertama main function.
+    Lokasi: PROJECT/scripts/check_instrs.py
+    Status: Selesai
+
+11. fix_and_decompile.py
+    Fungsi: Pipeline decompile dengan unluac. Fix instruction count,
+            truncate di RETURN terakhir, decompile/disassemble.
+    Lokasi: GAMEPROJECT/LUA/fix_and_decompile.py
+    Status: Selesai, digunakan untuk generate disassembly
+
+12. batch_process.py
+    Fungsi: Batch process multiple .mt files.
+    Lokasi: GAMEPROJECT/LUA/batch_process.py
+    Status: Selesai
+
+13. analyze_bin.py
+    Fungsi: Analisis binary .luac files.
+    Lokasi: GAMEPROJECT/LUA/analyze_bin.py
+    Status: Selesai
+
+14. main.cpp (Dobby Hook)
+    Fungsi: Implementasi Dobby hook module. Hook luaL_loadbuffer, lua_pcall,
+            lua_setfield. Inject MOD_LUA_SCRIPT (auto-win, VIP force, slot
+            bypass, formation dumper). Dump loaded Lua scripts.
+    Ukuran: 966 lines (setelah penambahan slot bypass code)
+    Lokasi: GAMEPROJECT/dobby_hook/module/src/main.cpp
+    Status: DI-UPDATE dengan slot bypass code (commit 1c3948e), BUILD SUKSES
+
+15. build.yml (GitHub Actions)
+    Fungsi: CI workflow untuk build ARM64 .so via GitHub Actions.
+    Lokasi: GAMEPROJECT/dobby_hook/.github/workflows/build.yml (77 lines)
+    Status: Selesai, 30 run sukses
+
+16. build_android.ps1
+    Fungsi: Local build script untuk Android NDK (tidak digunakan, pake CI).
+    Lokasi: GAMEPROJECT/dobby_hook/build_android.ps1 (45 lines)
+    Status: Selesai, NDK tidak tersedia lokal
+
+17. Disassembly files (generated)
+    File: 1_189b07cc4bd84b827a5328770329e9a3.luac.disasm.txt
+    Fungsi: Disassembly output dari unluac untuk CommonArrangeHelper
+    Ukuran: 3906 lines
+    Lokasi: GAMEPROJECT/DECOMPILED/disasm/
+
+    File: 5_5ebc64abedbf55a2e4ab8fb34260f31a.luac.disasm.txt
+    Fungsi: Disassembly output dari unluac untuk HeroSelectHelper
+    Ukuran: 35753 lines
+    Lokasi: GAMEPROJECT/DECOMPILED/disasm/
+
+18. Raw .luac files
+    File: 1_189b07cc4bd84b827a5328770329e9a3.mt.luac (38491 bytes)
+    File: 5_5ebc64abedbf55a2e4ab8fb34260f31a.mt.luac
+    Lokasi: GAMEPROJECT/DECOMPILED/luac_raw/
+
+19. libmla_hook.so (artifact build)
+    Fungsi: Dobby hook ARM64 shared library untuk injection.
+    Ukuran: 505880 bytes (v2 dengan slot bypass)
+    Hash: 7d92e56ee2e17837ffe333a4e90fe716
+    Lokasi saat ini: C:\Users\NGEONG\AppData\Local\Temp\mla_hook_v2\libmla_hook.so
+                     /storage/emulated/0/Alarms/libmla_hook.so (di device)
+
+20. SESSION_HANDOVER_FULL.txt (file ini)
+    Fungsi: Dokumentasi lengkap seluruh session untuk handover.
+    Lokasi: GAMEPROJECT/SESSION_HANDOVER_FULL.txt
+
+================================================================================
+PROJECT DIRECTORY
+================================================================================
+
+Project Root
+C:\Users\NGEONG\Videos\MLA
+
+  GAMEPROJECT/                  - Main project directory
+    dobby_hook/                 - Dobby hook module (GitHub: MasNughy94/MLA_Hook)
+      module/
+        src/
+          main.cpp              - Hook implementation (966 lines)
+        include/
+          hooking.h
+        Dobby/                  - Dobby framework source
+        prebuilt/               - Prebuilt Dobby libraries
+        CMakeLists.txt
+      .github/workflows/
+        build.yml               - GitHub Actions CI workflow
+      build_android.ps1         - Local build script
+      GUIDE.md                  - Injection guide
+      SESSION_HANDOVER_*.txt    - Session handover documents
+
+    DECOMPILED/
+      disasm/                   - Disassembly output files (*.luac.disasm.txt)
+      lua/                      - Decompiled Lua source files
+      luac_raw/                 - Raw .luac bytecode files
+
+    LUA/
+      unluac.jar               - Lua 5.1 decompiler
+      fix_and_decompile.py      - Decompile pipeline
+      batch_process.py          - Batch processing
+      analyze_bin.py            - Binary analysis
+
+    docs/                       - Documentation
+    output/                     - Output files
+    apk_mod/                    - APK modification files
+    NEXT PROJECT/               - Next project notes
+
+  PROJECT/
+    scripts/
+      patch_hero_check.js       - Frida patcher script (FIXED)
+      find_battle_deploy.js     - Battle deploy finder (Frida)
+      focused_tracker.js        - Old patcher (dead end)
+      parse_luac2.py            - Bytecode parser v2
+      parse_luac3.py            - Bytecode parser v3
+      analyze_main.py           - Main function analyzer
+      analyze_main2.py          - Main function filter
+      find_all_isHeroNotOwned.py - String offset finder
+      find_strings.py           - String search tool
+      check_instrs.py           - Instruction verifier
+
+================================================================================
+GITHUB ACTIONS
+================================================================================
+
+Repository:     https://github.com/MasNughy94/MLA_Hook
+Branch utama:   main
+Remote origin:  https://github.com/MasNughy94/MLA_Hook.git
+Local clone:    C:\Users\NGEONG\Videos\MLA\GAMEPROJECT\dobby_hook\ (submodule)
+Repo utama:     https://github.com/nughy12/mla-tools.git (folder MLA)
+
+Workflow file: .github/workflows/build.yml
+Workflow name: Build MLA Hook (arm64-v8a)
+Total runs:    30 (semua success)
+
+Trigger workflow:
+  1. Push ke branch main -> auto trigger
+  2. Manual via UI: https://github.com/MasNughy94/MLA_Hook/actions
+     -> "Run workflow" button -> pilih branch main
+  3. API: POST /repos/MasNughy94/MLA_Hook/actions/workflows/build.yml/dispatches
+     Body: {"ref":"main"}
+
+Workflow steps:
+  1. Checkout repository
+  2. Set up JDK 17
+  3. Setup Android NDK r27c (nttld/setup-ndk action)
+  4. Setup CMake 3.31.x (jwlawson/actions-setup-cmake action)
+  5. Download prebuilt Dobby (libdobby.so + libdobby.a from shadow3aaa/dobby-api)
+  6. Configure CMake (arm64-v8a, API 24, Release)
+  7. Build with cmake --build
+  8. Upload artifact (mla_hook-arm64-v8a) -> build/android/**/*.so
+
+Build duration: ~1 menit 20 detik
+
+Membaca hasil build:
+  - Dashboard: https://github.com/MasNughy94/MLA_Hook/actions
+  - Klik run terbaru -> lihat status (success/failure)
+  - Jika gagal: klik run -> lihat log tiap step untuk debug
+
+Download artifact:
+  - Dari UI: klik run -> "Summary" -> "Artifacts" -> klik "mla_hook-arm64-v8a"
+  - Dari API: GET /repos/MasNughy94/MLA_Hook/actions/artifacts/{id}/zip
+    (perlu authentication token)
+
+Deploy hasil build ke device:
+  1. Download artifact zip dari GitHub Actions
+  2. Extract -> dapatkan libmla_hook.so
+  3. ADB push ke /storage/emulated/0/Alarms/ (folder alarm)
+  4. Buka MT Manager di device
+  5. Copy libmla_hook.so dari /storage/emulated/0/Alarms/
+  6. Paste ke /data/app/~~HASH~/com.moonton.mobilehero-XXX/lib/arm64/
+  7. Buka game
+
+Hal-hal yang perlu diperhatikan saat build:
+  - Pastikan branch yang di-push adalah main
+  - GITHUB_TOKEN tidak perlu dikonfigurasi manual (auto dari GitHub)
+  - Jika build gagal, cek logs: biasanya error di CMake configure atau download prebuilt
+  - Build hanya support arm64-v8a (ABI)
+  - Gunakan workflow_dispatch untuk re-build tanpa push
+  - Pastikan commit message deskriptif untuk tracking perubahan
+
+================================================================================
+TOKEN & ACCESS
+================================================================================
+
+Jenis token: GitHub Personal Access Token (classic)
+
+Tujuan penggunaan token:
+  1. Trigger workflow_dispatch via GitHub REST API
+     (POST /repos/MasNughy94/MLA_Hook/actions/workflows/build.yml/dispatches)
+  2. Query workflow run status via API
+     (GET /repos/MasNughy94/MLA_Hook/actions/runs/{id})
+  3. Download build artifact via API
+     (GET /repos/MasNughy94/MLA_Hook/actions/artifacts/{id}/zip)
+
+Token dikonfigurasi:
+  - Tidak disimpan di GitHub Secrets
+  - Digunakan langsung via environment variable atau inline di sesi PowerShell
+  - Dikirim sebagai Bearer token di HTTP Authorization header
+  - Juga digunakan di remote URL git: https://user:token@github.com/repo.git
+    (untuk git push)
+
+Langkah penggunaan token:
+  1. Set header: Authorization: Bearer {token}
+  2. Content-Type: application/json
+  3. Accept: application/vnd.github+json
+  4. X-GitHub-Api-Version: 2022-11-28
+
+IMPORTANT: Token telah terekspos di chat session. Segera revoke/regenerate
+token di GitHub Settings -> Developer settings -> Personal access tokens
+-> Tokens (classic). Hapus token lama (***token telah di-revoke***)
+dan buat token baru.
+
+================================================================================
+CURRENT STATUS
+================================================================================
+
+SUDAH DI-VERIFIKASI:
+
+  1. fopen/fread hooks work di LDPlayer (dari session sebelumnya)
+  2. strcmp/strlen juga work via Frida
+  3. dlsym/dlopen untuk libagame.so TIDAK work dari Frida (external)
+  4. Process.getModuleByName("libagame.so") FAILS dari Frida
+  5. File .mt.luac adalah STANDARD Lua 5.1 bytecode (bukan custom format)
+  6. unluac --disassemble menghasilkan output yang benar
+  7. Header function berisi is_vararg=2 dan maxstacksize=4
+  8. Tidak ada CLOSURE instruction di main function
+  9. Semua 55 string constants didaftar dengan urutan yang sesuai method class
+  10. GitHub Actions build workflow berjalan sukses (30/30 runs)
+  11. Build artifact bisa di-download dan di-deploy via ADB WiFi
+  12. Format bytecode: size_t = 4 bytes (bukan 1 byte)
+  13. String "isHeroNotOwned" ditemukan di 4 offset yang tepat
+  14. Slot limit di-enforce oleh HeroSelectHelper + CommonArrangeHelper
+  15. Konstanta 5 digunakan sebagai hardcoded max hero count
+
+MASIH LIKELY (high probability):
+
+  1. Bahwa mengganti "isHeroNotOwned" dengan "getHeroSelected" akan
+     membuat hero tak terowned bisa dipilih (belum di-test)
+  2. Bahwa patch di memory tidak akan menyebabkan CRC check gagal
+     (belum di-test)
+  3. Bahwa method registration tidak corrupted oleh patch (sama panjang)
+  4. Bahwa Dobby hook dari dalam proses akan work (dlopen + dlsym)
+  5. Bahwa Lua injection via luaL_loadbuffer hook work
+  6. Bahwa override isHeroSelectedEnough akan bypass slot limit
+
+MASIH HIPOTESIS (unverified):
+
+  1. Bahwa selectHero function (main/f11) TIDAK memiliki ownership check
+     tambahan di level C++ (tolua++)
+  2. Bahwa anti-tamper game tidak memverifikasi bytecode integrity
+  3. Bahwa server side tidak memvalidasi jumlah hero di formasi
+  4. Bahwa DobbyHook bisa hook translated ARM64 code via libhoudini
+  5. Bahwa injected .so (libmla_hook.so) tidak terdeteksi anti-tamper
+  6. Bahwa UI layer akan mengizinkan tap pada hero tak terowned
+  7. Bahwa hero hasil bypass muncul dan bertarung di battle
+  8. Bahwa duplikasi slot (6+ heroes) tidak menyebabkan crash battle
+  9. Bahwa getHeroSelected adalah method yang ada (sudah di main constants k12)
+     dan return value-nya dapat digunakan sebagai falsy check
+
+================================================================================
+DEAD END
+================================================================================
+
+1. SOURCE STRING SIZE = 1 BYTE (SALAH)
+   PERTIMBANGAN AWAL: Source string size di header function = 1 byte.
+   BUKTI SALAH: sizeof(size_t) = 4 bytes sesuai header byte [8] = 0x04.
+   KESIMPULAN: JANGAN coba parse bytecode dengan asumsi source string size = 1 byte.
+              Source string size = sizeof(size_t) = 4 bytes.
+
+2. DOBBY HOOK UNTUK libagame.so DARI FRIDA (SALAH)
+   PERTIMBANGAN AWAL: DobbyHook bisa dipanggil dari Frida untuk patch libagame.so.
+   BUKTI SALAH: libagame.so berjalan sebagai ARM code via libhoudini.
+               Dobby hanya bisa patch x86_64 native instructions dari Frida.
+               Process.getModuleByName("libagame.so") tidak visible dari Frida.
+   KESIMPULAN: JANGAN gunakan Dobby dari Frida untuk patch libagame.so.
+               Dobby hanya work jika di-inject sebagai .so di dalam proses.
+
+3. FRIDA Process.getModuleByName("libagame.so")
+   PERTIMBANGAN AWAL: Bisa dapat module handle untuk enumerate exports.
+   BUKTI SALAH: Module tidak visible dari Frida x86_64 remote.
+   KESIMPULAN: Gunakan Process.enumerateModules() atau dari dalam proses.
+
+4. Lua API DI .dynsym libagame.so
+   PERTIMBANGAN AWAL: lua_pcall, luaL_loadbuffer bisa di-resolve via dlsym.
+   BUKTI SALAH: Lua di-link static, symbol tidak di-export di .dynsym.
+   KESIMPULAN: JANGAN cari lua API di .dynsym. Dari dalam proses,
+               dlopen + dlsym mungkin work (belum diverifikasi).
+
+5. UNLUAC DECOMPILE FILE ASLI (SALAH)
+   PERTIMBANGAN AWAL: unluac bisa langsung decompile file .luac.
+   BUKTI SALAH: Instruction count overflow menyebabkan crash.
+   KESIMPULAN: Gunakan --disassemble flag atau fix instruction count dulu
+               via fix_and_decompile.py.
+
+6. EDIT FILE .mt LANGSUNG DI APK (SALAH)
+   PERTIMBANGAN AWAL: Extract APK -> edit .mt -> repack.
+   BUKTI SALAH: Format Antm tidak diketahui cara encrypt/decrypt-nya.
+               APK signature verification akan gagal.
+   KESIMPULAN: Patch memory via Frida atau inject .so lebih aman.
+
+7. MODULE.findExportByName(null, "fopen") DI FRIDA 17.14.1 (TIDAK STABIL)
+   PERTIMBANGAN AWAL: null sebagai module name akan search semua module.
+   BUKTI SALAH: Pada Android dengan Frida 17.14.1, null menyebabkan
+               "TypeError: not a function" karena return null.
+   KESIMPULAN: Gunakan "libc.so" explicit: Module.findExportByName("libc.so", "fopen").
+
+8. WRITE-BACK VIA readByteArray (SALAH)
+   PERTIMBANGAN AWAL: new Uint8Array(ptr(buf).readByteArray(n))[i] = val
+   BUKTI SALAH: readByteArray() return COPY, modifikasi tidak nulis balik.
+                ptr(ByteArray) juga tidak指向 native memory.
+   KESIMPULAN: Gunakan Memory.writeByteArray(ptr, data) atau ptr.add(i).writeU8(val).
+
+================================================================================
+NEXT SESSION
+================================================================================
+
+PRIORITAS 1 (HIGHEST - Test patch yang sudah siap):
+
+  1. Inject libmla_hook.so ke game via MT Manager
+     - Copy dari /storage/emulated/0/Alarms/ ke /data/app/../lib/arm64/
+     - Buka game, cek logcat | grep MLA_SLOT
+     - Coba select hero > 5, amati apakah notif "hanya 5 hero" muncul
+
+  2. Test patch_hero_check.js di LDPlayer (Frida enfo开元)
+     - frida -U com.moonton.mobilehero -l patch_hero_check.js
+     - Buka formasi battle, tap hero tak terowned
+     - Amati apakah bisa dipilih
+
+  3. Jika hero bisa dipilih -> verifikasi apakah hero muncul di battle
+     - Tap "Fight" atau "Battle"
+     - Amati apakah hero tak terowned ikut bertarung
+
+PRIORITAS 2 (If P1 succeeds):
+
+  4. Jika crash setelah patch -> ganti strategi
+     - Patch hanya 1 occurrence (bukan semua 4)
+     - Offset main/f7 = 4987, main/f29 = 17339
+     - Skip offset 1355 (main function registration)
+  5. Jika method getHeroSelected tidak ditemukan -> coba string lain
+     - Bisa patch dengan string 14 chars lain
+     - Alternatif: "isHeroSelected" (13 chars + padding)
+  6. Verifikasi hero bisa masuk battle tanpa crash
+
+PRIORITAS 3 (If P1 fails - crash/error):
+
+  7. Cek apakah method "getHeroSelected" benar ada di runtime
+  8. Coba hook strcmp untuk intercept perbandingan string
+     di level C++ (tolua++ binding)
+  9. Cari anti-cheat yang deteksi patch memory
+  10. Coba pendekatan berbeda (NOP instruction, dll.)
+
+PRIORITAS 4 (Feature expansion):
+
+  11. Reverse fungsi arrange pipeline untuk bypass slot/battle restrictions
+      Cari: addOneArrange (k38), requestSaveArrange (k37), setArrange (k35)
+  12. Analisis main/f11 (selectHero) - tidak memiliki isHeroNotOwned
+      di constants-nya. Cari bagaimana ownership check dilakukan.
+  13. Cari fungsi battle simulation/report untuk auto-win tanpa detection
+  14. Cari fungsi lain yang bisa dimanipulasi (gold, resources, dll.)
+
+PRIORITAS 5 (Server-side validation):
+
+  15. Cek apakah server memvalidasi jumlah hero di formasi
+  16. Cek apakah server memvalidasi kepemilikan hero
+  17. Jika ada server check -> cari cara bypass atau spoof response
+
+================================================================================
+IMPORTANT NOTES
+================================================================================
+
+INSIGHT PENTING:
+
+  1. File .mt.luac BUKAN file standalone - dia adalah concatenation dari
+     MULTIPLE Lua scripts yang dipack dalam satu file .mt. Instruction count
+     main function (155) lebih kecil dari instruction real. fix_and_decompile.py
+     menggunakan strategi truncate di RETURN terakhir.
+
+  2. size_t di Lua 5.1 bytecode SELALU 4 bytes, tidak peduli platform.
+     Ini adalah aturan fixed dalam format dump Lua. Source string size
+     adalah 4 bytes, BUKAN 1 byte (kesalahan parser awal).
+
+  3. Semua function header target memiliki is_vararg=2 dan maxstacksize=4.
+     Ini menunjukkan fungsi cukup sederhana (stack kecil, parameter fixed).
+
+  4. Tidak ada CLOSURE instruction di main function. Semua sub-function
+     kemungkinan dibuat melalui tolua++ mechanism (C-side).
+
+  5. Slot limit di-enforce oleh DUA file: CommonArrangeHelper (inisialisasi)
+     dan HeroSelectHelper (runtime check). Keduanya harus di-patch.
+
+  6. Game menggunakan libhoudini untuk ARM-to-x86 translation di LDPlayer.
+     Ini membatasi Frida hanya bisa hook libc functions (fopen, fread, strcmp).
+
+KEPUTUSAN TEKNIS:
+
+  1. Menggunakan fopen/fread hook (bukan dlsym/lua API) untuk Frida approach
+     karena ini satu-satunya approach yang work di LDPlayer (ARM translation).
+
+  2. String replacement (bukan instruction patching) karena:
+     - Tidak perlu parse opcode/instruction (terlalu complex karena obfuscation)
+     - Size field tidak perlu diubah (string sama panjang = 14 chars)
+     - Lebih robust terhadap obfuscation
+
+  3. Patch ALL 4 occurrences dari "isHeroNotOwned" (bukan selective) karena:
+     - Tidak yakin occurrence mana yang dipanggil oleh selectHero
+     - Efek samping minimal (semua occurrences adalah method yang sama)
+
+  4. Menggunakan "getHeroSelected" (bukan string lain) karena:
+     - Sama panjang (14 karakter)
+     - Method sudah ada di class (tidak crash)
+     - Return value nil bersifat falsy -> bisa untuk conditional check
+
+  5. Untuk slot bypass, gunakan Lua injection (bukan bytecode patch) karena:
+     - Lebih mudah diimplementasi dan diubah
+     - Tidak perlu parse obfuscated bytecode
+     - Bisa di-deploy bersama auto-win dan VIP force
+
+  6. Dobby hook approach via injected .so (bukan Frida spawn) karena:
+     - Frida tidak bisa hook libagame.so functions
+     - Injected .so berjalan di dalam proses -> akses penuh ke Lua API
+     - GitHub Actions memudahkan build tanpa NDK lokal
+
+REKOMENDASI REVERSE ENGINEERING BERIKUTNYA:
+
+  1. Jika patch hero selection berhasil -> reverse fungsi arrange pipeline
+     untuk bypass slot/battle restrictions.
+     Cari: addOneArrange (k38), requestSaveArrange (k37), setArrange (k35)
+
+  2. Jika patch gagal -> coba hook strcmp untuk intercept perbandingan
+     string "isHeroNotOwned" di level C++ (tolua++ binding).
+     Ini bisa mengungkap apakah ada C-level check yang tidak bisa
+     di-bypass via bytecode patch.
+
+  3. Analisis lebih lanjut tentang main/f11 (selectHero). Tidak memiliki
+     isHeroNotOwned di constants-nya. Cari tahu bagaimana ownership check
+     dilakukan di function ini.
+
+  4. Jika hero bisa masuk slot formasi -> verifikasi apakah hero benar
+     muncul di battle. Mungkin ada validation di server side.
+
+  5. Untuk slot duplication: test apakah UI grid bisa handle >5 hero cards,
+     apakah scroll/layout system mendukung extra slots.
+
+  6. Jika semua berhasil: dokumentasikan step-by-step untuk reproduksi.
+
+END OF SESSION HANDOVER FULL DOCUMENT

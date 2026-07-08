@@ -1,7 +1,7 @@
-import struct
+﻿import struct
 
-f1 = open(r'C:\Users\NGEONG\AppData\Local\Temp\opencode\0000488d2f64199aca0cc7d54e7d11c0.mt.dec', 'rb').read()
-f2 = open(r'C:\Users\NGEONG\AppData\Local\Temp\opencode\00378c64fbd63011a81dccef6bf6e2bd.mt.dec', 'rb').read()
+f1 = open(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\0000488d2f64199aca0cc7d54e7d11c0.mt.dec', 'rb').read()
+f2 = open(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\00378c64fbd63011a81dccef6bf6e2bd.mt.dec', 'rb').read()
 
 print(f'f1 size: {len(f1)}')
 print(f'f2 size: {len(f2)}')

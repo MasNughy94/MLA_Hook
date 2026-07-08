@@ -1,4 +1,4 @@
-"""
+﻿"""
 Parse ELF headers to get proper file-to-virtual-address mapping.
 Then read the global function pointer for 0x7D27E8's thunk.
 Also search for all virtual functions that could be Roo parsers.
@@ -6,7 +6,7 @@ Also search for all virtual functions that could be Roo parsers.
 
 import struct
 
-with open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     data = f.read()
 
 # ============================================================

@@ -1,5 +1,5 @@
-import struct, os, sys
-sys.path.insert(0, r'C:\Users\NGEONG\Videos\MLA')
+﻿import struct, os, sys
+sys.path.insert(0, r'C:\Users\ADMIN SERVICE\Videos\MLA')
 from mt_tool import decrypt_layer1
 
 def parse_lmf_v2(data):
@@ -38,12 +38,12 @@ def parse_lmf_v2(data):
     }
 
 # Test on all decrypted files
-mt_dir = r'C:\Users\NGEONG\Videos\MLA\mt_dump\assets'
+mt_dir = r'C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\assets'
 
 # First, load one small file
 import glob
 
-decrypted_dir = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\lmf_test'
+decrypted_dir = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\lmf_test'
 os.makedirs(decrypted_dir, exist_ok=True)
 
 files = []

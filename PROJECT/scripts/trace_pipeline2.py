@@ -1,14 +1,14 @@
-"""
+﻿"""
 Trace 0xC828A0 - first function called in the Antm pipeline.
 Also quickly check imports.
 """
 
 import struct
 
-with open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     agame = f.read()
 
-hades_path = r'C:\Users\NGEONG\Videos\VSCODE\MLADVENTURE2\lib\arm64-v8a\libhades.so'
+hades_path = r'C:\Users\ADMIN SERVICE\Videos\MLA\MLADVENTURE2\lib\arm64-v8a\libhades.so'
 with open(hades_path, 'rb') as f:
     hades = f.read()
 

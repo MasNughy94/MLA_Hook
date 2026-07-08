@@ -1,7 +1,7 @@
-import struct
+﻿import struct
 from capstone import *
 
-SO = r'C:\Users\NGEONG\Videos\MLA\libagame.so'
+SO = r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so'
 with open(SO, 'rb') as f:
     data = f.read()
 END = len(data)

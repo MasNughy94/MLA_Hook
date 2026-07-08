@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Verify the XOR and compressed data."""
 import struct
 from Crypto.Cipher import AES
@@ -6,7 +6,7 @@ from Crypto.Cipher import AES
 key = bytes.fromhex("f5a193d50ade553e9835595f5cd75ddd")
 iv = b"\x00" * 16
 
-with open(r"C:\Users\NGEONG\Videos\VSCODE\mt_dump\sample.mt", "rb") as f:
+with open(r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\sample.mt", "rb") as f:
     mt_data = f.read()
 
 print(f"File size: {len(mt_data)}")

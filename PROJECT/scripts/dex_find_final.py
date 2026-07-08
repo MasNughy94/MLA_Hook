@@ -1,6 +1,6 @@
-import struct
+﻿import struct
 
-DEX = r'C:\Users\NGEONG\Videos\MLA\MLADVENTURE2\classes.dex'
+DEX = r'C:\Users\ADMIN SERVICE\Videos\MLA\MLADVENTURE2\classes.dex'
 data = open(DEX, 'rb').read()
 END = len(data)
 TARGET = 0x4126a8
@@ -82,7 +82,7 @@ if result:
     fc = cls_name(struct.unpack_from('<H', data, foff)[0])
     ft = cls_name(struct.unpack_from('<H', data, foff+2)[0])
     fn = safe_str(struct.unpack_from('<I', data, foff+4)[0])
-    with open(r'C:\Users\NGEONG\AppData\Local\Temp\opencode\RESULT.txt', 'w', encoding='utf-8') as f:
+    with open(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\RESULT.txt', 'w', encoding='utf-8') as f:
         f.write('CLASS: %s\nMETHOD: %s\nCLASS_DEF_IDX: %d\nFIELD[0xa781]: %s.%s : %s\n' % (cn, mn, idx, fc, fn, ft))
     print('OK - hasil di RESULT.txt')
 else:

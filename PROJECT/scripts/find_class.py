@@ -1,10 +1,10 @@
-import mmap, struct, os, sys
+﻿import mmap, struct, os, sys
 
 TARGET_CODE_OFF = 0x4126a8
 TARGET_FIELD_ID = 0xa781
 TARGET_DEBUG_OFF = 0x465ecc
 
-dex_path = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\classes.dex'
+dex_path = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\classes.dex'
 
 with open(dex_path, 'rb') as f:
     data = mmap.mmap(f.fileno(), 0, access=mmap.ACCESS_READ)

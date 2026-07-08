@@ -1,4 +1,4 @@
-"""
+﻿"""
 Fundamentally re-examine the Roo record stream. Instead of gap-based entry
 clustering, look at the raw record stream to understand the actual structure.
 """
@@ -6,7 +6,7 @@ import os, struct
 from collections import defaultdict, Counter
 
 HDR_SIZE = 69
-DEC_BATCH = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\dec_batch'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\dec_batch'
 
 def parse_raw_records(path):
     """Parse file into raw 3-byte records without any grouping."""

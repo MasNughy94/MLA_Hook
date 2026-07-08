@@ -1,9 +1,9 @@
-"""Cross-file signature analysis: categorize each file in the 55-file cluster."""
+﻿"""Cross-file signature analysis: categorize each file in the 55-file cluster."""
 import os, json
 from collections import defaultdict
 
 HDR_SIZE = 69
-DEC_BATCH = r'C:\Users\NGEONG\Videos\MLA\PROJECT\decrypted\dec_batch'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\decrypted\dec_batch'
 
 with open('analysis/cluster_report.json') as f:
     clusters = json.load(f)

@@ -1,4 +1,4 @@
-"""
+﻿"""
 Analyze zero-tag records which dominate Roo files.
 Hypothesis: tag=0x00 records are structural references (entry_index, field_index)
 while non-zero records are actual data values.
@@ -7,7 +7,7 @@ import os
 from collections import defaultdict, Counter
 
 HDR_SIZE = 69
-DEC_BATCH = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\dec_batch'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\dec_batch'
 
 def parse_file(fpath):
     with open(fpath, 'rb') as f:

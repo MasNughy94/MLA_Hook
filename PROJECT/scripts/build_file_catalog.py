@@ -1,10 +1,10 @@
-"""Build complete file identity catalog for all 7,258 Roo files."""
+﻿"""Build complete file identity catalog for all 7,258 Roo files."""
 import re, os, json
 from collections import Counter, defaultdict
 
-base = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\decoded_apk\assets'
-dec_batch = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\dec_batch'
-analysis_dir = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\analysis'
+base = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\decoded_apk\assets'
+dec_batch = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\dec_batch'
+analysis_dir = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\analysis'
 
 # 1. Parse resList.lua
 with open(os.path.join(base, 'resList.lua'), 'r', encoding='utf-8') as f:

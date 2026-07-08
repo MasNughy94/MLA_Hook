@@ -1,10 +1,10 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Deep analysis of lmF@ structure to find correct decompression"""
 import os, struct, zlib
 from Crypto.Cipher import AES
 
 FIXED_KEY = bytes.fromhex("f5a193d50ade553e9835595f5cd75ddd")
-base = r"C:\Users\NGEONG\Videos\MLA\mt_dump\assets"
+base = r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\assets"
 
 def decrypt(path):
     with open(path, "rb") as fh:

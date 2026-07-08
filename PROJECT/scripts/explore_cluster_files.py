@@ -1,9 +1,9 @@
-"""Analyze all 55 files in the hero/skill cluster."""
+﻿"""Analyze all 55 files in the hero/skill cluster."""
 import os, json
 from collections import defaultdict
 
 HDR_SIZE = 69
-DEC_BATCH = r'C:\Users\NGEONG\Videos\MLA\PROJECT\decrypted\dec_batch'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\decrypted\dec_batch'
 TARGET = '0217cbdae530696836de83aa3c162e1a.mt.dec'
 
 # Load cluster info

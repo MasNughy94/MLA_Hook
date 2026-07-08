@@ -1,11 +1,11 @@
-"""Emulate decompression with real compressed data - v4"""
+﻿"""Emulate decompression with real compressed data - v4"""
 import struct, os
 from unicorn import *
 from unicorn.arm64_const import *
 from Crypto.Cipher import AES
 
 # Load binary
-with open(r'C:\Users\NGEONG\Videos\MLA\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     so = bytearray(f.read())
 
 # Load and decrypt a real .mt file
@@ -20,7 +20,7 @@ def decrypt_layer1(data):
     dec = cipher.decrypt(payload_padded)
     return dec[:len(payload)]
 
-root = r'C:\Users\NGEONG\Videos\MLA'
+root = r'C:\Users\ADMIN SERVICE\Videos\MLA'
 mt_path = os.path.join(root, r'MLADVENTURE2\assets\0\0000488d2f64199aca0cc7d54e7d11c0.mt')
 with open(mt_path, 'rb') as f:
     raw_file = f.read()
@@ -165,7 +165,7 @@ print(f"Printable chars in first 200: {printable}/200")
 if printable > 50:
     text = "".join(chr(b) if 32 <= b < 127 else '.' for b in out_buf[:500])
     print(f"Preview: {text[:200]}")
-    with open(r'C:\Users\NGEONG\AppData\Local\Temp\opencode\output.bin', 'wb') as f:
+    with open(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\output.bin', 'wb') as f:
         f.write(out_buf)
     print("Saved to output.bin")
 

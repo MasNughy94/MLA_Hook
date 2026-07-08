@@ -1,9 +1,9 @@
-"""Find entries with known HeroIDs and analyze their structure."""
+﻿"""Find entries with known HeroIDs and analyze their structure."""
 import os, json
 from collections import defaultdict
 
 HDR_SIZE = 69
-DEC_BATCH = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\dec_batch'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\dec_batch'
 TARGET = '0217cbdae530696836de83aa3c162e1a.mt.dec'
 
 # Known game IDs

@@ -1,7 +1,7 @@
-import struct
+﻿import struct
 from collections import Counter
 
-f1 = open(r'C:\Users\NGEONG\AppData\Local\Temp\opencode\0000488d2f64199aca0cc7d54e7d11c0.mt.dec', 'rb').read()
+f1 = open(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\0000488d2f64199aca0cc7d54e7d11c0.mt.dec', 'rb').read()
 
 # Start at offset 69 (after the common header)
 body = f1[69:]

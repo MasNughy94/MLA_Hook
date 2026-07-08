@@ -1,4 +1,4 @@
-"""
+﻿"""
 Read full records from the master database cluster (55f_255t).
 Extracts detailed per-field values with known ID matches for semantic naming.
 """
@@ -6,12 +6,12 @@ import os, json, struct
 from collections import defaultdict
 
 HDR_SIZE = 69
-DEC_BATCH = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\dec_batch'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\dec_batch'
 
 # Known game enums
 HERO_CLASSES = {1: 'Mage', 2: 'Support', 3: 'Archer', 4: 'Tank', 5: 'Warrior'}
 HERO_FACTIONS = {1: 'Light', 2: 'Technology', 3: 'Elemental', 4: 'Monster', 5: 'Dark'}
-STAR_QUALITY = {i: f'{i}★' for i in range(1, 9)}
+STAR_QUALITY = {i: f'{i}â˜…' for i in range(1, 9)}
 EQUIP_TIER = {1: 'Tier1_Bronze', 2: 'Tier2_Silver', 3: 'Tier3_Gold', 4: 'Tier4_Red'}
 
 # Sample filenames from the 55f cluster
@@ -75,7 +75,7 @@ for fname in SAMPLE_FILES:
                 if r['val'] in HERO_FACTIONS:
                     notes.append(f'FACTION:{HERO_FACTIONS[r["val"]]}')
             if 1 <= r['val'] <= 8:
-                notes.append(f'STAR:{r["val"]}★')
+                notes.append(f'STAR:{r["val"]}â˜…')
             if r['val'] in {0, 1}:
                 notes.append('FLAG')
             if 2111 <= r['val'] <= 2113 or r['val'] == 5970 or (16100000 <= r['val'] <= 16199999):

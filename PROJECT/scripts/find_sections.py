@@ -1,10 +1,10 @@
-"""
+﻿"""
 Find all sections and their names.
 """
 
 import struct
 
-so = open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb').read()
+so = open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb').read()
 
 e_shoff = struct.unpack_from('<Q', so, 0x28)[0]
 e_shentsize = struct.unpack_from('<H', so, 0x3A)[0]

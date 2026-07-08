@@ -1,0 +1,1 @@
+throw "SCRIPT_IS_ALIVE_AND_RUNNING";

@@ -1,10 +1,10 @@
-"""
+﻿"""
 FIXED: Correctly decode the thunk at 0x7D27E8 and trace the pipeline function.
 """
 
 import struct
 
-with open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     data = f.read()
 
 def decode_adrp(at_vaddr):

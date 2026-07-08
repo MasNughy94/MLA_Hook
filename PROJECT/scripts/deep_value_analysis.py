@@ -1,4 +1,4 @@
-"""
+﻿"""
 Deep value analysis: search for known game entity IDs in cluster field values.
 Cross-references parsed records against known Hero IDs, Skill IDs, Item IDs, etc.
 """
@@ -6,8 +6,8 @@ import os, sys, json, struct
 from collections import defaultdict
 
 HDR_SIZE = 69
-DEC_BATCH = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\dec_batch'
-OUTPUT = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\value_analysis.json'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\dec_batch'
+OUTPUT = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\value_analysis.json'
 
 # Known game IDs from APK exploration
 HERO_IDS = {2111, 2112, 2113, 5970} | set(range(16110110, 16119999, 10))
@@ -17,11 +17,11 @@ ITEM_IDS = {61200, 61383, 61492, 61514, 178274}
 STORY_CHARACTER_IDS = set()  # To be filled from spine data
 
 # Read cluster report for target files
-with open(r'C:\Users\NGEONG\AppData\Local\Temp\opencode\analysis\cluster_report.json') as f:
+with open(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\analysis\cluster_report.json') as f:
     clusters = json.load(f)
 
 # Read corpus for entry counts
-with open(r'C:\Users\NGEONG\AppData\Local\Temp\opencode\analysis\corpus_summary.json') as f:
+with open(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\analysis\corpus_summary.json') as f:
     corpus = {e['file']: e for e in json.load(f)}
 
 def parse_file(path):

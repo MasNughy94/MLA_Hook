@@ -1,11 +1,11 @@
-"""
+﻿"""
 Trace: find the 3 "Ro" (0x6F52) occurrences and the vtable dispatch function.
 Also check the call hierarchy to understand how 200+ callers use the pipeline.
 """
 
 import struct
 
-with open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     data = f.read()
 
 TEXT_ADDR = 0x3FC000

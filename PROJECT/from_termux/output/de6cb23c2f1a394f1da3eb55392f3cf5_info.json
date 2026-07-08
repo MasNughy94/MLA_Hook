@@ -1,0 +1,35 @@
+{
+  "source": "downloads/lua_candidates/de6cb23c2f1a394f1da3eb55392f3cf5.mt",
+  "basename": "de6cb23c2f1a394f1da3eb55392f3cf5",
+  "size": 3825,
+  "steps": [
+    "aes_decrypt",
+    "header_parse",
+    "decompress"
+  ],
+  "magic": "416e746d",
+  "aes_decrypted": {
+    "size": 3809,
+    "magic": "6c6d4640",
+    "saved_to": "./output_mt/de6cb23c2f1a394f1da3eb55392f3cf5/de6cb23c2f1a394f1da3eb55392f3cf5.lmf"
+  },
+  "lmf_header": {
+    "e": 93,
+    "ws": 10,
+    "r9": 3,
+    "ps": 2,
+    "r5": 0,
+    "te": 7990,
+    "mk": 3,
+    "ds": 12585,
+    "header_hex": "6c6d46405d0000040018c3320000"
+  },
+  "decompression": {
+    "best_formula": 1,
+    "best_score": 1260,
+    "output_size": 12585,
+    "saved_to": "./output_mt/de6cb23c2f1a394f1da3eb55392f3cf5/de6cb23c2f1a394f1da3eb55392f3cf5.bin",
+    "format": "binary",
+    "preview": "...................................................................(..(..(..(..(..(..****\"\"\"\"\"\"\"\"\"\"\"\".4.(..(..(..Z.OM..(..************m^.m^.m^.m^.m^^^^.5..5..5..5.I...................................."
+  }
+}

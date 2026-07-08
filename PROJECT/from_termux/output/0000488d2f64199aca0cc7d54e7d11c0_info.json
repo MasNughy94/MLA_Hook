@@ -1,0 +1,35 @@
+{
+  "source": "project_reverse/assets/0/0000488d2f64199aca0cc7d54e7d11c0.mt",
+  "basename": "0000488d2f64199aca0cc7d54e7d11c0",
+  "size": 9777,
+  "steps": [
+    "aes_decrypt",
+    "header_parse",
+    "decompress"
+  ],
+  "magic": "416e746d",
+  "aes_decrypted": {
+    "size": 9761,
+    "magic": "6c6d4640",
+    "saved_to": "./output_mt/0000488d2f64199aca0cc7d54e7d11c0/0000488d2f64199aca0cc7d54e7d11c0.lmf"
+  },
+  "lmf_header": {
+    "e": 93,
+    "ws": 10,
+    "r9": 3,
+    "ps": 2,
+    "r5": 0,
+    "te": 7990,
+    "mk": 3,
+    "ds": 32553,
+    "header_hex": "6c6d46405d00000400b4c37c0000"
+  },
+  "decompression": {
+    "best_formula": 2,
+    "best_score": 1295,
+    "output_size": 32553,
+    "saved_to": "./output_mt/0000488d2f64199aca0cc7d54e7d11c0/0000488d2f64199aca0cc7d54e7d11c0.bin",
+    "format": "binary",
+    "preview": "...................GCffff..f.................h..h..h..h..h..h..h..h..h..h..h..h.........................D7ssssssssssssssssssssssssssssssssssssssssssssss,FFFFFFFFFFFFF..PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP"
+  }
+}

@@ -1,6 +1,6 @@
-import struct
+﻿import struct
 
-DEX = r'C:\Users\NGEONG\Videos\MLA\MLADVENTURE2\classes.dex'
+DEX = r'C:\Users\ADMIN SERVICE\Videos\MLA\MLADVENTURE2\classes.dex'
 data = open(DEX, 'rb').read()
 END = len(data)
 
@@ -358,7 +358,7 @@ while pos < end:
         # Byte 0: opcode
         # Byte 1: A (high) | B (low) - 4 bits each
         # Byte 2: C (high) | (unused low) - actually for 23x the spec is:
-        # op AA BB CC → 12x format
+        # op AA BB CC â†’ 12x format
         # Actually 23x is: [op AA, BB, CC] where AA, BB, CC are 8 bits each = 4 bytes
         # For example array-length: vA = op(1) + reg(1), vB = op(2) + reg(1)... no
         # Let me just handle the common ones

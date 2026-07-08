@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 Decrypt .mt files using the ACTUAL game algorithm: TEA-CFB
 Based on reverse-engineering of libagame.so:
@@ -156,7 +156,7 @@ def try_decrypt_file(path):
     return None
 
 # Test on all files from the e/ directory
-base = r"C:\Users\NGEONG\Videos\MLA"
+base = r"C:\Users\ADMIN SERVICE\Videos\MLA"
 dirs_to_test = [
     os.path.join(base, "e"),
     os.path.join(base, "mt_dump"),

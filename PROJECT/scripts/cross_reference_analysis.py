@@ -1,4 +1,4 @@
-"""
+﻿"""
 Cross-reference analysis: map corpus clusters to known game entity types.
 Reads cluster definitions, parses sample files, and identifies entity types
 based on entry counts, ID ranges, and value patterns.
@@ -9,9 +9,9 @@ from collections import defaultdict
 from itertools import groupby
 
 HDR_SIZE = 69
-DEC_BATCH = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\dec_batch'
-CLUSTER_REPORT = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\analysis\cluster_report.json'
-CORPUS_SUMMARY = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\analysis\corpus_summary.json'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\dec_batch'
+CLUSTER_REPORT = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\analysis\cluster_report.json'
+CORPUS_SUMMARY = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\analysis\corpus_summary.json'
 
 # Known game entity count patterns (from typical gacha games)
 GAME_PATTERNS = [

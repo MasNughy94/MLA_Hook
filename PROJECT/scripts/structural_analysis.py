@@ -1,7 +1,7 @@
-import struct
+﻿import struct
 from collections import Counter
 
-data = open(r'C:\Users\NGEONG\Videos\VSCODE\mt_dump\intermediate\01_aes_output.bin.decompressed', 'rb').read()
+data = open(r'C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\intermediate\01_aes_output.bin.decompressed', 'rb').read()
 size = len(data)
 
 print(f'Total size: {size} bytes')

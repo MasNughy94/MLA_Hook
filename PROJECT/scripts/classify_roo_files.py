@@ -1,12 +1,12 @@
-"""
+﻿"""
 Final classification of all 7,258 Roo files.
 Classifies each file by structural properties into logical game asset groups.
 """
 import os, json, re
 from collections import Counter, defaultdict
 
-base = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\decoded_apk\assets'
-analysis_dir = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\analysis'
+base = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\decoded_apk\assets'
+analysis_dir = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\analysis'
 
 # 1. Load corpus summary (per-file metrics)
 with open(os.path.join(analysis_dir, 'corpus_summary.json')) as f:

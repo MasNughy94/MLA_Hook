@@ -1,4 +1,4 @@
-"""
+﻿"""
 Check raw .mt files to verify magic strings and look for patterns
 across all native libraries.
 """
@@ -6,7 +6,7 @@ across all native libraries.
 import struct, os
 
 # 1. Check a few raw .mt files for magic strings
-mt_dir = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\decoded_apk\assets\f'
+mt_dir = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\decoded_apk\assets\f'
 mt_files = os.listdir(mt_dir)[:5]
 
 print('=== Raw .mt file headers (first 64 bytes) ===')
@@ -24,7 +24,7 @@ for fname in mt_files:
 # 2. Check ALL raw .mt files - how many start with "Antm"?
 print('\n=== Magic distribution across all .mt files ===')
 magic_counts = {}
-for root, dirs, files in os.walk(r'C:\Users\NGEONG\AppData\Local\Temp\opencode\decoded_apk\assets'):
+for root, dirs, files in os.walk(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\decoded_apk\assets'):
     for f in files:
         if f.endswith('.mt'):
             path = os.path.join(root, f)
@@ -38,7 +38,7 @@ for magic, count in sorted(magic_counts.items(), key=lambda x: -x[1]):
 
 # 3. Search ALL native libraries for "Antm" and "lmF@" 
 print('\n=== Searching ALL native libraries for magic strings ===')
-lib_dir = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\decoded_apk\lib\arm64-v8a'
+lib_dir = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\decoded_apk\lib\arm64-v8a'
 for fname in os.listdir(lib_dir):
     if fname.endswith('.so'):
         path = os.path.join(lib_dir, fname)
@@ -66,7 +66,7 @@ for fname in os.listdir(lib_dir):
 # 4. Also search for the magic integers in .text section
 print('\n=== Searching for 32-bit encoding of "Antm" (0x6D746E41, 0x416E746D) in .text ===')
 # Load libagame.so
-lib_path = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\decoded_apk\lib\arm64-v8a\libagame.so'
+lib_path = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\decoded_apk\lib\arm64-v8a\libagame.so'
 with open(lib_path, 'rb') as f:
     lib_data = f.read()
 

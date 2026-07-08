@@ -1,8 +1,8 @@
-"""Fix 4-byte alignment of resources.arsc in an APK"""
+﻿"""Fix 4-byte alignment of resources.arsc in an APK"""
 import zipfile, struct, os, shutil
 
-apk = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\patched_unsigned.apk'
-out = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\patched_aligned.apk'
+apk = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\patched_unsigned.apk'
+out = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\patched_aligned.apk'
 
 # Read original APK
 with zipfile.ZipFile(apk, 'r') as zin:
@@ -29,10 +29,10 @@ with zipfile.ZipFile(apk, 'r') as zin:
 # Sign the aligned APK
 import subprocess
 subprocess.run([
-    'jarsigner', '-keystore', r'C:\Users\NGEONG\AppData\Local\Temp\opencode\debug.keystore',
+    'jarsigner', '-keystore', r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\debug.keystore',
     '-storepass', 'android', '-keypass', 'android',
     '-sigalg', 'SHA256withRSA', '-digestalg', 'SHA-256',
-    '-signedjar', r'C:\Users\NGEONG\AppData\Local\Temp\opencode\patched.apk',
+    '-signedjar', r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\patched.apk',
     out, 'androiddebugkey'
 ], capture_output=True)
 print('APK signed and aligned!')

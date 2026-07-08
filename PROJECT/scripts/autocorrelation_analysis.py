@@ -1,11 +1,11 @@
-"""
+﻿"""
 Find the entry/section size by autocorrelation analysis.
 Also try to group records into entries.
 """
 import os, struct
 from collections import defaultdict, Counter
 
-samples_dir = r'C:\Users\NGEONG\AppData\Local\Temp\opencode'
+samples_dir = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode'
 
 for fname in [
     '0000488d2f64199aca0cc7d54e7d11c0.mt.dec',
@@ -88,7 +88,7 @@ for fname in [
     data_records = [(off, t, v1, v2) for off, t, v1, v2 in nz_records if v1 != 0 and v2 != 0]
     print(f"  Records with all 3 bytes non-zero: {len(data_records)}")
     
-    # Try to identify "field groups" — sets of tags that appear together within a short span
+    # Try to identify "field groups" â€” sets of tags that appear together within a short span
     # This would reveal the entry structure
     print(f"\n  --- Co-occurring tag groups ---")
     

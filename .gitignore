@@ -76,6 +76,8 @@ find_error_str.py
 *.txt
 logcat.txt
 session.md
+!SESSION_HANDOVER_*.txt
+!readme.txt
 
 # === Python cache ===
 __pycache__/

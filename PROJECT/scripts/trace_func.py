@@ -1,4 +1,4 @@
-"""
+﻿"""
 Trace the function containing the "Antm" magic comparison.
 Look for function prologue (STP X29, X30, [SP, #...]!) and
 function calls (BL/BLR) to understand the flow.
@@ -6,7 +6,7 @@ function calls (BL/BLR) to understand the flow.
 
 import struct
 
-so = open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb').read()
+so = open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb').read()
 
 TEXT_ADDR = 0x3FC000
 TEXT_OFF = 0x3FC000

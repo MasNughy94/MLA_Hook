@@ -1,4 +1,4 @@
-"""
+﻿"""
 Roo binary format parser.
 Understands the format as a sparse-tagged dictionary.
 Each record: TAG [value_bytes...] followed by 0x00 padding to next record.
@@ -160,7 +160,7 @@ class RooParser:
             print(f'    ... and {len(significant)-30} more clusters')
 
 def analyze_all():
-    samples_dir = r'C:\Users\NGEONG\AppData\Local\Temp\opencode'
+    samples_dir = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode'
     files = [
         '0000488d2f64199aca0cc7d54e7d11c0.mt.dec',
         '008fea3143557d628ac845a13a254e8a.mt.dec',

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 Final .mt decrypter - decrypts ALL files using AES-128-ECB + fixed key
 with proper padded handling. Then tries to decompress the lmF@ inner format.
@@ -7,8 +7,8 @@ import os, struct, zlib
 from Crypto.Cipher import AES
 
 FIXED_KEY = bytes.fromhex("f5a193d50ade553e9835595f5cd75ddd")
-BASE_SRC = r"C:\Users\NGEONG\Videos\MLA\mt_dump\assets"
-BASE_OUT = r"C:\Users\NGEONG\Videos\MLA\decrypted_output"
+BASE_SRC = r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\assets"
+BASE_OUT = r"C:\Users\ADMIN SERVICE\Videos\MLA\decrypted_output"
 os.makedirs(BASE_OUT, exist_ok=True)
 
 def decrypt_mt(filepath):

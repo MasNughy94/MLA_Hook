@@ -1,4 +1,4 @@
-"""
+﻿"""
 Test the 3-byte record hypothesis for the Roo binary format.
 
 Theory: The body is a sequence of 3-byte records [tag, val1, val2].
@@ -11,7 +11,7 @@ Let's test: read body as consecutive 3-byte groups, analyze the patterns.
 import os, struct
 from collections import defaultdict
 
-samples_dir = r'C:\Users\NGEONG\AppData\Local\Temp\opencode'
+samples_dir = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode'
 fn = '0000488d2f64199aca0cc7d54e7d11c0.mt.dec'
 with open(os.path.join(samples_dir, fn), 'rb') as f:
     data = f.read()

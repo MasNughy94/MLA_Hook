@@ -1,9 +1,9 @@
-"""Build file catalog - using robust regex search per line."""
+﻿"""Build file catalog - using robust regex search per line."""
 import re, os, json
 from collections import defaultdict
 
-base = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\decoded_apk\assets'
-analysis_dir = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\analysis'
+base = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\decoded_apk\assets'
+analysis_dir = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\analysis'
 
 # 1. Parse resList.lua - use simple find all approach on each data line
 with open(os.path.join(base, 'resList.lua'), 'r', encoding='utf-8') as f:

@@ -1,10 +1,10 @@
-"""Build file catalog - optimized version."""
+﻿"""Build file catalog - optimized version."""
 import re, os, json
 from collections import defaultdict
 
-base = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\decoded_apk\assets'
-dec_batch = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\dec_batch'
-analysis_dir = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\analysis'
+base = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\decoded_apk\assets'
+dec_batch = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\dec_batch'
+analysis_dir = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\analysis'
 
 # 1. Parse resList.lua - use line-by-line to avoid regex backtracking
 with open(os.path.join(base, 'resList.lua'), 'r', encoding='utf-8') as f:

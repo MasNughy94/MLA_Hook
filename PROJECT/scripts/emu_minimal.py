@@ -1,9 +1,9 @@
-"""Debug: minimal trace of fn at 0xcf2b2c - v3"""
+﻿"""Debug: minimal trace of fn at 0xcf2b2c - v3"""
 import struct
 from unicorn import *
 from unicorn.arm64_const import *
 
-with open(r'C:\Users\NGEONG\Videos\MLA\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     so = bytearray(f.read())
 
 mu = Uc(UC_ARCH_ARM64, UC_MODE_ARM)

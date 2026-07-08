@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 Phase 4: The lmF@ format requires XOR on bytes 14-29 (0x0E-0x1D) with 0xEC,
 then decompress from offset 14. Test this transformation.
@@ -6,8 +6,8 @@ then decompress from offset 14. Test this transformation.
 import struct, zlib, sys
 
 KEY = bytes.fromhex("f5a193d50ade553e9835595f5cd75ddd")
-SAMPLE_MT = r"C:\Users\NGEONG\Videos\VSCODE\mt_dump\sample.mt"
-EXPECTED_LUA = r"C:\Users\NGEONG\Videos\VSCODE\mt_dump\sample.mt.lua"
+SAMPLE_MT = r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\sample.mt"
+EXPECTED_LUA = r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\sample.mt.lua"
 
 with open(SAMPLE_MT, 'rb') as f:
     mt_data = f.read()

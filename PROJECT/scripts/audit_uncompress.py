@@ -1,5 +1,5 @@
-from capstone import *
-with open(r'C:\Users\NGEONG\Videos\MLA\libagame.so', 'rb') as f:
+﻿from capstone import *
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     code = f.read()
 
 md = Cs(CS_ARCH_ARM64, CS_MODE_ARM)

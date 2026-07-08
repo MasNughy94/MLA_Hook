@@ -1,4 +1,4 @@
-"""
+﻿"""
 Analyze heterogeneous files where each entry can be a different entity type.
 Groups entries by tag pattern to discover embedded entity types.
 """
@@ -6,7 +6,7 @@ import os, json
 from collections import defaultdict
 
 HDR_SIZE = 69
-DEC_BATCH = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\dec_batch'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\dec_batch'
 
 # Files from the 55f_255t and 2f_254t clusters
 SAMPLES = [

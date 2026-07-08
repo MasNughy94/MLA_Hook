@@ -1,4 +1,4 @@
-so = open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb').read()
+﻿so = open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb').read()
 
 # Find the "RunRootLua" string reference and trace its XREFs
 print("String references near RunRootLua:")

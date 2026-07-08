@@ -1,13 +1,13 @@
-"""
+﻿"""
 Test multiple gap thresholds to find the true entity boundaries.
 If Roo files are document stores, large entries should emerge at the right threshold.
 """
 import os, sys, json
 from collections import Counter, defaultdict
-sys.path.insert(0, r'C:\Users\NGEONG\AppData\Local\Temp\opencode')
+sys.path.insert(0, r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode')
 from roo_parser_final import RooBinaryFormat
 
-BATCH_DIR = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\dec_batch'
+BATCH_DIR = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\dec_batch'
 
 # Pick a 255-tag file with ~3000 entries
 fname = '0217cbdae530696836de83aa3c162e1a'

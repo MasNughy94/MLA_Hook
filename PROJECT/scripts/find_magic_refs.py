@@ -1,4 +1,4 @@
-"""
+﻿"""
 Find references to magic strings "Antm" and "lmF@" in libagame.so.
 These 4-byte identifiers are compared against file headers to determine
 the decryption/decompression pipeline.
@@ -6,7 +6,7 @@ the decryption/decompression pipeline.
 
 import struct
 
-so = open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb').read()
+so = open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb').read()
 
 # Search for the strings in the data
 needles = [b'Antm', b'lmF@', b'LMF@', b'lmF', b'\x1bLm', b'\x1bLu', b'lua\x00', b'.mt\x00', b'.mt']

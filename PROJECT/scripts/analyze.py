@@ -1,5 +1,5 @@
-import struct
-with open(r'C:\Users\NGEONG\AppData\Local\Temp\opencode\output.bin', 'rb') as f:
+﻿import struct
+with open(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\output.bin', 'rb') as f:
     data = f.read()
 
 print(f'Size: {len(data)}')

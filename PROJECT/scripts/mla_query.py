@@ -1,59 +1,96 @@
-"""
+﻿"""
 MLA Database Query Layer.
 Search by ID, Name, Type, Relationship, Referenced Entity.
+Tag roles are file-specific â€” read from tag_definitions table, NOT hardcoded.
 """
 import os, sys, json, sqlite3, textwrap
 from collections import defaultdict
 
-DB_PATH = r'C:\Users\NGEONG\Videos\MLA\PROJECT\cache\mla_database.db'
-
-# Tag-to-role map for interpreting entity fields
-TAG_ROLES = {
-    0x00: 'terminator', 0x01: 'flag', 0x04: 'class', 0x05: 'faction',
-    0x06: 'rarity', 0x07: 'star_quality', 0x08: 'faction', 0x09: 'hero_id',
-    0x0A: 'hero_id', 0x0B: 'unknown_prop', 0x0C: 'unknown_flag', 0x0E: 'element',
-    0x10: 'attack_type', 0x11: 'class_role', 0x30: 'unknown_ID',
-    0x55: 'hero_id', 0x83: 'hero_id',
-    0xCE: 'skill_ref', 0xCF: 'skill_ref',
-    0xD0: 'passive_skill_ref', 0xD1: 'passive_skill_ref',
-    0xF4: 'entity_id', 0xFA: 'master_id',
-    0xB5: 'entity_id', 0xB7: 'entity_id',
-    0xEC: 'entity_id', 0x7A: 'entity_id',
-    0x54: 'equip_id', 0x53: 'equip_type', 0x57: 'equip_rarity',
-    0x5F: 'equip_stat', 0x60: 'equip_value',
-    0x84: 'stat_hp', 0x85: 'stat_atk', 0x86: 'stat_def',
-    0x87: 'stat_speed', 0x88: 'stat_crit', 0x89: 'stat_crit_dmg',
-    0x8A: 'stat_acc', 0x8B: 'stat_eva', 0x8C: 'stat_lifesteal',
-    0x8D: 'stat_armor_pen', 0x8E: 'stat_magic_pen',
-    0x90: 'stat_hp_pct', 0x91: 'stat_atk_pct', 0x92: 'stat_def_pct',
-    0xA0: 'stat_hp_regen', 0xA1: 'stat_energy_regen',
-    0xCE: 'skill_1', 0xCF: 'skill_2',
-    0xD0: 'skill_3_passive', 0xD1: 'skill_4_passive',
-    0xD2: 'skill_awaken', 0xD4: 'skill_ultimate',
-    0xD8: 'skill_level_req', 0xD9: 'skill_unlock_level',
-    0xCA: 'monster_id', 0xCB: 'monster_type',
-    0xCD: 'monster_stat_scale',
-    0xDE: 'stage_id', 0xDF: 'stage_region',
-    0xE0: 'stage_chapter', 0xE1: 'stage_wave',
-    0xE4: 'stage_reward', 0xE5: 'stage_exp',
-    0xBA: 'buff_id', 0xBB: 'buff_type',
-    0xBC: 'buff_duration', 0xBD: 'buff_value',
-}
-
-KNOWN_ID_TAGS = {
-    'HeroID': [0x09, 0x0A, 0x55, 0x83],
-    'SkillID': [0xCE, 0xCF, 0xD0, 0xD1, 0xD2, 0xD4],
-    'MonsterID': [0xCA, 0xCB],
-    'StageID': [0xDE, 0xDF, 0xE0],
-    'EquipmentID': [0x54, 0x53, 0x57],
-    'BuffID': [0xBA, 0xBB],
-    'MasterID': [0xFA, 0xEC],
-}
+DB_PATH = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\cache\mla_database.db'
 
 ENTITY_TYPE_NAMES = [
     'EquipDB', 'SkillDB', 'HeroStatDB', 'HeroRosterDB',
     'StageDB', 'MonsterDB', 'AnimDB', 'MasterDB', 'ConfigDB', 'AchieveDB',
 ]
+
+# Cache untuk tag roles (file-specific)
+_tag_role_cache = None
+
+def load_tag_roles():
+    """Load per-file tag roles from tag_definitions table.
+    Keys include both filenames and entity type names."""
+    global _tag_role_cache
+    if _tag_role_cache is not None:
+        return _tag_role_cache
+    _tag_role_cache = {}
+    conn = get_conn()
+    cur = conn.cursor()
+    
+    # Build filename -> entity type name mapping
+    cur.execute("SELECT name, source_file FROM entity_types WHERE source_file IS NOT NULL")
+    file_to_type = {}
+    for r in cur.fetchall():
+        ename, fname = r
+        if fname:
+            file_to_type[fname] = ename
+            # Short hash prefix mapping
+            short = fname[:6]
+            file_to_type[short] = ename
+    
+    # Load tag roles from tag_definitions
+    cur.execute("""
+        SELECT t.tag_hex, t.source_file, t.role
+        FROM tag_definitions t
+        WHERE t.role != 'unknown'
+    """)
+    for r in cur.fetchall():
+        tag = int(r[0], 16) if r[0].startswith('0x') else int(r[0])
+        fname = r[1]
+        role = r[2]
+        if fname not in _tag_role_cache:
+            _tag_role_cache[fname] = {}
+        _tag_role_cache[fname][tag] = role
+        
+        # Also index by entity type name
+        ename = file_to_type.get(fname)
+        if ename:
+            if ename not in _tag_role_cache:
+                _tag_role_cache[ename] = {}
+            _tag_role_cache[ename][tag] = role
+    
+    conn.close()
+    return _tag_role_cache
+
+def get_tag_role(tag, source_file):
+    """Get role for a tag in a specific file context. File-specific."""
+    roles = load_tag_roles()
+    if not source_file:
+        return 'unknown'
+    
+    # Try exact match (by filename or entity type name)
+    if source_file in roles and tag in roles[source_file]:
+        return roles[source_file][tag]
+    
+    # Try partial match on entity type name (e.g. "HeroRosterDB" in "07b5cc...")
+    for key in roles:
+        src_clean = source_file.replace('.mt.dec', '').lower()
+        key_clean = key.replace('.mt.dec', '').lower()
+        if src_clean in key_clean or key_clean in src_clean:
+            if tag in roles[key]:
+                return roles[key][tag]
+    
+    if tag == 0: return 'terminator'
+    return 'unknown'
+
+def get_id_tags_for_type(entity_type):
+    """Get tags that likely carry entity IDs for a given entity type."""
+    roles = load_tag_roles()
+    id_tags = []
+    for fname, tags in roles.items():
+        for tag, role in tags.items():
+            if 'id' in role or 'ref' in role:
+                id_tags.append(tag)
+    return sorted(set(id_tags))
 
 def get_conn():
     conn = sqlite3.connect(DB_PATH)
@@ -61,35 +98,46 @@ def get_conn():
     return conn
 
 def search_by_id(id_value, id_type=None, limit=50):
-    """Search for entities by their game ID value (e.g. HeroID 2111)."""
+    """Search for entities by their game ID value.
+    If id_type given (e.g. 'HeroID'), filter by known ID-carrying tags.
+    Tag roles are read from tag_definitions table (file-specific)."""
     conn = get_conn()
     cur = conn.cursor()
     
-    tags = []
-    if id_type and id_type in KNOWN_ID_TAGS:
-        tags = KNOWN_ID_TAGS[id_type]
-    
-    if tags:
-        placeholders = ','.join('?' for _ in tags)
-        cur.execute(f"""
-            SELECT e.stable_id, e.source_file, e.entry_index, et.name as entity_type,
-                   f.tag_hex, f.value, f.role
-            FROM entity_fields f
-            JOIN entities e ON f.entity_id = e.id
-            JOIN entity_types et ON e.entity_type_id = et.id
-            WHERE f.value = ? AND f.tag IN ({placeholders})
-            LIMIT ?
-        """, (id_value, *tags, limit))
-    else:
+    if id_type:
+        # Find tags with role containing this type hint
         cur.execute("""
-            SELECT e.stable_id, e.source_file, e.entry_index, et.name as entity_type,
-                   f.tag_hex, f.value, f.role
-            FROM entity_fields f
-            JOIN entities e ON f.entity_id = e.id
-            JOIN entity_types et ON e.entity_type_id = et.id
-            WHERE f.value = ?
-            LIMIT ?
-        """, (id_value, limit))
+            SELECT DISTINCT t.tag_hex FROM tag_definitions t
+            WHERE t.role LIKE ? OR t.role LIKE ?
+        """, (f'%{id_type}%', f'%{id_type.lower()}%'))
+        tag_rows = cur.fetchall()
+        tags = [int(r[0], 16) for r in tag_rows if r[0]]
+        
+        if tags:
+            placeholders = ','.join('?' for _ in tags)
+            cur.execute(f"""
+                SELECT e.stable_id, e.source_file, e.entry_index, et.name as entity_type,
+                       f.tag_hex, f.value, f.role
+                FROM entity_fields f
+                JOIN entities e ON f.entity_id = e.id
+                JOIN entity_types et ON e.entity_type_id = et.id
+                WHERE f.value = ? AND f.tag IN ({placeholders})
+                LIMIT ?
+            """, (id_value, *tags, limit))
+            rows = cur.fetchall()
+            conn.close()
+            return [dict(r) for r in rows]
+    
+    # Fallback: search all fields for this value
+    cur.execute("""
+        SELECT e.stable_id, e.source_file, e.entry_index, et.name as entity_type,
+               f.tag_hex, f.value, f.role
+        FROM entity_fields f
+        JOIN entities e ON f.entity_id = e.id
+        JOIN entity_types et ON e.entity_type_id = et.id
+        WHERE f.value = ?
+        LIMIT ?
+    """, (id_value, limit))
     
     rows = cur.fetchall()
     conn.close()
@@ -141,7 +189,7 @@ def get_entity(stable_id):
     """, (entity['id'],))
     fields = [dict(r) for r in cur.fetchall()]
     for f in fields:
-        f['interpreted_role'] = TAG_ROLES.get(f['tag'], 'unknown')
+        f['interpreted_role'] = get_tag_role(f['tag'], result.get('source_file', ''))
     
     result['fields'] = fields
     result['field_count'] = len(fields)
@@ -202,39 +250,21 @@ def search_by_field(tag, value, limit=50):
     return [dict(r) for r in rows]
 
 def list_id_types():
-    """List all known game ID types with their tag associations."""
-    result = []
-    for id_type, tags in KNOWN_ID_TAGS.items():
-        conn = get_conn()
-        cur = conn.cursor()
-        placeholders = ','.join('?' for _ in tags)
-        cur.execute(f"""
-            SELECT COUNT(DISTINCT f.value) as unique_ids,
-                   MIN(f.value) as min_id, MAX(f.value) as max_id
-            FROM entity_fields f
-            WHERE f.tag IN ({placeholders})
-        """, tags)
-        stats = dict(cur.fetchone())
-        
-        cur.execute(f"""
-            SELECT et.name, COUNT(DISTINCT f.value) as ids_per_type
-            FROM entity_fields f
-            JOIN entities e ON f.entity_id = e.id
-            JOIN entity_types et ON e.entity_type_id = et.id
-            WHERE f.tag IN ({placeholders})
-            GROUP BY et.name
-        """, tags)
-        sources = [dict(r) for r in cur.fetchall()]
-        
-        conn.close()
-        result.append({
-            'id_type': id_type,
-            'tags': [f"0x{t:02X}" for t in tags],
-            'unique_ids': stats['unique_ids'],
-            'id_range': [stats['min_id'], stats['max_id']],
-            'sources': sources,
-        })
-    return result
+    """List all known ID-carrying tags grouped by role from tag_definitions."""
+    conn = get_conn()
+    cur = conn.cursor()
+    
+    # Get distinct roles that contain 'id' or 'ref'
+    cur.execute("""
+        SELECT t.role, COUNT(DISTINCT t.tag_hex) as tag_count,
+               GROUP_CONCAT(DISTINCT t.source_file) as sources
+        FROM tag_definitions t
+        WHERE (t.role LIKE '%id%' OR t.role LIKE '%ref%')
+          AND t.role != 'unknown'
+        GROUP BY t.role
+        ORDER BY COUNT(*) DESC
+    """)
+    return [dict(r) for r in cur.fetchall()]
 
 def get_entity_fields(entity):
     """Return a dict of tag->value for an entity's fields."""
@@ -245,24 +275,19 @@ def get_entity_fields(entity):
     return {f['tag']: f['value'] for f in entity['fields']}
 
 def find_cross_references(id_value, limit=50):
-    """Find all entities referencing a given game ID across all files."""
+    """Find all entities referencing a given game ID across all files.
+    Tag roles are read dynamically from tag_definitions table."""
     conn = get_conn()
     cur = conn.cursor()
     cur.execute("""
         SELECT e.stable_id, e.source_file, e.entry_index, et.name as entity_type,
                f.tag_hex, f.value, f.role,
-               CASE 
-                   WHEN f.tag IN (9,10,85,53) THEN 'HeroID'
-                   WHEN f.tag IN (206,207,208,209,210,212) THEN 'SkillID'
-                   WHEN f.tag IN (202,203) THEN 'MonsterID'
-                   WHEN f.tag IN (222,223,224) THEN 'StageID'
-                   WHEN f.tag IN (84,83,87) THEN 'EquipmentID'
-                   WHEN f.tag IN (186,187) THEN 'BuffID'
-                   ELSE 'Reference'
-               END as ref_type
+               COALESCE(td.role, 'Reference') as ref_type
         FROM entity_fields f
         JOIN entities e ON f.entity_id = e.id
         JOIN entity_types et ON e.entity_type_id = et.id
+        LEFT JOIN tag_definitions td ON td.tag_hex = f.tag_hex 
+            AND (td.source_file = e.source_file OR td.source_file = et.name)
         WHERE f.value = ?
         LIMIT ?
     """, (id_value, limit))
@@ -359,7 +384,7 @@ def format_entity(entity, verbose=False):
     if entity.get('fields'):
         lines.append(f"  Field Data:")
         for f in entity['fields']:
-            role = f['interpreted_role']
+            role = f.get('interpreted_role') or get_tag_role(f['tag'], entity.get('source_file', ''))
             tc = '' if not (32 <= f['tag'] < 127) else f'tag_char={chr(f["tag"])}'
             lines.append(f"    [{f['field_index']:3d}] tag=0x{f['tag']:02X}  val={f['value']:>5d}  role={role}")
     
@@ -471,9 +496,10 @@ if __name__ == '__main__':
     
     elif cmd == 'idtypes':
         types = list_id_types()
+        print(f"{'Role':25s} {'Tags':10s} {'Sources'}")
+        print(f"{'-'*25} {'-'*10} {'-'*40}")
         for t in types:
-            print(f"{t['id_type']:15s}  tags={','.join(t['tags']):20s}  "
-                  f"unique={t['unique_ids']:>5d}  range=[{t['id_range'][0]}-{t['id_range'][1]}]")
+            print(f"{t['role']:25s} {t['tag_count']:>4d} tags   {t.get('sources','')[:50]}")
     
     elif cmd == 'sql':
         sql = ' '.join(sys.argv[2:])

@@ -1,6 +1,6 @@
-import struct, sys
+﻿import struct, sys
 
-with open(r'C:\Users\NGEONG\Videos\MLA\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     elf = f.read()
 
 # Direct offsets from section headers

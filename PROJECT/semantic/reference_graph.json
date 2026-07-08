@@ -1,0 +1,450 @@
+{
+  "nodes": [
+    {
+      "file": "1c7efa501c5305fb7062cdcbf148c4a9.mt.dec",
+      "name": "EquipDB",
+      "short": "equip",
+      "group": "hero",
+      "entity_type": "Equipment_Item_Database",
+      "entry_count": 27836,
+      "max_fields": 252,
+      "avg_fields": 3.2,
+      "signature_count": 13256
+    },
+    {
+      "file": "17f4dd5419fdea6aff836f46154d274a.mt.dec",
+      "name": "SkillDB",
+      "short": "skill",
+      "group": "hero",
+      "entity_type": "Skill_Ability_Database",
+      "entry_count": 27647,
+      "max_fields": 66,
+      "avg_fields": 2.5,
+      "signature_count": 10900
+    },
+    {
+      "file": "12eb65e862c413254ae49d2eba76eea2.mt.dec",
+      "name": "HeroStatDB",
+      "short": "hero_stat",
+      "group": "hero",
+      "entity_type": "Hero_StatBlock_Database",
+      "entry_count": 18793,
+      "max_fields": 163,
+      "avg_fields": 2.9,
+      "signature_count": 8130
+    },
+    {
+      "file": "07b5cc5ea4a8d86273be8170720a4587.mt.dec",
+      "name": "HeroRosterDB",
+      "short": "hero_roster",
+      "group": "hero",
+      "entity_type": "Hero_Roster_Database",
+      "entry_count": 13133,
+      "max_fields": 168,
+      "avg_fields": 3.8,
+      "signature_count": 6811
+    },
+    {
+      "file": "1c1ac35710f3a4276a942a776e911a85.mt.dec",
+      "name": "StageDB",
+      "short": "stage",
+      "group": "content",
+      "entity_type": "Stage_Mission_Database",
+      "entry_count": 8772,
+      "max_fields": 97,
+      "avg_fields": 3.0,
+      "signature_count": 4474
+    },
+    {
+      "file": "1c4ed1eebdb4b8af5c2658f4151aa529.mt.dec",
+      "name": "MonsterDB",
+      "short": "monster",
+      "group": "content",
+      "entity_type": "Monster_NPC_Database",
+      "entry_count": 4857,
+      "max_fields": 70,
+      "avg_fields": 3.1,
+      "signature_count": 2663
+    },
+    {
+      "file": "18f286461b12e92d9e16b27c07854a7c.mt.dec",
+      "name": "AnimDB",
+      "short": "anim",
+      "group": "content",
+      "entity_type": "Animation_Visual_Database",
+      "entry_count": 3209,
+      "max_fields": 89,
+      "avg_fields": 3.3,
+      "signature_count": 1850
+    },
+    {
+      "file": "0217cbdae530696836de83aa3c162e1a.mt.dec",
+      "name": "MasterDB",
+      "short": "master",
+      "group": "system",
+      "entity_type": "Master_Index_Registry",
+      "entry_count": 2980,
+      "max_fields": 53,
+      "avg_fields": 2.5,
+      "signature_count": 1652
+    },
+    {
+      "file": "1a4fb9f36cd34d0eb0ca22000e54f8a5.mt.dec",
+      "name": "ConfigDB",
+      "short": "config",
+      "group": "system",
+      "entity_type": "System_Config_Database",
+      "entry_count": 2539,
+      "max_fields": 88,
+      "avg_fields": 5.1,
+      "signature_count": 1897
+    },
+    {
+      "file": "0e3bbac67f12505f7dfe45d4e6aba1ea.mt.dec",
+      "name": "AchieveDB",
+      "short": "achieve",
+      "group": "content",
+      "entity_type": "Achievement_Progress_Database",
+      "entry_count": 1035,
+      "max_fields": 194,
+      "avg_fields": 8.7,
+      "signature_count": 883
+    }
+  ],
+  "edges": [
+    {
+      "source": "SkillDB",
+      "target": "EquipDB",
+      "type": "many_to_many",
+      "confidence": 0.55,
+      "shared_tags": [
+        "0x05",
+        "0x07",
+        "0x0f",
+        "0x19",
+        "0x1e",
+        "0x1f",
+        "0x3e"
+      ]
+    },
+    {
+      "source": "SkillDB",
+      "target": "MonsterDB",
+      "type": "many_to_many",
+      "confidence": 0.4,
+      "shared_tags": [
+        "0x05",
+        "0x07",
+        "0x0f",
+        "0x19"
+      ]
+    },
+    {
+      "source": "SkillDB",
+      "target": "AnimDB",
+      "type": "many_to_many",
+      "confidence": 0.4,
+      "shared_tags": [
+        "0x1e"
+      ]
+    },
+    {
+      "source": "HeroStatDB",
+      "target": "EquipDB",
+      "type": "many_to_many",
+      "confidence": 0.55,
+      "shared_tags": [
+        "0x02",
+        "0x03",
+        "0x04",
+        "0x05",
+        "0x06",
+        "0x07",
+        "0x09",
+        "0x24",
+        "0x28",
+        "0x37",
+        "0xf5"
+      ]
+    },
+    {
+      "source": "HeroStatDB",
+      "target": "SkillDB",
+      "type": "many_to_many",
+      "confidence": 0.4,
+      "shared_tags": [
+        "0x05",
+        "0x07",
+        "0x0a",
+        "0x56"
+      ]
+    },
+    {
+      "source": "HeroStatDB",
+      "target": "MonsterDB",
+      "type": "many_to_many",
+      "confidence": 0.55,
+      "shared_tags": [
+        "0x05",
+        "0x06",
+        "0x07",
+        "0x12"
+      ]
+    },
+    {
+      "source": "HeroRosterDB",
+      "target": "EquipDB",
+      "type": "many_to_many",
+      "confidence": 0.55,
+      "shared_tags": [
+        "0x01",
+        "0x02",
+        "0x03",
+        "0x05",
+        "0x09",
+        "0x0d",
+        "0x14",
+        "0x15",
+        "0x33",
+        "0x65",
+        "0x7e"
+      ]
+    },
+    {
+      "source": "HeroRosterDB",
+      "target": "SkillDB",
+      "type": "many_to_many",
+      "confidence": 0.55,
+      "shared_tags": [
+        "0x01",
+        "0x05",
+        "0x0a",
+        "0x25",
+        "0x3c"
+      ]
+    },
+    {
+      "source": "HeroRosterDB",
+      "target": "HeroStatDB",
+      "type": "many_to_many",
+      "confidence": 0.55,
+      "shared_tags": [
+        "0x02",
+        "0x05",
+        "0x08",
+        "0x09",
+        "0x0a",
+        "0x0b",
+        "0x12",
+        "0x2a"
+      ]
+    },
+    {
+      "source": "HeroRosterDB",
+      "target": "MonsterDB",
+      "type": "many_to_many",
+      "confidence": 0.4,
+      "shared_tags": [
+        "0x05",
+        "0x12",
+        "0x14"
+      ]
+    },
+    {
+      "source": "HeroRosterDB",
+      "target": "AchieveDB",
+      "type": "many_to_many",
+      "confidence": 0.4,
+      "shared_tags": [
+        "0x08"
+      ]
+    },
+    {
+      "source": "MonsterDB",
+      "target": "EquipDB",
+      "type": "many_to_many",
+      "confidence": 0.55,
+      "shared_tags": [
+        "0x05",
+        "0x06",
+        "0x07",
+        "0x0e",
+        "0x0f",
+        "0x14",
+        "0x19",
+        "0x1c",
+        "0x1d"
+      ]
+    },
+    {
+      "source": "AnimDB",
+      "target": "EquipDB",
+      "type": "many_to_many",
+      "confidence": 0.4,
+      "shared_tags": [
+        "0x1e"
+      ]
+    },
+    {
+      "source": "MasterDB",
+      "target": "EquipDB",
+      "type": "many_to_many",
+      "confidence": 0.55,
+      "shared_tags": [
+        "0x01",
+        "0x02",
+        "0x04",
+        "0x05",
+        "0x19",
+        "0x34"
+      ]
+    },
+    {
+      "source": "MasterDB",
+      "target": "SkillDB",
+      "type": "many_to_many",
+      "confidence": 0.4,
+      "shared_tags": [
+        "0x01",
+        "0x05",
+        "0x19",
+        "0x25"
+      ]
+    },
+    {
+      "source": "MasterDB",
+      "target": "HeroStatDB",
+      "type": "many_to_many",
+      "confidence": 0.55,
+      "shared_tags": [
+        "0x02",
+        "0x04",
+        "0x05",
+        "0x81"
+      ]
+    },
+    {
+      "source": "MasterDB",
+      "target": "HeroRosterDB",
+      "type": "many_to_many",
+      "confidence": 0.55,
+      "shared_tags": [
+        "0x01",
+        "0x02",
+        "0x05",
+        "0x25"
+      ]
+    },
+    {
+      "source": "MasterDB",
+      "target": "MonsterDB",
+      "type": "many_to_many",
+      "confidence": 0.4,
+      "shared_tags": [
+        "0x05",
+        "0x19"
+      ]
+    },
+    {
+      "source": "AchieveDB",
+      "target": "HeroStatDB",
+      "type": "many_to_many",
+      "confidence": 0.55,
+      "shared_tags": [
+        "0x08",
+        "0x10"
+      ]
+    },
+    {
+      "source": "MasterDB",
+      "target": "HeroRosterDB",
+      "type": "one_to_many",
+      "confidence": 0.8,
+      "shared_tags": []
+    },
+    {
+      "source": "MasterDB",
+      "target": "SkillDB",
+      "type": "one_to_many",
+      "confidence": 0.8,
+      "shared_tags": []
+    },
+    {
+      "source": "MasterDB",
+      "target": "EquipDB",
+      "type": "one_to_many",
+      "confidence": 0.8,
+      "shared_tags": []
+    },
+    {
+      "source": "MasterDB",
+      "target": "StageDB",
+      "type": "one_to_many",
+      "confidence": 0.8,
+      "shared_tags": []
+    },
+    {
+      "source": "MasterDB",
+      "target": "MonsterDB",
+      "type": "one_to_many",
+      "confidence": 0.8,
+      "shared_tags": []
+    },
+    {
+      "source": "MasterDB",
+      "target": "AnimDB",
+      "type": "one_to_many",
+      "confidence": 0.8,
+      "shared_tags": []
+    },
+    {
+      "source": "MasterDB",
+      "target": "ConfigDB",
+      "type": "one_to_many",
+      "confidence": 0.8,
+      "shared_tags": []
+    },
+    {
+      "source": "MasterDB",
+      "target": "AchieveDB",
+      "type": "one_to_many",
+      "confidence": 0.8,
+      "shared_tags": []
+    },
+    {
+      "source": "MasterDB",
+      "target": "HeroStatDB",
+      "type": "one_to_many",
+      "confidence": 0.8,
+      "shared_tags": []
+    },
+    {
+      "source": "HeroRosterDB",
+      "target": "HeroStatDB",
+      "type": "one_to_one",
+      "confidence": 0.8,
+      "shared_tags": []
+    },
+    {
+      "source": "SkillDB",
+      "target": "HeroRosterDB",
+      "type": "one_to_one",
+      "confidence": 0.8,
+      "shared_tags": []
+    },
+    {
+      "source": "EquipDB",
+      "target": "HeroRosterDB",
+      "type": "one_to_one",
+      "confidence": 0.8,
+      "shared_tags": []
+    },
+    {
+      "source": "StageDB",
+      "target": "MonsterDB",
+      "type": "one_to_one",
+      "confidence": 0.8,
+      "shared_tags": []
+    }
+  ]
+}

@@ -1,11 +1,11 @@
-"""
+﻿"""
 Trace 0xC82944 - the decompressed buffer consumer called from cocos2dx_lua_loader.
 This is the FIRST function that reads the decompressed .mt format.
 """
 
 import struct
 
-with open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     data = f.read()
 
 TEXT_ADDR = 0x3FC000

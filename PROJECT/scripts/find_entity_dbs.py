@@ -1,14 +1,14 @@
-"""
+﻿"""
 Deep analysis: Find entity DBs among 20-60 tag files.
 Entity DBs = homogeneous entries with shared tag-signature.
 """
 import os, sys, json
 from collections import Counter
-sys.path.insert(0, r'C:\Users\NGEONG\AppData\Local\Temp\opencode')
+sys.path.insert(0, r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode')
 from roo_parser_final import RooBinaryFormat
 
-BATCH_DIR = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\dec_batch'
-ANALYSIS_DIR = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\analysis'
+BATCH_DIR = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\dec_batch'
+ANALYSIS_DIR = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\analysis'
 
 with open(os.path.join(ANALYSIS_DIR, 'corpus_summary.json')) as f:
     corpus = json.load(f)

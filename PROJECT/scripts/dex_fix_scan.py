@@ -1,6 +1,6 @@
-import struct
+﻿import struct
 
-dex_path = r'C:\Users\NGEONG\Videos\MLA\MLADVENTURE2\classes.dex'
+dex_path = r'C:\Users\ADMIN SERVICE\Videos\MLA\MLADVENTURE2\classes.dex'
 with open(dex_path, 'rb') as f:
     data = f.read()
 

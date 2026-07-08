@@ -1,4 +1,4 @@
-"""
+﻿"""
 Deep-dive analysis of top candidates for CCCrypto::m_sKey initialization.
 Target functions: entry 200 (0x407130, top-ranked), plus Priority 1-3 candidates.
 """
@@ -7,7 +7,7 @@ import capstone
 import re
 import json
 
-LIBAGAME = r"C:\Users\NGEONG\Videos\MLA\libagame.so"
+LIBAGAME = r"C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so"
 
 def read_u64(data, offset):
     return struct.unpack_from("<Q", data, offset)[0]

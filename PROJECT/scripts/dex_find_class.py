@@ -1,7 +1,7 @@
-import struct, sys, io
+﻿import struct, sys, io
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 
-DEX = r'C:\Users\NGEONG\Videos\MLA\MLADVENTURE2\classes.dex'
+DEX = r'C:\Users\ADMIN SERVICE\Videos\MLA\MLADVENTURE2\classes.dex'
 data = open(DEX, 'rb').read()
 END = len(data)
 

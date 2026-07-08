@@ -1,8 +1,8 @@
-"""Get all 55 members of the 55f_255t cluster and analyze each."""
+﻿"""Get all 55 members of the 55f_255t cluster and analyze each."""
 import json
 from collections import defaultdict
 
-DEC_BATCH = r'C:\Users\NGEONG\Videos\MLA\PROJECT\decrypted\dec_batch'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\decrypted\dec_batch'
 
 # Load catalog
 with open('analysis/roo_file_catalog.json') as f:

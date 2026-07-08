@@ -1,14 +1,14 @@
-"""
+﻿"""
 Find homogeneous entity databases: files where entries share the same tag-signature.
 This identifies true entity-type databases (Hero, Item, Skill, etc.).
 """
 import os, sys, json
 from collections import Counter
-sys.path.insert(0, r'C:\Users\NGEONG\AppData\Local\Temp\opencode')
+sys.path.insert(0, r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode')
 from roo_parser_final import RooBinaryFormat
 
-BATCH_DIR = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\dec_batch'
-ANALYSIS_DIR = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\analysis'
+BATCH_DIR = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\dec_batch'
+ANALYSIS_DIR = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\analysis'
 
 # Load catalog to find files by classification
 with open(os.path.join(ANALYSIS_DIR, 'roo_file_catalog.json')) as f:

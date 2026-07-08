@@ -1,0 +1,1496 @@
+{
+  "pid": 4703,
+  "libagame": null,
+  "modules": [
+    {
+      "name": "app_process64",
+      "base": "0x564ac48ad000",
+      "size": 20480
+    },
+    {
+      "name": "linker64",
+      "base": "0x7f30cd92a000",
+      "size": 1375712
+    },
+    {
+      "name": "libandroid_runtime.so",
+      "base": "0x7f30b1f5c000",
+      "size": 2146304
+    },
+    {
+      "name": "libbinder.so",
+      "base": "0x7f30c8e87000",
+      "size": 716800
+    },
+    {
+      "name": "libcutils.so",
+      "base": "0x7f30cc969000",
+      "size": 81920
+    },
+    {
+      "name": "libhidlbase.so",
+      "base": "0x7f30cc84b000",
+      "size": 733184
+    },
+    {
+      "name": "liblog.so",
+      "base": "0x7f30c434f000",
+      "size": 73728
+    },
+    {
+      "name": "libnativeloader.so",
+      "base": "0x7f30ccad6000",
+      "size": 167936
+    },
+    {
+      "name": "libsigchain.so",
+      "base": "0x7f30bea9a000",
+      "size": 40960
+    },
+    {
+      "name": "libutils.so",
+      "base": "0x7f30c42c1000",
+      "size": 122880
+    },
+    {
+      "name": "libwilhelm.so",
+      "base": "0x7f30be994000",
+      "size": 270336
+    },
+    {
+      "name": "libc++.so",
+      "base": "0x7f30beac0000",
+      "size": 753664
+    },
+    {
+      "name": "libc.so",
+      "base": "0x7f30c8f70000",
+      "size": 6512640
+    },
+    {
+      "name": "libm.so",
+      "base": "0x7f30bb8df000",
+      "size": 307200
+    },
+    {
+      "name": "libdl.so",
+      "base": "0x7f30b1d92000",
+      "size": 20480
+    },
+    {
+      "name": "libbase.so",
+      "base": "0x7f30b9798000",
+      "size": 270336
+    },
+    {
+      "name": "libharfbuzz_ng.so",
+      "base": "0x7f30a564b000",
+      "size": 1060864
+    },
+    {
+      "name": "libhwui.so",
+      "base": "0x7f30bec00000",
+      "size": 14970880
+    },
+    {
+      "name": "libminikin.so",
+      "base": "0x7f30aa801000",
+      "size": 253952
+    },
+    {
+      "name": "libz.so",
+      "base": "0x7f30b0315000",
+      "size": 114688
+    },
+    {
+      "name": "audioclient-types-aidl-cpp.so",
+      "base": "0x7f30cc6a0000",
+      "size": 57344
+    },
+    {
+      "name": "audioflinger-aidl-cpp.so",
+      "base": "0x7f30aa3ce000",
+      "size": 204800
+    },
+    {
+      "name": "av-types-aidl-cpp.so",
+      "base": "0x7f30a9eeb000",
+      "size": 20480
+    },
+    {
+      "name": "android.hardware.camera.device@3.2.so",
+      "base": "0x7f30a5781000",
+      "size": 208896
+    },
+    {
+      "name": "libandroidicu.so",
+      "base": "0x7f30c8e76000",
+      "size": 36864
+    },
+    {
+      "name": "libbpf_android.so",
+      "base": "0x7f30cc28f000",
+      "size": 65536
+    },
+    {
+      "name": "libnetdbpf.so",
+      "base": "0x7f30b00a5000",
+      "size": 73728
+    },
+    {
+      "name": "libnetdutils.so",
+      "base": "0x7f30aa860000",
+      "size": 94208
+    },
+    {
+      "name": "libmemtrack.so",
+      "base": "0x7f30cc128000",
+      "size": 24576
+    },
+    {
+      "name": "libandroidfw.so",
+      "base": "0x7f30b1cd0000",
+      "size": 589824
+    },
+    {
+      "name": "libappfuse.so",
+      "base": "0x7f30cc300000",
+      "size": 61440
+    },
+    {
+      "name": "libcrypto.so",
+      "base": "0x7f30c5a2c000",
+      "size": 1617920
+    },
+    {
+      "name": "libdebuggerd_client.so",
+      "base": "0x7f30b21eb000",
+      "size": 49152
+    },
+    {
+      "name": "libui.so",
+      "base": "0x7f30aab53000",
+      "size": 323584
+    },
+    {
+      "name": "libgraphicsenv.so",
+      "base": "0x7f30cc9a6000",
+      "size": 65536
+    },
+    {
+      "name": "libgui.so",
+      "base": "0x7f30a906c000",
+      "size": 1298432
+    },
+    {
+      "name": "libmediandk.so",
+      "base": "0x7f30ccb16000",
+      "size": 172032
+    },
+    {
+      "name": "libpermission.so",
+      "base": "0x7f30bb889000",
+      "size": 81920
+    },
+    {
+      "name": "libsensor.so",
+      "base": "0x7f30aa18f000",
+      "size": 102400
+    },
+    {
+      "name": "libinput.so",
+      "base": "0x7f30aa503000",
+      "size": 438272
+    },
+    {
+      "name": "libcamera_client.so",
+      "base": "0x7f30aaa0d000",
+      "size": 458752
+    },
+    {
+      "name": "libcamera_metadata.so",
+      "base": "0x7f30a8eda000",
+      "size": 61440
+    },
+    {
+      "name": "libsqlite.so",
+      "base": "0x7f30b1e0d000",
+      "size": 1232896
+    },
+    {
+      "name": "libEGL.so",
+      "base": "0x7f30cc0c0000",
+      "size": 245760
+    },
+    {
+      "name": "libGLESv1_CM.so",
+      "base": "0x7f30aa9a6000",
+      "size": 45056
+    },
+    {
+      "name": "libGLESv2.so",
+      "base": "0x7f30b03cc000",
+      "size": 110592
+    },
+    {
+      "name": "libGLESv3.so",
+      "base": "0x7f30a429e000",
+      "size": 110592
+    },
+    {
+      "name": "libincfs.so",
+      "base": "0x7f30c4411000",
+      "size": 188416
+    },
+    {
+      "name": "libdataloader.so",
+      "base": "0x7f30b9769000",
+      "size": 86016
+    },
+    {
+      "name": "libvulkan.so",
+      "base": "0x7f30b1a8f000",
+      "size": 184320
+    },
+    {
+      "name": "libETC1.so",
+      "base": "0x7f30be87b000",
+      "size": 20480
+    },
+    {
+      "name": "libjpeg.so",
+      "base": "0x7f30cc74a000",
+      "size": 618496
+    },
+    {
+      "name": "libhardware.so",
+      "base": "0x7f30a8eac000",
+      "size": 16384
+    },
+    {
+      "name": "libhardware_legacy.so",
+      "base": "0x7f30c425d000",
+      "size": 32768
+    },
+    {
+      "name": "libselinux.so",
+      "base": "0x7f30b018d000",
+      "size": 110592
+    },
+    {
+      "name": "libmedia.so",
+      "base": "0x7f30a42f6000",
+      "size": 667648
+    },
+    {
+      "name": "libmedia_helper.so",
+      "base": "0x7f30b0552000",
+      "size": 122880
+    },
+    {
+      "name": "libmediametrics.so",
+      "base": "0x7f30aa94f000",
+      "size": 73728
+    },
+    {
+      "name": "libmeminfo.so",
+      "base": "0x7f30b218d000",
+      "size": 98304
+    },
+    {
+      "name": "libaudioclient.so",
+      "base": "0x7f30bfb43000",
+      "size": 700416
+    },
+    {
+      "name": "libaudiofoundation.so",
+      "base": "0x7f30bea43000",
+      "size": 237568
+    },
+    {
+      "name": "libaudiopolicy.so",
+      "base": "0x7f30cc06b000",
+      "size": 86016
+    },
+    {
+      "name": "libusbhost.so",
+      "base": "0x7f30b58c1000",
+      "size": 28672
+    },
+    {
+      "name": "libpdfium.so",
+      "base": "0x7f30bba04000",
+      "size": 4169728
+    },
+    {
+      "name": "libimg_utils.so",
+      "base": "0x7f30aa2aa000",
+      "size": 86016
+    },
+    {
+      "name": "libnetd_client.so",
+      "base": "0x7f30b0370000",
+      "size": 45056
+    },
+    {
+      "name": "libprocessgroup.so",
+      "base": "0x7f30b1b00000",
+      "size": 372736
+    },
+    {
+      "name": "libnativebridge_lazy.so",
+      "base": "0x7f30b1ad1000",
+      "size": 20480
+    },
+    {
+      "name": "libnativeloader_lazy.so",
+      "base": "0x7f30aa3a2000",
+      "size": 20480
+    },
+    {
+      "name": "libmemunreachable.so",
+      "base": "0x7f30a8f4a000",
+      "size": 217088
+    },
+    {
+      "name": "libvintf.so",
+      "base": "0x7f30cc497000",
+      "size": 659456
+    },
+    {
+      "name": "libnativedisplay.so",
+      "base": "0x7f30b1a66000",
+      "size": 86016
+    },
+    {
+      "name": "libnativewindow.so",
+      "base": "0x7f30c4305000",
+      "size": 32768
+    },
+    {
+      "name": "libdl_android.so",
+      "base": "0x7f30a9e7c000",
+      "size": 12288
+    },
+    {
+      "name": "libtimeinstate.so",
+      "base": "0x7f30bfb00000",
+      "size": 73728
+    },
+    {
+      "name": "server_configurable_flags.so",
+      "base": "0x7f30b1b82000",
+      "size": 20480
+    },
+    {
+      "name": "libvndksupport.so",
+      "base": "0x7f30a28b7000",
+      "size": 16384
+    },
+    {
+      "name": "libnativebridge.so",
+      "base": "0x7f30bb9cb000",
+      "size": 36864
+    },
+    {
+      "name": "libbase.so",
+      "base": "0x7f30b0221000",
+      "size": 270336
+    },
+    {
+      "name": "libc++.so",
+      "base": "0x7f30b0444000",
+      "size": 753664
+    },
+    {
+      "name": "framework-permission-aidl-cpp.so",
+      "base": "0x7f30cc206000",
+      "size": 45056
+    },
+    {
+      "name": "libmedia_codeclist.so",
+      "base": "0x7f30cc5aa000",
+      "size": 69632
+    },
+    {
+      "name": "libaudioclient_aidl_conversion.so",
+      "base": "0x7f30a28d1000",
+      "size": 180224
+    },
+    {
+      "name": "libaudiomanager.so",
+      "base": "0x7f30a271b000",
+      "size": 28672
+    },
+    {
+      "name": "libdatasource.so",
+      "base": "0x7f30cc450000",
+      "size": 90112
+    },
+    {
+      "name": "libstagefright.so",
+      "base": "0x7f30ae41a000",
+      "size": 1986560
+    },
+    {
+      "name": "libstagefright_foundation.so",
+      "base": "0x7f30cc147000",
+      "size": 225280
+    },
+    {
+      "name": "libstagefright_http_support.so",
+      "base": "0x7f30b1c2f000",
+      "size": 20480
+    },
+    {
+      "name": "libicu.so",
+      "base": "0x7f30cc643000",
+      "size": 65536
+    },
+    {
+      "name": "libpng.so",
+      "base": "0x7f30a9f40000",
+      "size": 245760
+    },
+    {
+      "name": "libdng_sdk.so",
+      "base": "0x7f30c1afc000",
+      "size": 884736
+    },
+    {
+      "name": "libpiex.so",
+      "base": "0x7f30c4298000",
+      "size": 114688
+    },
+    {
+      "name": "libexpat.so",
+      "base": "0x7f30a9e87000",
+      "size": 172032
+    },
+    {
+      "name": "libbinder_ndk.so",
+      "base": "0x7f30b05a8000",
+      "size": 94208
+    },
+    {
+      "name": "libheif.so",
+      "base": "0x7f30cc81a000",
+      "size": 36864
+    },
+    {
+      "name": "libprotobuf-cpp-lite.so",
+      "base": "0x7f30ccb42000",
+      "size": 507904
+    },
+    {
+      "name": "libft2.so",
+      "base": "0x7f30a274f000",
+      "size": 688128
+    },
+    {
+      "name": "libsync.so",
+      "base": "0x7f30c476c000",
+      "size": 20480
+    },
+    {
+      "name": "audio_common-aidl-cpp.so",
+      "base": "0x7f30a8e5e000",
+      "size": 16384
+    },
+    {
+      "name": "effect-aidl-cpp.so",
+      "base": "0x7f30be8cb000",
+      "size": 53248
+    },
+    {
+      "name": "shared-file-region-aidl-cpp.so",
+      "base": "0x7f30a26c2000",
+      "size": 12288
+    },
+    {
+      "name": "android.hardware.camera.common@1.0.so",
+      "base": "0x7f30aa9c1000",
+      "size": 16384
+    },
+    {
+      "name": "android.hardware.graphics.common@1.0.so",
+      "base": "0x7f30c47bc000",
+      "size": 12288
+    },
+    {
+      "name": "libbase.so",
+      "base": "0x7f30cc3b8000",
+      "size": 270336
+    },
+    {
+      "name": "libicuuc.so",
+      "base": "0x7f30b981c000",
+      "size": 1953792
+    },
+    {
+      "name": "libicui18n.so",
+      "base": "0x7f30c4446000",
+      "size": 2875392
+    },
+    {
+      "name": "libc++.so",
+      "base": "0x7f30aa687000",
+      "size": 753664
+    },
+    {
+      "name": "libbpf.so",
+      "base": "0x7f30c47c7000",
+      "size": 45056
+    },
+    {
+      "name": "android.hardware.memtrack@1.0.so",
+      "base": "0x7f30b1bc9000",
+      "size": 81920
+    },
+    {
+      "name": "android.hardware.memtrack-V1-ndk_platform.so",
+      "base": "0x7f30be8ae000",
+      "size": 45056
+    },
+    {
+      "name": "libprocinfo.so",
+      "base": "0x7f30a424a000",
+      "size": 20480
+    },
+    {
+      "name": "android.hardware.graphics.allocator@2.0.so",
+      "base": "0x7f30ccc47000",
+      "size": 90112
+    },
+    {
+      "name": "android.hardware.graphics.allocator@3.0.so",
+      "base": "0x7f30aa489000",
+      "size": 90112
+    },
+    {
+      "name": "android.hardware.graphics.allocator@4.0.so",
+      "base": "0x7f30b02ca000",
+      "size": 81920
+    },
+    {
+      "name": "android.hardware.graphics.common-V2-ndk_platform.so",
+      "base": "0x7f30aa59b000",
+      "size": 28672
+    },
+    {
+      "name": "android.hardware.graphics.common@1.2.so",
+      "base": "0x7f30cc435000",
+      "size": 12288
+    },
+    {
+      "name": "android.hardware.graphics.mapper@2.0.so",
+      "base": "0x7f30be941000",
+      "size": 98304
+    },
+    {
+      "name": "android.hardware.graphics.mapper@2.1.so",
+      "base": "0x7f30b05db000",
+      "size": 102400
+    },
+    {
+      "name": "android.hardware.graphics.mapper@3.0.so",
+      "base": "0x7f30cc719000",
+      "size": 106496
+    },
+    {
+      "name": "android.hardware.graphics.mapper@4.0.so",
+      "base": "0x7f30bb852000",
+      "size": 135168
+    },
+    {
+      "name": "libgralloctypes.so",
+      "base": "0x7f30a57de000",
+      "size": 94208
+    },
+    {
+      "name": "android.hardware.graphics.bufferqueue@1.0.so",
+      "base": "0x7f30b0140000",
+      "size": 212992
+    },
+    {
+      "name": "android.hardware.graphics.bufferqueue@2.0.so",
+      "base": "0x7f30a9f82000",
+      "size": 192512
+    },
+    {
+      "name": "android.hardware.graphics.common@1.1.so",
+      "base": "0x7f30ccca3000",
+      "size": 12288
+    },
+    {
+      "name": "android.hidl.token@1.0-utils.so",
+      "base": "0x7f30c1a46000",
+      "size": 24576
+    },
+    {
+      "name": "android.frameworks.bufferhub@1.0.so",
+      "base": "0x7f30cc6d5000",
+      "size": 131072
+    },
+    {
+      "name": "libbufferhub.so",
+      "base": "0x7f30cc62b000",
+      "size": 73728
+    },
+    {
+      "name": "libbufferhubqueue.so",
+      "base": "0x7f30cca89000",
+      "size": 131072
+    },
+    {
+      "name": "libpdx_default_transport.so",
+      "base": "0x7f30a8f81000",
+      "size": 167936
+    },
+    {
+      "name": "libandroid_runtime_lazy.so",
+      "base": "0x7f30cc2c3000",
+      "size": 16384
+    },
+    {
+      "name": "libmediadrm.so",
+      "base": "0x7f30b1c80000",
+      "size": 262144
+    },
+    {
+      "name": "libmedia_omx.so",
+      "base": "0x7f30aa20a000",
+      "size": 212992
+    },
+    {
+      "name": "libmedia_jni_utils.so",
+      "base": "0x7f30b1c73000",
+      "size": 20480
+    },
+    {
+      "name": "libmediandk_utils.so",
+      "base": "0x7f30cc1d6000",
+      "size": 20480
+    },
+    {
+      "name": "libbacktrace.so",
+      "base": "0x7f30b01cf000",
+      "size": 176128
+    },
+    {
+      "name": "android.hardware.configstore@1.0.so",
+      "base": "0x7f30aaa92000",
+      "size": 122880
+    },
+    {
+      "name": "android.hardware.configstore-utils.so",
+      "base": "0x7f30bebaa000",
+      "size": 16384
+    },
+    {
+      "name": "libSurfaceFlingerProp.so",
+      "base": "0x7f30cca15000",
+      "size": 94208
+    },
+    {
+      "name": "libziparchive.so",
+      "base": "0x7f30be923000",
+      "size": 81920
+    },
+    {
+      "name": "android.system.suspend@1.0.so",
+      "base": "0x7f30b1dc5000",
+      "size": 118784
+    },
+    {
+      "name": "libpcre2.so",
+      "base": "0x7f30aa746000",
+      "size": 385024
+    },
+    {
+      "name": "libpackagelistparser.so",
+      "base": "0x7f30aa040000",
+      "size": 16384
+    },
+    {
+      "name": "mediametricsservice-aidl-cpp.so",
+      "base": "0x7f30b9737000",
+      "size": 32768
+    },
+    {
+      "name": "audiopolicy-aidl-cpp.so",
+      "base": "0x7f30bebd0000",
+      "size": 192512
+    },
+    {
+      "name": "audiopolicy-types-aidl-cpp.so",
+      "base": "0x7f30aa5d2000",
+      "size": 28672
+    },
+    {
+      "name": "capture_state_listener-aidl-cpp.so",
+      "base": "0x7f30c1ab3000",
+      "size": 32768
+    },
+    {
+      "name": "libaudioutils.so",
+      "base": "0x7f30aa8c2000",
+      "size": 180224
+    },
+    {
+      "name": "libmediautils.so",
+      "base": "0x7f30aa081000",
+      "size": 258048
+    },
+    {
+      "name": "libnblog.so",
+      "base": "0x7f30cc080000",
+      "size": 262144
+    },
+    {
+      "name": "libshmemcompat.so",
+      "base": "0x7f30ccc2d000",
+      "size": 16384
+    },
+    {
+      "name": "libvibrator.so",
+      "base": "0x7f30b5867000",
+      "size": 53248
+    },
+    {
+      "name": "libcgrouprc.so",
+      "base": "0x7f30bea14000",
+      "size": 24576
+    },
+    {
+      "name": "libhidl-gen-utils.so",
+      "base": "0x7f30a8fe3000",
+      "size": 65536
+    },
+    {
+      "name": "libtinyxml2.so",
+      "base": "0x7f30aa8a0000",
+      "size": 94208
+    },
+    {
+      "name": "android.hardware.media.omx@1.0.so",
+      "base": "0x7f30a280f000",
+      "size": 413696
+    },
+    {
+      "name": "libstagefright_framecapture_utils.so",
+      "base": "0x7f30b0400000",
+      "size": 221184
+    },
+    {
+      "name": "libcodec2.so",
+      "base": "0x7f30b004e000",
+      "size": 12288
+    },
+    {
+      "name": "libcodec2_vndk.so",
+      "base": "0x7f30aa0c2000",
+      "size": 712704
+    },
+    {
+      "name": "libmedia_omx_client.so",
+      "base": "0x7f30b5810000",
+      "size": 28672
+    },
+    {
+      "name": "libsfplugin_ccodec.so",
+      "base": "0x7f30aa2d3000",
+      "size": 708608
+    },
+    {
+      "name": "libsfplugin_ccodec_utils.so",
+      "base": "0x7f30bb943000",
+      "size": 454656
+    },
+    {
+      "name": "libstagefright_codecbase.so",
+      "base": "0x7f30bfaa9000",
+      "size": 40960
+    },
+    {
+      "name": "libstagefright_omx_utils.so",
+      "base": "0x7f30cc24a000",
+      "size": 28672
+    },
+    {
+      "name": "libRScpp.so",
+      "base": "0x7f30aaaea000",
+      "size": 286720
+    },
+    {
+      "name": "libhidlallocatorutils.so",
+      "base": "0x7f30cc570000",
+      "size": 12288
+    },
+    {
+      "name": "libhidlmemory.so",
+      "base": "0x7f30a9f2f000",
+      "size": 32768
+    },
+    {
+      "name": "android.hidl.allocator@1.0.so",
+      "base": "0x7f30cc183000",
+      "size": 86016
+    },
+    {
+      "name": "android.hardware.cas.native@1.0.so",
+      "base": "0x7f30b00d6000",
+      "size": 94208
+    },
+    {
+      "name": "android.hardware.drm@1.0.so",
+      "base": "0x7f30aa602000",
+      "size": 380928
+    },
+    {
+      "name": "android.hardware.common-V2-ndk_platform.so",
+      "base": "0x7f30a9fc6000",
+      "size": 24576
+    },
+    {
+      "name": "android.hardware.media@1.0.so",
+      "base": "0x7f30aa036000",
+      "size": 12288
+    },
+    {
+      "name": "android.hidl.token@1.0.so",
+      "base": "0x7f30b9658000",
+      "size": 90112
+    },
+    {
+      "name": "libmediadrmmetrics_lite.so",
+      "base": "0x7f30bfadd000",
+      "size": 131072
+    },
+    {
+      "name": "android.hardware.drm@1.1.so",
+      "base": "0x7f30b96c0000",
+      "size": 253952
+    },
+    {
+      "name": "android.hardware.drm@1.2.so",
+      "base": "0x7f30b5935000",
+      "size": 385024
+    },
+    {
+      "name": "android.hardware.drm@1.3.so",
+      "base": "0x7f30aa4dc000",
+      "size": 147456
+    },
+    {
+      "name": "android.hardware.drm@1.4.so",
+      "base": "0x7f30c439b000",
+      "size": 339968
+    },
+    {
+      "name": "libunwindstack.so",
+      "base": "0x7f30ae35b000",
+      "size": 602112
+    },
+    {
+      "name": "android.hardware.configstore@1.1.so",
+      "base": "0x7f30ae2cd000",
+      "size": 106496
+    },
+    {
+      "name": "libspeexresampler.so",
+      "base": "0x7f30b03b5000",
+      "size": 24576
+    },
+    {
+      "name": "libshmemutil.so",
+      "base": "0x7f30ccbcf000",
+      "size": 12288
+    },
+    {
+      "name": "android.hardware.media.bufferpool@2.0.so",
+      "base": "0x7f30b968d000",
+      "size": 204800
+    },
+    {
+      "name": "libion.so",
+      "base": "0x7f30ae293000",
+      "size": 20480
+    },
+    {
+      "name": "libdmabufheap.so",
+      "base": "0x7f30cca62000",
+      "size": 98304
+    },
+    {
+      "name": "libfmq.so",
+      "base": "0x7f30b0126000",
+      "size": 20480
+    },
+    {
+      "name": "libstagefright_bufferpool@2.0.1.so",
+      "base": "0x7f30a9002000",
+      "size": 200704
+    },
+    {
+      "name": "android.hardware.media.c2@1.0.so",
+      "base": "0x7f30a2934000",
+      "size": 544768
+    },
+    {
+      "name": "libcodec2_client.so",
+      "base": "0x7f30aa1c7000",
+      "size": 180224
+    },
+    {
+      "name": "libstagefright_bufferqueue_helper.so",
+      "base": "0x7f30cc9d5000",
+      "size": 98304
+    },
+    {
+      "name": "libstagefright_omx.so",
+      "base": "0x7f30aa41e000",
+      "size": 335872
+    },
+    {
+      "name": "libstagefright_xmlparser.so",
+      "base": "0x7f30b5899000",
+      "size": 110592
+    },
+    {
+      "name": "android.hidl.memory@1.0.so",
+      "base": "0x7f30cc915000",
+      "size": 131072
+    },
+    {
+      "name": "android.hidl.memory.token@1.0.so",
+      "base": "0x7f30ae243000",
+      "size": 81920
+    },
+    {
+      "name": "android.hardware.cas@1.0.so",
+      "base": "0x7f30cc5c5000",
+      "size": 241664
+    },
+    {
+      "name": "liblzma.so",
+      "base": "0x7f30aa900000",
+      "size": 212992
+    },
+    {
+      "name": "android.hidl.safe_union@1.0.so",
+      "base": "0x7f30a8f1c000",
+      "size": 12288
+    },
+    {
+      "name": "android.hardware.media.c2@1.1.so",
+      "base": "0x7f30cc348000",
+      "size": 184320
+    },
+    {
+      "name": "android.hardware.media.c2@1.2.so",
+      "base": "0x7f30aa248000",
+      "size": 200704
+    },
+    {
+      "name": "libcodec2_hidl_client@1.0.so",
+      "base": "0x7f30aa7dc000",
+      "size": 118784
+    },
+    {
+      "name": "libcodec2_hidl_client@1.1.so",
+      "base": "0x7f30b0292000",
+      "size": 12288
+    },
+    {
+      "name": "libcodec2_hidl_client@1.2.so",
+      "base": "0x7f30ae305000",
+      "size": 12288
+    },
+    {
+      "name": "libnativehelper.so",
+      "base": "0x7f30cd4e3000",
+      "size": 32768
+    },
+    {
+      "name": "libart.so",
+      "base": "0x7f2e0d800000",
+      "size": 14835712
+    },
+    {
+      "name": "libartpalette.so",
+      "base": "0x7f30cd3e4000",
+      "size": 20480
+    },
+    {
+      "name": "libbacktrace.so",
+      "base": "0x7f30cd014000",
+      "size": 176128
+    },
+    {
+      "name": "liblz4.so",
+      "base": "0x7f30ccfc8000",
+      "size": 172032
+    },
+    {
+      "name": "liblzma.so",
+      "base": "0x7f30ccdc2000",
+      "size": 212992
+    },
+    {
+      "name": "libunwindstack.so",
+      "base": "0x7f30cce87000",
+      "size": 602112
+    },
+    {
+      "name": "libartbase.so",
+      "base": "0x7f30cd24b000",
+      "size": 278528
+    },
+    {
+      "name": "libdexfile.so",
+      "base": "0x7f30cd11e000",
+      "size": 307200
+    },
+    {
+      "name": "libprofile.so",
+      "base": "0x7f30cd0c6000",
+      "size": 163840
+    },
+    {
+      "name": "libstatssocket.so",
+      "base": "0x7f2e12688000",
+      "size": 28672
+    },
+    {
+      "name": "heapprofd_client_api.so",
+      "base": "0x7f30cd220000",
+      "size": 94208
+    },
+    {
+      "name": "libziparchive.so",
+      "base": "0x7f30cd392000",
+      "size": 81920
+    },
+    {
+      "name": "libartpalette-system.so",
+      "base": "0x7f2e12645000",
+      "size": 45056
+    },
+    {
+      "name": "libtombstoned_client.so",
+      "base": "0x7f2e0e7c4000",
+      "size": 32768
+    },
+    {
+      "name": "boot.oat",
+      "base": "0x6f6e1000",
+      "size": 4812800
+    },
+    {
+      "name": "boot-core-libart.oat",
+      "base": "0x6fb78000",
+      "size": 409600
+    },
+    {
+      "name": "boot-okhttp.oat",
+      "base": "0x6fbdc000",
+      "size": 327680
+    },
+    {
+      "name": "boot-bouncycastle.oat",
+      "base": "0x6fc2c000",
+      "size": 147456
+    },
+    {
+      "name": "boot-apache-xml.oat",
+      "base": "0x6fc50000",
+      "size": 32768
+    },
+    {
+      "name": "boot-framework.oat",
+      "base": "0x70c9c000",
+      "size": 9953280
+    },
+    {
+      "name": "boot-framework-graphics.oat",
+      "base": "0x7161a000",
+      "size": 20480
+    },
+    {
+      "name": "boot-ext.oat",
+      "base": "0x7161f000",
+      "size": 139264
+    },
+    {
+      "name": "boot-telephony-common.oat",
+      "base": "0x71641000",
+      "size": 53248
+    },
+    {
+      "name": "boot-voip-common.oat",
+      "base": "0x7164e000",
+      "size": 36864
+    },
+    {
+      "name": "boot-ims-common.oat",
+      "base": "0x71657000",
+      "size": 24576
+    },
+    {
+      "name": "boot-core-icu4j.oat",
+      "base": "0x7165d000",
+      "size": 1249280
+    },
+    {
+      "name": "libadbconnection.so",
+      "base": "0x7f2e069e0000",
+      "size": 69632
+    },
+    {
+      "name": "libadbconnection_client.so",
+      "base": "0x7f2e06984000",
+      "size": 241664
+    },
+    {
+      "name": "libhoudini.so",
+      "base": "0x7f2e03817000",
+      "size": 9887744
+    },
+    {
+      "name": "libperfetto_hprof.so",
+      "base": "0x7f2e0689e000",
+      "size": 790528
+    },
+    {
+      "name": "libandroid.so",
+      "base": "0x7f2e037c7000",
+      "size": 188416
+    },
+    {
+      "name": "libactivitymanager_aidl.so",
+      "base": "0x7f2e0374b000",
+      "size": 49152
+    },
+    {
+      "name": "libxml2.so",
+      "base": "0x7f2dffc42000",
+      "size": 1372160
+    },
+    {
+      "name": "libpowermanager.so",
+      "base": "0x7f2e03784000",
+      "size": 192512
+    },
+    {
+      "name": "android.hardware.power@1.0.so",
+      "base": "0x7f2e0371d000",
+      "size": 90112
+    },
+    {
+      "name": "android.hardware.power@1.1.so",
+      "base": "0x7f2e036d9000",
+      "size": 94208
+    },
+    {
+      "name": "android.hardware.power-V2-cpp.so",
+      "base": "0x7f2e06842000",
+      "size": 65536
+    },
+    {
+      "name": "libaaudio.so",
+      "base": "0x7f2e0364a000",
+      "size": 24576
+    },
+    {
+      "name": "libaaudio_internal.so",
+      "base": "0x7f2dffc01000",
+      "size": 245760
+    },
+    {
+      "name": "aaudio-aidl-cpp.so",
+      "base": "0x7f2e036a7000",
+      "size": 65536
+    },
+    {
+      "name": "libamidi.so",
+      "base": "0x7f2dffbca000",
+      "size": 45056
+    },
+    {
+      "name": "libcamera2ndk.so",
+      "base": "0x7f2dffb84000",
+      "size": 196608
+    },
+    {
+      "name": "libjnigraphics.so",
+      "base": "0x7f2dffb64000",
+      "size": 28672
+    },
+    {
+      "name": "libOpenMAXAL.so",
+      "base": "0x7f2dffb23000",
+      "size": 16384
+    },
+    {
+      "name": "libOpenSLES.so",
+      "base": "0x7f2dffaf1000",
+      "size": 16384
+    },
+    {
+      "name": "libRS.so",
+      "base": "0x7f2dffa8b000",
+      "size": 86016
+    },
+    {
+      "name": "libutilscallstack.so",
+      "base": "0x7f2dffa79000",
+      "size": 28672
+    },
+    {
+      "name": "android.hardware.renderscript@1.0.so",
+      "base": "0x7f2dfc432000",
+      "size": 339968
+    },
+    {
+      "name": "libstdc++.so",
+      "base": "0x7f2dfc5c7000",
+      "size": 20480
+    },
+    {
+      "name": "libwebviewchromium_plat_support.so",
+      "base": "0x7f2dfc585000",
+      "size": 28672
+    },
+    {
+      "name": "libjni_jpegutil.so",
+      "base": "0x7f2dfc4cb000",
+      "size": 688128
+    },
+    {
+      "name": "libjni_tinyplanet.so",
+      "base": "0x7f2dfc3ee000",
+      "size": 12288
+    },
+    {
+      "name": "libicu_jni.so",
+      "base": "0x7f2dfc38c000",
+      "size": 86016
+    },
+    {
+      "name": "libjavacore.so",
+      "base": "0x7f2dfaa80000",
+      "size": 262144
+    },
+    {
+      "name": "libandroidio.so",
+      "base": "0x7f2df89c9000",
+      "size": 16384
+    },
+    {
+      "name": "libcrypto.so",
+      "base": "0x7f2df8a39000",
+      "size": 1617920
+    },
+    {
+      "name": "libexpat.so",
+      "base": "0x7f2dfaa49000",
+      "size": 172032
+    },
+    {
+      "name": "libopenjdk.so",
+      "base": "0x7f2df8940000",
+      "size": 241664
+    },
+    {
+      "name": "libopenjdkjvm.so",
+      "base": "0x7f2df89af000",
+      "size": 45056
+    },
+    {
+      "name": "libart-compiler.so",
+      "base": "0x7f2df4c00000",
+      "size": 9846784
+    },
+    {
+      "name": "libstats_jni.so",
+      "base": "0x7f2df55de000",
+      "size": 12288
+    },
+    {
+      "name": "android.hidl.base-V1.0-java.odex",
+      "base": "0x7f2deef1f000",
+      "size": 20480
+    },
+    {
+      "name": "android.hidl.manager-V1.0-java.odex",
+      "base": "0x7f2deeee3000",
+      "size": 20480
+    },
+    {
+      "name": "android.test.base.odex",
+      "base": "0x7f2deee8c000",
+      "size": 20480
+    },
+    {
+      "name": "android.hardware.graphics.mapper@2.0-impl.so",
+      "base": "0x7f2deca0b000",
+      "size": 40960
+    },
+    {
+      "name": "libEGL_emulation.so",
+      "base": "0x7f2dec823000",
+      "size": 118784
+    },
+    {
+      "name": "libGoldfishProfiler.so",
+      "base": "0x7f2deab72000",
+      "size": 2539520
+    },
+    {
+      "name": "libOpenglSystemCommon.so",
+      "base": "0x7f2deab06000",
+      "size": 114688
+    },
+    {
+      "name": "libvulkan_enc.so",
+      "base": "0x7f2dea225000",
+      "size": 4042752
+    },
+    {
+      "name": "libandroidemu.so",
+      "base": "0x7f2deaa92000",
+      "size": 118784
+    },
+    {
+      "name": "lib_renderControl_enc.so",
+      "base": "0x7f2deaad1000",
+      "size": 65536
+    },
+    {
+      "name": "libGLESv2_enc.so",
+      "base": "0x7f2dec856000",
+      "size": 573440
+    },
+    {
+      "name": "libGLESv1_enc.so",
+      "base": "0x7f2deaa4a000",
+      "size": 196608
+    },
+    {
+      "name": "libOpenglCodecCommon.so",
+      "base": "0x7f2dea1c6000",
+      "size": 237568
+    },
+    {
+      "name": "libdrm.so",
+      "base": "0x7f2deaa00000",
+      "size": 98304
+    },
+    {
+      "name": "libGLESv1_CM_emulation.so",
+      "base": "0x7f2dec9cb000",
+      "size": 90112
+    },
+    {
+      "name": "libGLESv2_emulation.so",
+      "base": "0x7f2dec990000",
+      "size": 139264
+    },
+    {
+      "name": "libcompiler_rt.so",
+      "base": "0x7f2dec967000",
+      "size": 61440
+    },
+    {
+      "name": "libwebviewchromium_loader.so",
+      "base": "0x7f2dec928000",
+      "size": 20480
+    },
+    {
+      "name": "libjavacrypto.so",
+      "base": "0x7f2da9f13000",
+      "size": 319488
+    },
+    {
+      "name": "libcrypto.so",
+      "base": "0x7f2daa029000",
+      "size": 1617920
+    },
+    {
+      "name": "libssl.so",
+      "base": "0x7f2da9f97000",
+      "size": 401408
+    },
+    {
+      "name": "libc++.so",
+      "base": "0x7f2da9e45000",
+      "size": 753664
+    },
+    {
+      "name": "org.apache.http.legacy.odex",
+      "base": "0x7f2da905c000",
+      "size": 380928
+    },
+    {
+      "name": "libframework-connectivity-jni.so",
+      "base": "0x7f2da8f17000",
+      "size": 28672
+    },
+    {
+      "name": "libtcb.so",
+      "base": "0xd1a4000",
+      "size": 1568768
+    },
+    {
+      "name": "libsoundpool.so",
+      "base": "0x7f2d99fc9000",
+      "size": 98304
+    },
+    {
+      "name": "gralloc.gmin.so",
+      "base": "0x7f2d98e5d000",
+      "size": 57344
+    },
+    {
+      "name": "libmedia_jni.so",
+      "base": "0x7f2d9440a000",
+      "size": 638976
+    },
+    {
+      "name": "libmediadrmmetrics_consumer.so",
+      "base": "0x7f2d9450b000",
+      "size": 36864
+    },
+    {
+      "name": "libmtp.so",
+      "base": "0x7f2d944c4000",
+      "size": 217088
+    },
+    {
+      "name": "libsonivox.so",
+      "base": "0x7f2d9454a000",
+      "size": 626688
+    },
+    {
+      "name": "libmediadrmmetrics_full.so",
+      "base": "0x7f2d9439a000",
+      "size": 155648
+    },
+    {
+      "name": "libasyncio.so",
+      "base": "0x7f2d943d8000",
+      "size": 12288
+    },
+    {
+      "name": "libprotobuf-cpp-full.so",
+      "base": "0x7f2d8e2bd000",
+      "size": 2396160
+    }
+  ],
+  "exports": [],
+  "symbols": [],
+  "interesting": [],
+  "dlopen_calls": [],
+  "script_error": "Error: unable to find module 'libagame.so'"
+}

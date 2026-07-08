@@ -1,0 +1,26 @@
+{
+  "base_id": 1,
+  "compare_id": 2,
+  "base_version": "MLA_v1.0",
+  "compare_version": "MLA_v2.0",
+  "added_entities": [],
+  "removed_entities": [],
+  "modified_entities": [],
+  "schema_changes": [],
+  "relationship_changes": {
+    "added": 144134,
+    "removed": 36912,
+    "total_base": 36912,
+    "total_compare": 144134
+  },
+  "summary": {
+    "entities_added": 0,
+    "entities_removed": 0,
+    "entities_modified": 0,
+    "schema_changes": 0,
+    "relationship_changes_added": 144134,
+    "relationship_changes_removed": 36912,
+    "total_entities_base": 110801,
+    "total_entities_compare": 110801
+  }
+}

@@ -1,5 +1,5 @@
-"""
-Semantic Reconstruction v3 — Full Semantic Database Builder
+﻿"""
+Semantic Reconstruction v3 â€” Full Semantic Database Builder
 ===========================================================
 Reads corpus clusters, cross-references against known game patterns,
 and produces a complete semantic database with entity schemas,
@@ -10,10 +10,10 @@ from collections import defaultdict
 from itertools import groupby
 
 HDR_SIZE = 69
-DEC_BATCH = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\dec_batch'
-CLUSTER_REPORT = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\analysis\cluster_report.json'
-CORPUS_SUMMARY = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\analysis\corpus_summary.json'
-OUTPUT_DIR = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\semantic_v3'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\dec_batch'
+CLUSTER_REPORT = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\analysis\cluster_report.json'
+CORPUS_SUMMARY = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\analysis\corpus_summary.json'
+OUTPUT_DIR = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\semantic_v3'
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -22,19 +22,19 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 # ============================================================
 
 HERO_CLASSES = {
-    1: ('Mage', '法师'),
-    2: ('Support', '辅助'),
-    3: ('Archer', '射手'),
-    4: ('Tank', '坦克'),
-    5: ('Warrior', '战士'),
+    1: ('Mage', 'æ³•å¸ˆ'),
+    2: ('Support', 'è¾…åŠ©'),
+    3: ('Archer', 'å°„æ‰‹'),
+    4: ('Tank', 'å¦å…‹'),
+    5: ('Warrior', 'æˆ˜å£«'),
 }
 
 HERO_FACTIONS = {
-    1: ('Light', '光明'),
-    2: ('Technology', '科技'),
-    3: ('Elemental', '元素'),
-    4: ('Monster', '小怪'),  # or Chaos
-    5: ('Dark', '暗影'),     # inferred
+    1: ('Light', 'å…‰æ˜Ž'),
+    2: ('Technology', 'ç§‘æŠ€'),
+    3: ('Elemental', 'å…ƒç´ '),
+    4: ('Monster', 'å°æ€ª'),  # or Chaos
+    5: ('Dark', 'æš—å½±'),     # inferred
 }
 
 HERO_QUALITY_STARS = {i: f'Star_{i}' for i in range(1, 9)}
@@ -433,7 +433,7 @@ def analyze_large_cluster(cluster_entry, max_samples=5):
 
 def main():
     print("=" * 70)
-    print("SEMANTIC RECONSTRUCTION V3 — Full Semantic Database Builder")
+    print("SEMANTIC RECONSTRUCTION V3 â€” Full Semantic Database Builder")
     print("=" * 70)
     
     # Load cluster report
@@ -564,11 +564,11 @@ def main():
     
     # Save entity relationship graph
     print("\n=== ENTITY RELATIONSHIP GRAPH ===\n")
-    print("Hero → Skill (skill_id fields)")
-    print("Hero → Item (equip/item_id fields)")
-    print("Stage → Monster (monster_id fields)")
-    print("Stage → Chapter (chapter_id fields)")
-    print("Skill → Buff (buff_id fields)")
+    print("Hero â†’ Skill (skill_id fields)")
+    print("Hero â†’ Item (equip/item_id fields)")
+    print("Stage â†’ Monster (monster_id fields)")
+    print("Stage â†’ Chapter (chapter_id fields)")
+    print("Skill â†’ Buff (buff_id fields)")
 
 
 if __name__ == '__main__':

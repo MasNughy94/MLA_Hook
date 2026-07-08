@@ -1,10 +1,10 @@
-"""Test import logic."""
+﻿"""Test import logic."""
 import sqlite3, os, sys
 sys.path.insert(0, 'scripts')
 from mla_diff import ENTITY_TYPE_FILES, register_import, stable_id, parse_entries
 
-DB_PATH = r'C:\Users\NGEONG\Videos\MLA\PROJECT\cache\mla_database.db'
-DEC_BATCH = r'C:\Users\NGEONG\Videos\MLA\PROJECT\decrypted\dec_batch'
+DB_PATH = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\cache\mla_database.db'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\decrypted\dec_batch'
 
 conn = sqlite3.connect(DB_PATH)
 conn.row_factory = sqlite3.Row

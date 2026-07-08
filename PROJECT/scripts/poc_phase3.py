@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 Phase 3: Deep analysis of the lmF@ format.
 The AES output starts with "lmF@" but isn't zlib. Let's analyze the structure.
@@ -6,8 +6,8 @@ The AES output starts with "lmF@" but isn't zlib. Let's analyze the structure.
 import struct, zlib, sys
 
 KEY = bytes.fromhex("f5a193d50ade553e9835595f5cd75ddd")
-SAMPLE_MT = r"C:\Users\NGEONG\Videos\VSCODE\mt_dump\sample.mt"
-EXPECTED_LUA = r"C:\Users\NGEONG\Videos\VSCODE\mt_dump\sample.mt.lua"
+SAMPLE_MT = r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\sample.mt"
+EXPECTED_LUA = r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\sample.mt.lua"
 
 with open(SAMPLE_MT, 'rb') as f:
     mt_data = f.read()
@@ -159,7 +159,7 @@ else:
 
 # Maybe the expected Lua file has been decrypted from a DIFFERENT format?
 # Let's check if sample.mt.dec_raw (9768 bytes) was from this pipeline
-dec_raw_path = r"C:\Users\NGEONG\Videos\VSCODE\mt_dump\sample.mt.dec_raw"
+dec_raw_path = r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\sample.mt.dec_raw"
 with open(dec_raw_path, 'rb') as f:
     dec_raw = f.read()
 print(f"\nsample.mt.dec_raw: {len(dec_raw)} bytes")

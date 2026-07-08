@@ -1,11 +1,11 @@
-"""
+﻿"""
 Find call sites to the LMF decompressor at 0x5B2400.
 Also search for functions that load/read .mt files to trace the buffer flow.
 """
 
 import struct
 
-so = open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb').read()
+so = open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb').read()
 
 # Executable section: addr=0x3fc000, off=0x3fc000, size=0x9fa1ec
 TEXT_ADDR = 0x3FC000

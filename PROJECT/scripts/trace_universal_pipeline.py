@@ -1,11 +1,11 @@
-"""
+﻿"""
 Trace 0x7D27E8 - the UNIVERSAL .mt pipeline with 200+ callers.
 Show its implementation, and also trace a few NON-Lua callers to find the Roo parser.
 """
 
 import struct
 
-with open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     data = f.read()
 
 TEXT_ADDR = 0x3FC000

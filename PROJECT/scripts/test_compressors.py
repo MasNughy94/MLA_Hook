@@ -1,6 +1,6 @@
-"""Try various standard decompression algorithms on the inner lmF@ payload."""
+﻿"""Try various standard decompression algorithms on the inner lmF@ payload."""
 import struct, os, sys, json
-sys.path.insert(0, r'C:\Users\NGEONG\Videos\MLA')
+sys.path.insert(0, r'C:\Users\ADMIN SERVICE\Videos\MLA')
 from mt_tool import decrypt_layer1
 
 import lz4.block as lz4b
@@ -20,7 +20,7 @@ def parse_lmf(data):
         comp[i] ^= 0xEC
     return {'usize': sz, 'key': key, 'data': bytes(comp)}
 
-mt_dir = r'C:\Users\NGEONG\Videos\MLA\mt_dump\assets'
+mt_dir = r'C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\assets'
 tested = 0
 
 for root, dirs, files in os.walk(mt_dir):

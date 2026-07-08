@@ -1,4 +1,4 @@
-so = open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb').read()
+﻿so = open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb').read()
 
 # Search for Lua-related strings that indicate the parser
 patterns = [

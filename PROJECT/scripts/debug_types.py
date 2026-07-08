@@ -1,6 +1,6 @@
-"""Debug entity_types table."""
+﻿"""Debug entity_types table."""
 import sqlite3
-db = r'C:\Users\NGEONG\Videos\MLA\PROJECT\cache\mla_database.db'
+db = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\cache\mla_database.db'
 conn = sqlite3.connect(db)
 conn.row_factory = sqlite3.Row
 cur = conn.cursor()

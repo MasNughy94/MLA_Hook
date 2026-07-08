@@ -1,4 +1,4 @@
-"""
+﻿"""
 Binary format specification for decompressed MLA .mt files.
 Based on structural analysis of 3 different .mt files.
 
@@ -135,6 +135,6 @@ def analyze_file(path, name):
     print()
 
 # Analyze all three files
-analyze_file(r'C:\Users\NGEONG\AppData\Local\Temp\opencode\0000488d2f64199aca0cc7d54e7d11c0.mt.dec', 'File 1')
-analyze_file(r'C:\Users\NGEONG\AppData\Local\Temp\opencode\00378c64fbd63011a81dccef6bf6e2bd.mt.dec', 'File 2')
-analyze_file(r'C:\Users\NGEONG\AppData\Local\Temp\opencode\008fea3143557d628ac845a13a254e8a.mt.dec', 'File 3')
+analyze_file(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\0000488d2f64199aca0cc7d54e7d11c0.mt.dec', 'File 1')
+analyze_file(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\00378c64fbd63011a81dccef6bf6e2bd.mt.dec', 'File 2')
+analyze_file(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\008fea3143557d628ac845a13a254e8a.mt.dec', 'File 3')

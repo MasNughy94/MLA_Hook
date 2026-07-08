@@ -1,6 +1,6 @@
-import struct
+﻿import struct
 
-so = open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb').read()
+so = open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb').read()
 
 # Search for 'Roo' as a string
 print('Searching for "Roo" string references:')

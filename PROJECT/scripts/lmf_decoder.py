@@ -1,4 +1,4 @@
-import struct, math, sys
+﻿import struct, math, sys
 
 P = 0x400    # initial probability
 PM = 0x800   # probability max
@@ -163,7 +163,7 @@ def decode_lmf(data: bytes) -> bytes:
 
 
 if __name__ == '__main__':
-    path = sys.argv[1] if len(sys.argv) > 1 else r'C:\Users\NGEONG\Videos\VSCODE\mt_dump\intermediate\01_aes_output.bin'
+    path = sys.argv[1] if len(sys.argv) > 1 else r'C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\intermediate\01_aes_output.bin'
     data = open(path, 'rb').read()
     result = decode_lmf(data)
     out_path = path + '.decompressed'
@@ -172,7 +172,7 @@ if __name__ == '__main__':
     print(f'First 48: {result[:48].hex()}')
 
     # Compare with reference
-    ref_path = r'C:\Users\NGEONG\Videos\VSCODE\mt_dump\intermediate\0002_final_decompressed.bin'
+    ref_path = r'C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\intermediate\0002_final_decompressed.bin'
     try:
         ref = open(ref_path, 'rb').read()
         m = sum(1 for a, b in zip(result, ref) if a == b)

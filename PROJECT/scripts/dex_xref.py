@@ -1,4 +1,4 @@
-import struct, sys
+﻿import struct, sys
 
 def read_uleb128(data, off):
     result = 0
@@ -132,8 +132,8 @@ def find_method_containing(data, code_offset):
 
 def main():
     dex_paths = [
-        r'C:\Users\NGEONG\Videos\MLA\MLADVENTURE2\classes.dex',
-        r'C:\Users\NGEONG\Videos\MLA\MLADVENTURE2\classes2.dex',
+        r'C:\Users\ADMIN SERVICE\Videos\MLA\MLADVENTURE2\classes.dex',
+        r'C:\Users\ADMIN SERVICE\Videos\MLA\MLADVENTURE2\classes2.dex',
     ]
     
     target = 'moontonAGame1234'

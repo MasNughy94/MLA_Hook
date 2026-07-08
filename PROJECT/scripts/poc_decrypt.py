@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 PoC: AES-128-CBC decrypt sample.mt using the reconstructed key.
 Tests multiple IV hypotheses, ciphertext offsets, and lengths.
@@ -7,8 +7,8 @@ import struct
 import zlib
 import sys
 
-SAMPLE_MT = r"C:\Users\NGEONG\Videos\VSCODE\mt_dump\sample.mt"
-EXPECTED_LUA = r"C:\Users\NGEONG\Videos\VSCODE\mt_dump\sample.mt.lua"
+SAMPLE_MT = r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\sample.mt"
+EXPECTED_LUA = r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\sample.mt.lua"
 
 # The key (16 bytes, from _getKeyv -> fromHex -> m_sKey)
 KEY_HEX = "f5a193d50ade553e9835595f5cd75ddd"

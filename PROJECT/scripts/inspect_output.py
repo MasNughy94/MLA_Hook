@@ -1,9 +1,9 @@
-"""
+﻿"""
 Inspect the JSON output from the Roo parser.
 """
 import json
 
-with open(r'C:\Users\NGEONG\AppData\Local\Temp\opencode\json_output\0000488d2f64199aca0cc7d54e7d11c0.mt.dec.json', 'r') as f:
+with open(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\json_output\0000488d2f64199aca0cc7d54e7d11c0.mt.dec.json', 'r') as f:
     d = json.load(f)
 
 print('File metadata:')

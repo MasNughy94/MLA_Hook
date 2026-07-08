@@ -1,8 +1,8 @@
-import struct
+﻿import struct
 
-f1 = open(r'C:\Users\NGEONG\AppData\Local\Temp\opencode\0000488d2f64199aca0cc7d54e7d11c0.mt.dec', 'rb').read()
-f2 = open(r'C:\Users\NGEONG\AppData\Local\Temp\opencode\00378c64fbd63011a81dccef6bf6e2bd.mt.dec', 'rb').read()
-f3 = open(r'C:\Users\NGEONG\AppData\Local\Temp\opencode\008fea3143557d628ac845a13a254e8a.mt.dec', 'rb').read()
+f1 = open(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\0000488d2f64199aca0cc7d54e7d11c0.mt.dec', 'rb').read()
+f2 = open(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\00378c64fbd63011a81dccef6bf6e2bd.mt.dec', 'rb').read()
+f3 = open(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\008fea3143557d628ac845a13a254e8a.mt.dec', 'rb').read()
 
 common = f1[:69]
 print('Common 69-byte header:')

@@ -1,14 +1,14 @@
-"""
+﻿"""
 Find the actual Hero DB by looking for files where entries have homogeneous structure
 AND contain hero-ID values (2000-9999 range) in a repeatable field position.
 """
 import os, sys, json
 from collections import Counter, defaultdict
-sys.path.insert(0, r'C:\Users\NGEONG\AppData\Local\Temp\opencode')
+sys.path.insert(0, r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode')
 from roo_parser_final import RooBinaryFormat
 
-BATCH_DIR = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\dec_batch'
-ANALYSIS_DIR = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\analysis'
+BATCH_DIR = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\dec_batch'
+ANALYSIS_DIR = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\analysis'
 
 with open(os.path.join(ANALYSIS_DIR, 'corpus_summary.json')) as f:
     corpus = json.load(f)

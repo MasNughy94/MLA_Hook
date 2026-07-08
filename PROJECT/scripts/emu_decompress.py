@@ -1,15 +1,15 @@
-"""
+﻿"""
 Unicorn ARM64 emulation of CCCrypto::uncompressData inner call (0xcf2b2c).
 """
 import struct, os, sys
 from unicorn import *
 from unicorn.arm64_const import *
 
-BINARY = r'C:\Users\NGEONG\Videos\MLA\libagame.so'
+BINARY = r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so'
 with open(BINARY, 'rb') as f:
     so = bytearray(f.read())
 
-# ── ELF ──
+# â”€â”€ ELF â”€â”€
 e_phoff = struct.unpack('<Q', so[0x20:0x28])[0]
 e_phentsize = struct.unpack('<H', so[0x36:0x38])[0]
 e_phnum = struct.unpack('<H', so[0x38:0x3a])[0]
@@ -28,11 +28,11 @@ for i in range(e_phnum):
 def w64(mu, a, v): mu.mem_write(a, struct.pack('<Q', v))
 def r64(mu, a): return struct.unpack('<Q', mu.mem_read(a, 8))[0]
 
-# ── Test file ──
-sys.path.insert(0, r'C:\Users\NGEONG\Videos\MLA')
+# â”€â”€ Test file â”€â”€
+sys.path.insert(0, r'C:\Users\ADMIN SERVICE\Videos\MLA')
 from mt_tool import decrypt_layer1
 
-mt_dir = r'C:\Users\NGEONG\Videos\MLA\mt_dump\assets'
+mt_dir = r'C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\assets'
 for root, dirs, files in os.walk(mt_dir):
     for f in files:
         if not f.endswith('.mt'): continue
@@ -56,7 +56,7 @@ uncomp_size = sz
 key5 = bytes([dec[4], dec[5], dec[6], dec[7] ^ 5, dec[8]])
 print(f"File: {f}  key={key5.hex()}  comp={comp_size}  uncomp={uncomp_size}")
 
-# ── Setup unicorn ──
+# â”€â”€ Setup unicorn â”€â”€
 mu = Uc(UC_ARCH_ARM64, UC_MODE_ARM)
 
 # Map binary
@@ -79,16 +79,16 @@ def alloc(sz):
     global heap_ptr
     p = heap_ptr; heap_ptr += (sz + 15) & ~15; return p
 
-# ── TLS canary ──
+# â”€â”€ TLS canary â”€â”€
 CANARY_ADDR = alloc(64); CANARY_VAL = 0x1234567890ABCDEF
 w64(mu, CANARY_ADDR, CANARY_VAL)
 w64(mu, 0x11de3e0, CANARY_ADDR)
 
-# ── Interface at 0x11fed98 ──
+# â”€â”€ Interface at 0x11fed98 â”€â”€
 ALLOC_FAKE = 0x30000000; FREE_FAKE = 0x30000008
 w64(mu, 0x11fed98, ALLOC_FAKE); w64(mu, 0x11fed98+8, FREE_FAKE)
 
-# ── Setup call frame ──
+# â”€â”€ Setup call frame â”€â”€
 FRAME = 0x7FF30000
 sp = FRAME + 0x7F00
 
@@ -121,7 +121,7 @@ w64(mu, SIZE_PTR + 8, 0)
 print(f"input={input_buf:#x} output={output_buf:#x} frame={FRAME:#x}")
 print(f"comp_size={comp_size:#x} key_layout at {FRAME+0x60:#x}")
 
-# ── Registers ──
+# â”€â”€ Registers â”€â”€
 mu.reg_write(UC_ARM64_REG_SP, sp)
 mu.reg_write(UC_ARM64_REG_X29, FRAME)
 mu.reg_write(UC_ARM64_REG_X30, 0xDEAD)
@@ -140,7 +140,7 @@ mu.reg_write(UC_ARM64_REG_SP, sp)
 
 print(f"\nStarting emulation at 0xcf2b2c...")
 
-# ── BLR hook ──
+# â”€â”€ BLR hook â”€â”€
 def hook_blr(uc, addr, size, ud):
     code = uc.mem_read(addr, 4)
     insn = struct.unpack('<I', code)[0]
@@ -161,20 +161,20 @@ def hook_blr(uc, addr, size, ud):
         raise UcError(UC_ERR_INSN_INVALID)
 mu.hook_add(UC_HOOK_CODE, hook_blr)
 
-# ── Code trace hook ──
+# â”€â”€ Code trace hook â”€â”€
 def hook_code(uc, addr, size, ud):
     # Trace key function entry/exit
     if addr in [0xcf292c, 0xcf2100, 0xcf2110]:
         print(f"  -> entering fn at {addr:#x}", flush=True)
 mu.hook_add(UC_HOOK_CODE, hook_code)
 
-# ── Error hook ──
+# â”€â”€ Error hook â”€â”€
 def hook_err(uc, access, addr, size, value, ud):
     print(f"MEM: access={access} addr={addr:#x} size={size}", flush=True)
     return False
 mu.hook_add(UC_HOOK_MEM_UNMAPPED, hook_err)
 
-# ── Run ──
+# â”€â”€ Run â”€â”€
 try:
     mu.emu_start(0xcf2b2c, 0xcf2bb4, timeout=2000000)
     ret = mu.reg_read(UC_ARM64_REG_X0)

@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 Batch decompile all .mt files preserving folder hierarchy.
 Pipeline: .mt -> AES-128-CBC decrypt -> lmF@ decompress -> Roo parse -> text
@@ -9,8 +9,8 @@ from datetime import datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from mt_decoder import decrypt_aes, parse_lmf_header, decompress_lmf, LMF_MAGIC
 
-SRC = r"C:\Users\NGEONG\Videos\MLA\assets"
-DST = r"C:\Users\NGEONG\Videos\MLA\DEC-ASSET"
+SRC = r"C:\Users\ADMIN SERVICE\Videos\MLA\assets"
+DST = r"C:\Users\ADMIN SERVICE\Videos\MLA\DEC-ASSET"
 LOG_FILE = os.path.join(DST, "_decompile_log.txt")
 
 HDR_SIZE = 69
@@ -25,7 +25,7 @@ def roo_to_readable(data: bytes) -> str:
     
     lines = []
     lines.append("=" * 70)
-    lines.append("ROO BINARY FORMAT — DECOMPILED OUTPUT")
+    lines.append("ROO BINARY FORMAT â€” DECOMPILED OUTPUT")
     lines.append("=" * 70)
     lines.append("")
     
@@ -184,7 +184,7 @@ def main():
     print("=" * 60)
     
     log_entries = []
-    log_entries.append(f"DECOMPILATION LOG — {datetime.now().isoformat()}")
+    log_entries.append(f"DECOMPILATION LOG â€” {datetime.now().isoformat()}")
     log_entries.append(f"Source: {SRC}")
     log_entries.append(f"Destination: {DST}")
     log_entries.append(f"Total files: {total}")

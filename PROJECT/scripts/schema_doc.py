@@ -1,7 +1,7 @@
-"""Extract complete schema documentation from mla_database.db."""
+﻿"""Extract complete schema documentation from mla_database.db."""
 import sqlite3, os, sys
 
-DB_PATH = r'C:\Users\NGEONG\Videos\MLA\PROJECT\cache\mla_database.db'
+DB_PATH = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\cache\mla_database.db'
 
 TABLE_PURPOSE = {
     'version_imports': 'Tracks every import of a game version (ID, label, date, entity/file counts). Enables version comparison.',

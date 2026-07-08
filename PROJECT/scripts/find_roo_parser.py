@@ -1,4 +1,4 @@
-"""
+﻿"""
 Find the Roo parser by searching for:
 1. Decompressed data constants (magic 0x006D4C1B, type "Roo" 0x006F6F52)
 2. LDR literal accesses near these constants
@@ -7,7 +7,7 @@ Find the Roo parser by searching for:
 
 import struct
 
-with open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     data = f.read()
 
 TEXT_ADDR = 0x3FC000

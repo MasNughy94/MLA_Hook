@@ -1,6 +1,6 @@
-import struct
+﻿import struct
 
-WORK=r'C:\Users\NGEONG\Videos\VSCODE\mt_dump'
+WORK=r'C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump'
 aes=open(WORK+r'\intermediate\01_aes_output.bin','rb').read()
 P=0x400;PM=0x800;PS_C=5;RB=11;RT=0x1000000
 upd=lambda p,b:((p+((PM-p)>>PS_C))if b==0 else(p-(p>>PS_C)))&0xFFFF

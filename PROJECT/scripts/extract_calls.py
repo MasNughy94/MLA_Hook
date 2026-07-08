@@ -1,11 +1,11 @@
-"""
+﻿"""
 Extract ALL BL calls from the two functions that call the Antm checker.
 This traces the full decryption pipeline.
 """
 
 import struct
 
-so = open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb').read()
+so = open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb').read()
 
 TEXT_ADDR = 0x3FC000
 TEXT_OFF = 0x3FC000

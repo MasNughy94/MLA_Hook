@@ -1,4 +1,4 @@
-"""
+﻿"""
 Trace the full pipeline: find orchestrator function that contains both
 the Antm check and the subsequent processing stages.
 
@@ -8,7 +8,7 @@ and trace everything.
 
 import struct
 
-so = open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb').read()
+so = open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb').read()
 
 TEXT_ADDR = 0x3FC000
 TEXT_OFF = 0x3FC000

@@ -1,0 +1,6377 @@
+{
+ "0x01": {
+  "char": ".",
+  "num_files": 4117,
+  "total_occurrences": 29884,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0x02": {
+  "char": ".",
+  "num_files": 4013,
+  "total_occurrences": 29300,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0x03": {
+  "char": ".",
+  "num_files": 4118,
+  "total_occurrences": 27155,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x04": {
+  "char": ".",
+  "num_files": 3977,
+  "total_occurrences": 28653,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0x05": {
+  "char": ".",
+  "num_files": 4085,
+  "total_occurrences": 29735,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x06": {
+  "char": ".",
+  "num_files": 4018,
+  "total_occurrences": 32143,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x07": {
+  "char": ".",
+  "num_files": 4029,
+  "total_occurrences": 28278,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0x08": {
+  "char": ".",
+  "num_files": 4011,
+  "total_occurrences": 29975,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x09": {
+  "char": ".",
+  "num_files": 4023,
+  "total_occurrences": 28841,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x0a": {
+  "char": ".",
+  "num_files": 4083,
+  "total_occurrences": 32174,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x0b": {
+  "char": ".",
+  "num_files": 4035,
+  "total_occurrences": 28555,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0x0c": {
+  "char": ".",
+  "num_files": 4055,
+  "total_occurrences": 27052,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec",
+   "006656ed4f73f74b981d3ec935b5e071.mt.dec"
+  ]
+ },
+ "0x0d": {
+  "char": ".",
+  "num_files": 4078,
+  "total_occurrences": 27028,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0x0e": {
+  "char": ".",
+  "num_files": 4041,
+  "total_occurrences": 29859,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec"
+  ]
+ },
+ "0x0f": {
+  "char": ".",
+  "num_files": 4066,
+  "total_occurrences": 27909,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x10": {
+  "char": ".",
+  "num_files": 4097,
+  "total_occurrences": 28298,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0x11": {
+  "char": ".",
+  "num_files": 4183,
+  "total_occurrences": 32145,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x12": {
+  "char": ".",
+  "num_files": 4087,
+  "total_occurrences": 30858,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0x13": {
+  "char": ".",
+  "num_files": 4154,
+  "total_occurrences": 30151,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x14": {
+  "char": ".",
+  "num_files": 4322,
+  "total_occurrences": 30196,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x15": {
+  "char": ".",
+  "num_files": 4100,
+  "total_occurrences": 30540,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0x16": {
+  "char": ".",
+  "num_files": 4274,
+  "total_occurrences": 30263,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0x17": {
+  "char": ".",
+  "num_files": 4228,
+  "total_occurrences": 30587,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x18": {
+  "char": ".",
+  "num_files": 4335,
+  "total_occurrences": 29586,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x19": {
+  "char": ".",
+  "num_files": 4167,
+  "total_occurrences": 32758,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x1a": {
+  "char": ".",
+  "num_files": 4236,
+  "total_occurrences": 30552,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x1b": {
+  "char": ".",
+  "num_files": 4707,
+  "total_occurrences": 31655,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x1c": {
+  "char": ".",
+  "num_files": 4200,
+  "total_occurrences": 28158,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x1d": {
+  "char": ".",
+  "num_files": 4133,
+  "total_occurrences": 28564,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x1e": {
+  "char": ".",
+  "num_files": 4111,
+  "total_occurrences": 30041,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0x1f": {
+  "char": ".",
+  "num_files": 4201,
+  "total_occurrences": 28628,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0x20": {
+  "char": " ",
+  "num_files": 4008,
+  "total_occurrences": 30196,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x21": {
+  "char": "!",
+  "num_files": 4018,
+  "total_occurrences": 28029,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec",
+   "006656ed4f73f74b981d3ec935b5e071.mt.dec"
+  ]
+ },
+ "0x22": {
+  "char": "\"",
+  "num_files": 4046,
+  "total_occurrences": 27870,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec",
+   "006656ed4f73f74b981d3ec935b5e071.mt.dec"
+  ]
+ },
+ "0x23": {
+  "char": "#",
+  "num_files": 4035,
+  "total_occurrences": 28421,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec"
+  ]
+ },
+ "0x24": {
+  "char": "$",
+  "num_files": 4067,
+  "total_occurrences": 28121,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x25": {
+  "char": "%",
+  "num_files": 4075,
+  "total_occurrences": 28081,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x26": {
+  "char": "&",
+  "num_files": 4163,
+  "total_occurrences": 26329,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x27": {
+  "char": "'",
+  "num_files": 4121,
+  "total_occurrences": 27400,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec"
+  ]
+ },
+ "0x28": {
+  "char": "(",
+  "num_files": 4054,
+  "total_occurrences": 27328,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x29": {
+  "char": ")",
+  "num_files": 4048,
+  "total_occurrences": 26714,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x2a": {
+  "char": "*",
+  "num_files": 4078,
+  "total_occurrences": 27475,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0x2b": {
+  "char": "+",
+  "num_files": 4133,
+  "total_occurrences": 28039,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec"
+  ]
+ },
+ "0x2c": {
+  "char": ",",
+  "num_files": 4003,
+  "total_occurrences": 26006,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x2d": {
+  "char": "-",
+  "num_files": 4060,
+  "total_occurrences": 27397,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x2e": {
+  "char": ".",
+  "num_files": 4043,
+  "total_occurrences": 26670,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x2f": {
+  "char": "/",
+  "num_files": 3994,
+  "total_occurrences": 26002,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0x30": {
+  "char": "0",
+  "num_files": 3983,
+  "total_occurrences": 28012,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x31": {
+  "char": "1",
+  "num_files": 4188,
+  "total_occurrences": 29408,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x32": {
+  "char": "2",
+  "num_files": 4054,
+  "total_occurrences": 25770,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec"
+  ]
+ },
+ "0x33": {
+  "char": "3",
+  "num_files": 3990,
+  "total_occurrences": 27844,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x34": {
+  "char": "4",
+  "num_files": 4077,
+  "total_occurrences": 27518,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x35": {
+  "char": "5",
+  "num_files": 4037,
+  "total_occurrences": 28567,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0x36": {
+  "char": "6",
+  "num_files": 4100,
+  "total_occurrences": 29241,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x37": {
+  "char": "7",
+  "num_files": 4007,
+  "total_occurrences": 28257,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x38": {
+  "char": "8",
+  "num_files": 3969,
+  "total_occurrences": 26707,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x39": {
+  "char": "9",
+  "num_files": 4088,
+  "total_occurrences": 26283,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x3a": {
+  "char": ":",
+  "num_files": 4082,
+  "total_occurrences": 26309,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x3b": {
+  "char": ";",
+  "num_files": 4033,
+  "total_occurrences": 26108,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x3c": {
+  "char": "<",
+  "num_files": 3987,
+  "total_occurrences": 28824,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec",
+   "006656ed4f73f74b981d3ec935b5e071.mt.dec"
+  ]
+ },
+ "0x3d": {
+  "char": "=",
+  "num_files": 4014,
+  "total_occurrences": 27661,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x3e": {
+  "char": ">",
+  "num_files": 4121,
+  "total_occurrences": 26605,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x3f": {
+  "char": "?",
+  "num_files": 4020,
+  "total_occurrences": 26425,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec"
+  ]
+ },
+ "0x40": {
+  "char": "@",
+  "num_files": 4362,
+  "total_occurrences": 31368,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x41": {
+  "char": "A",
+  "num_files": 4465,
+  "total_occurrences": 31315,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x42": {
+  "char": "B",
+  "num_files": 4445,
+  "total_occurrences": 30113,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x43": {
+  "char": "C",
+  "num_files": 4380,
+  "total_occurrences": 28792,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0x44": {
+  "char": "D",
+  "num_files": 4332,
+  "total_occurrences": 29912,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0x45": {
+  "char": "E",
+  "num_files": 4447,
+  "total_occurrences": 33131,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x46": {
+  "char": "F",
+  "num_files": 4319,
+  "total_occurrences": 33276,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x47": {
+  "char": "G",
+  "num_files": 4358,
+  "total_occurrences": 31789,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0x48": {
+  "char": "H",
+  "num_files": 4463,
+  "total_occurrences": 33107,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x49": {
+  "char": "I",
+  "num_files": 4465,
+  "total_occurrences": 33052,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec"
+  ]
+ },
+ "0x4a": {
+  "char": "J",
+  "num_files": 4466,
+  "total_occurrences": 34606,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x4b": {
+  "char": "K",
+  "num_files": 4453,
+  "total_occurrences": 34177,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0x4c": {
+  "char": "L",
+  "num_files": 4940,
+  "total_occurrences": 37144,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x4d": {
+  "char": "M",
+  "num_files": 4627,
+  "total_occurrences": 34278,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x4e": {
+  "char": "N",
+  "num_files": 4537,
+  "total_occurrences": 31231,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x4f": {
+  "char": "O",
+  "num_files": 4637,
+  "total_occurrences": 34418,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x50": {
+  "char": "P",
+  "num_files": 4518,
+  "total_occurrences": 33312,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x51": {
+  "char": "Q",
+  "num_files": 4478,
+  "total_occurrences": 35479,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x52": {
+  "char": "R",
+  "num_files": 4834,
+  "total_occurrences": 36018,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0x53": {
+  "char": "S",
+  "num_files": 4612,
+  "total_occurrences": 34384,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x54": {
+  "char": "T",
+  "num_files": 4440,
+  "total_occurrences": 31643,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x55": {
+  "char": "U",
+  "num_files": 4573,
+  "total_occurrences": 35039,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x56": {
+  "char": "V",
+  "num_files": 4563,
+  "total_occurrences": 34240,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x57": {
+  "char": "W",
+  "num_files": 4378,
+  "total_occurrences": 32437,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x58": {
+  "char": "X",
+  "num_files": 4487,
+  "total_occurrences": 34405,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0x59": {
+  "char": "Y",
+  "num_files": 4401,
+  "total_occurrences": 32855,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x5a": {
+  "char": "Z",
+  "num_files": 4438,
+  "total_occurrences": 32901,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0x5b": {
+  "char": "[",
+  "num_files": 4435,
+  "total_occurrences": 30331,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0x5c": {
+  "char": "\\",
+  "num_files": 4471,
+  "total_occurrences": 31529,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x5d": {
+  "char": "]",
+  "num_files": 4398,
+  "total_occurrences": 31334,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x5e": {
+  "char": "^",
+  "num_files": 4428,
+  "total_occurrences": 32168,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0x5f": {
+  "char": "_",
+  "num_files": 4383,
+  "total_occurrences": 31249,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec"
+  ]
+ },
+ "0x60": {
+  "char": "`",
+  "num_files": 4590,
+  "total_occurrences": 31579,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "006656ed4f73f74b981d3ec935b5e071.mt.dec"
+  ]
+ },
+ "0x61": {
+  "char": "a",
+  "num_files": 4648,
+  "total_occurrences": 31305,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x62": {
+  "char": "b",
+  "num_files": 4607,
+  "total_occurrences": 34162,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x63": {
+  "char": "c",
+  "num_files": 4639,
+  "total_occurrences": 33973,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x64": {
+  "char": "d",
+  "num_files": 4654,
+  "total_occurrences": 33796,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec",
+   "006656ed4f73f74b981d3ec935b5e071.mt.dec"
+  ]
+ },
+ "0x65": {
+  "char": "e",
+  "num_files": 4532,
+  "total_occurrences": 32084,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x66": {
+  "char": "f",
+  "num_files": 4684,
+  "total_occurrences": 33609,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0x67": {
+  "char": "g",
+  "num_files": 4461,
+  "total_occurrences": 37449,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x68": {
+  "char": "h",
+  "num_files": 4741,
+  "total_occurrences": 33739,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x69": {
+  "char": "i",
+  "num_files": 4796,
+  "total_occurrences": 33786,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x6a": {
+  "char": "j",
+  "num_files": 4738,
+  "total_occurrences": 32013,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x6b": {
+  "char": "k",
+  "num_files": 4790,
+  "total_occurrences": 33646,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x6c": {
+  "char": "l",
+  "num_files": 4859,
+  "total_occurrences": 39442,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec"
+  ]
+ },
+ "0x6d": {
+  "char": "m",
+  "num_files": 5160,
+  "total_occurrences": 41456,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x6e": {
+  "char": "n",
+  "num_files": 5212,
+  "total_occurrences": 41855,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x6f": {
+  "char": "o",
+  "num_files": 5287,
+  "total_occurrences": 44117,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x70": {
+  "char": "p",
+  "num_files": 4416,
+  "total_occurrences": 32396,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x71": {
+  "char": "q",
+  "num_files": 4515,
+  "total_occurrences": 32163,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0x72": {
+  "char": "r",
+  "num_files": 4388,
+  "total_occurrences": 31383,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec"
+  ]
+ },
+ "0x73": {
+  "char": "s",
+  "num_files": 4309,
+  "total_occurrences": 31008,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0x74": {
+  "char": "t",
+  "num_files": 4415,
+  "total_occurrences": 31710,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x75": {
+  "char": "u",
+  "num_files": 4458,
+  "total_occurrences": 33287,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x76": {
+  "char": "v",
+  "num_files": 4520,
+  "total_occurrences": 32514,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x77": {
+  "char": "w",
+  "num_files": 4438,
+  "total_occurrences": 31668,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x78": {
+  "char": "x",
+  "num_files": 4475,
+  "total_occurrences": 30433,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x79": {
+  "char": "y",
+  "num_files": 4517,
+  "total_occurrences": 31199,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0x7a": {
+  "char": "z",
+  "num_files": 4423,
+  "total_occurrences": 30335,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x7b": {
+  "char": "{",
+  "num_files": 4464,
+  "total_occurrences": 32400,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec"
+  ]
+ },
+ "0x7c": {
+  "char": "|",
+  "num_files": 4414,
+  "total_occurrences": 31715,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x7d": {
+  "char": "}",
+  "num_files": 4448,
+  "total_occurrences": 33228,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x7e": {
+  "char": "~",
+  "num_files": 4485,
+  "total_occurrences": 32658,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x7f": {
+  "char": ".",
+  "num_files": 4600,
+  "total_occurrences": 32568,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0x80": {
+  "char": ".",
+  "num_files": 4111,
+  "total_occurrences": 26534,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec"
+  ]
+ },
+ "0x81": {
+  "char": ".",
+  "num_files": 4076,
+  "total_occurrences": 27146,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec",
+   "006656ed4f73f74b981d3ec935b5e071.mt.dec"
+  ]
+ },
+ "0x82": {
+  "char": ".",
+  "num_files": 4102,
+  "total_occurrences": 25766,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x83": {
+  "char": ".",
+  "num_files": 4107,
+  "total_occurrences": 26555,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x84": {
+  "char": ".",
+  "num_files": 4180,
+  "total_occurrences": 27953,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x85": {
+  "char": ".",
+  "num_files": 3952,
+  "total_occurrences": 24770,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x86": {
+  "char": ".",
+  "num_files": 4066,
+  "total_occurrences": 27216,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x87": {
+  "char": ".",
+  "num_files": 4017,
+  "total_occurrences": 26484,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0x88": {
+  "char": ".",
+  "num_files": 4070,
+  "total_occurrences": 24157,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x89": {
+  "char": ".",
+  "num_files": 3959,
+  "total_occurrences": 23601,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x8a": {
+  "char": ".",
+  "num_files": 4113,
+  "total_occurrences": 24016,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x8b": {
+  "char": ".",
+  "num_files": 4043,
+  "total_occurrences": 24270,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x8c": {
+  "char": ".",
+  "num_files": 3960,
+  "total_occurrences": 23906,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec"
+  ]
+ },
+ "0x8d": {
+  "char": ".",
+  "num_files": 4042,
+  "total_occurrences": 26106,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x8e": {
+  "char": ".",
+  "num_files": 4036,
+  "total_occurrences": 28159,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0x8f": {
+  "char": ".",
+  "num_files": 4062,
+  "total_occurrences": 28011,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x90": {
+  "char": ".",
+  "num_files": 4075,
+  "total_occurrences": 29049,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0x91": {
+  "char": ".",
+  "num_files": 4117,
+  "total_occurrences": 29223,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x92": {
+  "char": ".",
+  "num_files": 4005,
+  "total_occurrences": 25764,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x93": {
+  "char": ".",
+  "num_files": 4011,
+  "total_occurrences": 25402,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x94": {
+  "char": ".",
+  "num_files": 4027,
+  "total_occurrences": 25604,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x95": {
+  "char": ".",
+  "num_files": 3976,
+  "total_occurrences": 27727,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x96": {
+  "char": ".",
+  "num_files": 4024,
+  "total_occurrences": 30097,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x97": {
+  "char": ".",
+  "num_files": 3973,
+  "total_occurrences": 29028,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x98": {
+  "char": ".",
+  "num_files": 3927,
+  "total_occurrences": 25349,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0x99": {
+  "char": ".",
+  "num_files": 4143,
+  "total_occurrences": 30001,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x9a": {
+  "char": ".",
+  "num_files": 4210,
+  "total_occurrences": 27205,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0x9b": {
+  "char": ".",
+  "num_files": 4064,
+  "total_occurrences": 25319,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "006656ed4f73f74b981d3ec935b5e071.mt.dec"
+  ]
+ },
+ "0x9c": {
+  "char": ".",
+  "num_files": 3927,
+  "total_occurrences": 27896,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x9d": {
+  "char": ".",
+  "num_files": 3896,
+  "total_occurrences": 24964,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0x9e": {
+  "char": ".",
+  "num_files": 4059,
+  "total_occurrences": 26251,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0x9f": {
+  "char": ".",
+  "num_files": 4054,
+  "total_occurrences": 27196,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0xa0": {
+  "char": ".",
+  "num_files": 4103,
+  "total_occurrences": 25551,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0xa1": {
+  "char": ".",
+  "num_files": 4050,
+  "total_occurrences": 28175,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec"
+  ]
+ },
+ "0xa2": {
+  "char": ".",
+  "num_files": 4046,
+  "total_occurrences": 28346,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0xa3": {
+  "char": ".",
+  "num_files": 4082,
+  "total_occurrences": 27023,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0xa4": {
+  "char": ".",
+  "num_files": 3996,
+  "total_occurrences": 26495,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xa5": {
+  "char": ".",
+  "num_files": 4193,
+  "total_occurrences": 26462,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0xa6": {
+  "char": ".",
+  "num_files": 4138,
+  "total_occurrences": 26545,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0xa7": {
+  "char": ".",
+  "num_files": 4053,
+  "total_occurrences": 25818,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xa8": {
+  "char": ".",
+  "num_files": 4207,
+  "total_occurrences": 27409,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0xa9": {
+  "char": ".",
+  "num_files": 5662,
+  "total_occurrences": 36627,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xaa": {
+  "char": ".",
+  "num_files": 4233,
+  "total_occurrences": 30618,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xab": {
+  "char": ".",
+  "num_files": 4146,
+  "total_occurrences": 27993,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0xac": {
+  "char": ".",
+  "num_files": 4183,
+  "total_occurrences": 26841,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0xad": {
+  "char": ".",
+  "num_files": 4181,
+  "total_occurrences": 26788,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0xae": {
+  "char": ".",
+  "num_files": 4219,
+  "total_occurrences": 27969,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0xaf": {
+  "char": ".",
+  "num_files": 4208,
+  "total_occurrences": 28529,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0xb0": {
+  "char": ".",
+  "num_files": 4130,
+  "total_occurrences": 26511,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xb1": {
+  "char": ".",
+  "num_files": 4124,
+  "total_occurrences": 26330,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0xb2": {
+  "char": ".",
+  "num_files": 4216,
+  "total_occurrences": 29035,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0xb3": {
+  "char": ".",
+  "num_files": 4096,
+  "total_occurrences": 28706,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xb4": {
+  "char": ".",
+  "num_files": 4115,
+  "total_occurrences": 26817,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0xb5": {
+  "char": ".",
+  "num_files": 4121,
+  "total_occurrences": 25170,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xb6": {
+  "char": ".",
+  "num_files": 4040,
+  "total_occurrences": 24589,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0xb7": {
+  "char": ".",
+  "num_files": 4084,
+  "total_occurrences": 25869,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0xb8": {
+  "char": ".",
+  "num_files": 4060,
+  "total_occurrences": 27524,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0xb9": {
+  "char": ".",
+  "num_files": 4090,
+  "total_occurrences": 26482,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0xba": {
+  "char": ".",
+  "num_files": 4104,
+  "total_occurrences": 28899,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0xbb": {
+  "char": ".",
+  "num_files": 4034,
+  "total_occurrences": 25836,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0xbc": {
+  "char": ".",
+  "num_files": 3992,
+  "total_occurrences": 28153,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0xbd": {
+  "char": ".",
+  "num_files": 4071,
+  "total_occurrences": 25418,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xbe": {
+  "char": ".",
+  "num_files": 4103,
+  "total_occurrences": 26165,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec",
+   "006656ed4f73f74b981d3ec935b5e071.mt.dec"
+  ]
+ },
+ "0xbf": {
+  "char": ".",
+  "num_files": 4082,
+  "total_occurrences": 28732,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xc0": {
+  "char": ".",
+  "num_files": 4194,
+  "total_occurrences": 27434,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xc1": {
+  "char": ".",
+  "num_files": 4055,
+  "total_occurrences": 28359,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec"
+  ]
+ },
+ "0xc2": {
+  "char": ".",
+  "num_files": 4083,
+  "total_occurrences": 26729,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0xc3": {
+  "char": ".",
+  "num_files": 4088,
+  "total_occurrences": 30260,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0xc4": {
+  "char": ".",
+  "num_files": 4101,
+  "total_occurrences": 28988,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0xc5": {
+  "char": ".",
+  "num_files": 4093,
+  "total_occurrences": 27164,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0xc6": {
+  "char": ".",
+  "num_files": 4043,
+  "total_occurrences": 28558,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0xc7": {
+  "char": ".",
+  "num_files": 4153,
+  "total_occurrences": 29455,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xc8": {
+  "char": ".",
+  "num_files": 4116,
+  "total_occurrences": 26493,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec",
+   "00690ac3d4752ff895bd722f66fe01f7.mt.dec"
+  ]
+ },
+ "0xc9": {
+  "char": ".",
+  "num_files": 4089,
+  "total_occurrences": 26778,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec"
+  ]
+ },
+ "0xca": {
+  "char": ".",
+  "num_files": 4062,
+  "total_occurrences": 27150,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec",
+   "00690ac3d4752ff895bd722f66fe01f7.mt.dec",
+   "0069ecd94ab720062c25bcf73d8013f4.mt.dec",
+   "006d25e0fb5a7db42d3212a0379833a1.mt.dec"
+  ]
+ },
+ "0xcb": {
+  "char": ".",
+  "num_files": 4111,
+  "total_occurrences": 27721,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0xcc": {
+  "char": ".",
+  "num_files": 4104,
+  "total_occurrences": 28456,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xcd": {
+  "char": ".",
+  "num_files": 4032,
+  "total_occurrences": 27520,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0xce": {
+  "char": ".",
+  "num_files": 4276,
+  "total_occurrences": 26010,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0xcf": {
+  "char": ".",
+  "num_files": 4109,
+  "total_occurrences": 26903,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0xd0": {
+  "char": ".",
+  "num_files": 4333,
+  "total_occurrences": 32696,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0xd1": {
+  "char": ".",
+  "num_files": 4753,
+  "total_occurrences": 32654,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0xd2": {
+  "char": ".",
+  "num_files": 4200,
+  "total_occurrences": 31944,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xd3": {
+  "char": ".",
+  "num_files": 4168,
+  "total_occurrences": 27658,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0xd4": {
+  "char": ".",
+  "num_files": 4254,
+  "total_occurrences": 27829,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0xd5": {
+  "char": ".",
+  "num_files": 4197,
+  "total_occurrences": 30430,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec"
+  ]
+ },
+ "0xd6": {
+  "char": ".",
+  "num_files": 4158,
+  "total_occurrences": 30823,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec"
+  ]
+ },
+ "0xd7": {
+  "char": ".",
+  "num_files": 4183,
+  "total_occurrences": 30472,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec",
+   "006656ed4f73f74b981d3ec935b5e071.mt.dec"
+  ]
+ },
+ "0xd8": {
+  "char": ".",
+  "num_files": 4145,
+  "total_occurrences": 28787,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "006656ed4f73f74b981d3ec935b5e071.mt.dec"
+  ]
+ },
+ "0xd9": {
+  "char": ".",
+  "num_files": 4107,
+  "total_occurrences": 28781,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0xda": {
+  "char": ".",
+  "num_files": 4140,
+  "total_occurrences": 27364,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xdb": {
+  "char": ".",
+  "num_files": 4169,
+  "total_occurrences": 29251,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0xdc": {
+  "char": ".",
+  "num_files": 4123,
+  "total_occurrences": 26928,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0xdd": {
+  "char": ".",
+  "num_files": 4080,
+  "total_occurrences": 27599,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0xde": {
+  "char": ".",
+  "num_files": 4126,
+  "total_occurrences": 27737,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec"
+  ]
+ },
+ "0xdf": {
+  "char": ".",
+  "num_files": 4077,
+  "total_occurrences": 27565,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0xe0": {
+  "char": ".",
+  "num_files": 4030,
+  "total_occurrences": 29722,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0xe1": {
+  "char": ".",
+  "num_files": 4067,
+  "total_occurrences": 27500,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0xe2": {
+  "char": ".",
+  "num_files": 4046,
+  "total_occurrences": 28722,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0xe3": {
+  "char": ".",
+  "num_files": 4045,
+  "total_occurrences": 25685,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xe4": {
+  "char": ".",
+  "num_files": 4020,
+  "total_occurrences": 27046,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0xe5": {
+  "char": ".",
+  "num_files": 4033,
+  "total_occurrences": 28644,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0xe6": {
+  "char": ".",
+  "num_files": 4027,
+  "total_occurrences": 28665,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec"
+  ]
+ },
+ "0xe7": {
+  "char": ".",
+  "num_files": 4084,
+  "total_occurrences": 29356,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0xe8": {
+  "char": ".",
+  "num_files": 4071,
+  "total_occurrences": 28106,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0xe9": {
+  "char": ".",
+  "num_files": 4075,
+  "total_occurrences": 27232,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0xea": {
+  "char": ".",
+  "num_files": 3963,
+  "total_occurrences": 25650,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec",
+   "0069ecaa2cdfabbef0a0adc94313fa90.mt.dec",
+   "0069ecd94ab720062c25bcf73d8013f4.mt.dec"
+  ]
+ },
+ "0xeb": {
+  "char": ".",
+  "num_files": 4028,
+  "total_occurrences": 28042,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec"
+  ]
+ },
+ "0xec": {
+  "char": ".",
+  "num_files": 4052,
+  "total_occurrences": 28844,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0xed": {
+  "char": ".",
+  "num_files": 4052,
+  "total_occurrences": 30204,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec",
+   "00690ac3d4752ff895bd722f66fe01f7.mt.dec"
+  ]
+ },
+ "0xee": {
+  "char": ".",
+  "num_files": 4000,
+  "total_occurrences": 27560,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec",
+   "0063336702a2a6038c6e1d5659ea0266.mt.dec"
+  ]
+ },
+ "0xef": {
+  "char": ".",
+  "num_files": 3952,
+  "total_occurrences": 27159,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0xf0": {
+  "char": ".",
+  "num_files": 4023,
+  "total_occurrences": 29008,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0xf1": {
+  "char": ".",
+  "num_files": 4103,
+  "total_occurrences": 27471,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0xf2": {
+  "char": ".",
+  "num_files": 4094,
+  "total_occurrences": 26199,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0xf3": {
+  "char": ".",
+  "num_files": 3975,
+  "total_occurrences": 28358,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0xf4": {
+  "char": ".",
+  "num_files": 3993,
+  "total_occurrences": 27551,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xf5": {
+  "char": ".",
+  "num_files": 4058,
+  "total_occurrences": 27921,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xf6": {
+  "char": ".",
+  "num_files": 4161,
+  "total_occurrences": 26811,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xf7": {
+  "char": ".",
+  "num_files": 4099,
+  "total_occurrences": 26415,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "00569437877435a4a239c8c88aebec3a.mt.dec"
+  ]
+ },
+ "0xf8": {
+  "char": ".",
+  "num_files": 4008,
+  "total_occurrences": 29905,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec"
+  ]
+ },
+ "0xf9": {
+  "char": ".",
+  "num_files": 4183,
+  "total_occurrences": 27002,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ },
+ "0xfa": {
+  "char": ".",
+  "num_files": 4126,
+  "total_occurrences": 27304,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0xfb": {
+  "char": ".",
+  "num_files": 4068,
+  "total_occurrences": 29118,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec",
+   "00690ac3d4752ff895bd722f66fe01f7.mt.dec"
+  ]
+ },
+ "0xfc": {
+  "char": ".",
+  "num_files": 4087,
+  "total_occurrences": 28289,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xfd": {
+  "char": ".",
+  "num_files": 4143,
+  "total_occurrences": 27834,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "002e79ef252cee2de30f133460766a12.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec",
+   "0060fa41fa5879ff6eb52724693e67a3.mt.dec"
+  ]
+ },
+ "0xfe": {
+  "char": ".",
+  "num_files": 4143,
+  "total_occurrences": 28670,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e24ccf35d5be3ae9d945ae2c7e8f.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "0051a545f0893f3527475d14d02836dc.mt.dec"
+  ]
+ },
+ "0xff": {
+  "char": ".",
+  "num_files": 4056,
+  "total_occurrences": 32423,
+  "v1_range": [
+   0,
+   255
+  ],
+  "v2_range": [
+   0,
+   255
+  ],
+  "sample_files": [
+   "0000488d2f64199aca0cc7d54e7d11c0.mt.dec",
+   "0003cfd65dbcfd63038ca626e707a2b8.mt.dec",
+   "000d3a91b5b440d9396b8f9aedcf3523.mt.dec",
+   "000e1204a6fbfb100d5d6df5e3122a64.mt.dec",
+   "0012e9cbdf2ea23f3e030ef082fb3819.mt.dec",
+   "001ec01d264a82e048f618f847b69d8d.mt.dec",
+   "00368165a7c8cc0a4c7ae0d8f3440e9e.mt.dec",
+   "00378c64fbd63011a81dccef6bf6e2bd.mt.dec",
+   "003a4f49c7f7554cfc82cc9e974e99be.mt.dec",
+   "00439cad8b3b63b7666379a3e3957ca7.mt.dec"
+  ]
+ }
+}

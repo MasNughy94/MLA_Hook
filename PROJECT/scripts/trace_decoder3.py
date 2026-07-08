@@ -1,6 +1,6 @@
-import struct, os
+﻿import struct, os
 
-WORK = r"C:\Users\NGEONG\Videos\VSCODE\mt_dump"
+WORK = r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump"
 aes = open(os.path.join(WORK, "intermediate", "01_aes_output.bin"), 'rb').read()
 
 PROB_INIT = 0x400

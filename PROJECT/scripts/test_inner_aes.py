@@ -1,6 +1,6 @@
-"""Test various AES-based decryption approaches on the inner lmF@ payload."""
+﻿"""Test various AES-based decryption approaches on the inner lmF@ payload."""
 import struct, os, sys, zlib
-sys.path.insert(0, r'C:\Users\NGEONG\Videos\MLA')
+sys.path.insert(0, r'C:\Users\ADMIN SERVICE\Videos\MLA')
 from mt_tool import decrypt_layer1
 from Crypto.Cipher import AES
 import hashlib
@@ -31,7 +31,7 @@ def test_file(fp):
     return lmf, dec
 
 # Find files recursively
-mt_dir = r'C:\Users\NGEONG\Videos\MLA\mt_dump\assets'
+mt_dir = r'C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\assets'
 found = []
 for root, dirs, files in os.walk(mt_dir):
     for f in files:

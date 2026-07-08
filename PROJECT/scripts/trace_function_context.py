@@ -1,4 +1,4 @@
-"""
+﻿"""
 The thunk 0x7D27E8 loads a function pointer from a context struct (X21).
 Let me find WHO sets X21 and calls 0x7D27E8.
 And trace the second pipeline at 0xC62F60 (different context setup).
@@ -6,7 +6,7 @@ And trace the second pipeline at 0xC62F60 (different context setup).
 
 import struct
 
-with open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     data = f.read()
 
 def decode_adrp(at_vaddr):

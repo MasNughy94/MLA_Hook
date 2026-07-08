@@ -1,9 +1,9 @@
-"""Final hero schema: find the specific tags for each field position in hero entries."""
+﻿"""Final hero schema: find the specific tags for each field position in hero entries."""
 import os
 from collections import defaultdict
 
 HDR_SIZE = 69
-DEC_BATCH = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\dec_batch'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\dec_batch'
 TARGET = '0217cbdae530696836de83aa3c162e1a.mt.dec'
 
 def parse_entries(path):

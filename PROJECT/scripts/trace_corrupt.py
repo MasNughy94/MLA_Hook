@@ -1,8 +1,8 @@
-import struct
+﻿import struct
 from unicorn import *
 from unicorn.arm64_const import *
 
-with open(r'C:\Users\NGEONG\Videos\MLA\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     so = bytearray(f.read())
 
 mu = Uc(UC_ARCH_ARM64, UC_MODE_ARM)

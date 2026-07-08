@@ -1,9 +1,9 @@
-"""Find all 55 members of the 55f_255t cluster and analyze each file."""
+﻿"""Find all 55 members of the 55f_255t cluster and analyze each file."""
 import os, json
 from collections import defaultdict
 
 HDR_SIZE = 69
-DEC_BATCH = r'C:\Users\NGEONG\Videos\MLA\PROJECT\decrypted\dec_batch'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\decrypted\dec_batch'
 
 # Load cluster report
 with open('analysis/cluster_report.json') as f:

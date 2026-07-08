@@ -1,9 +1,9 @@
-import os, sys, struct
+﻿import os, sys, struct
 from Crypto.Cipher import AES
 
 # Import LMF decoder
 import importlib.util
-spec = importlib.util.spec_from_file_location("lmf", r"C:\Users\NGEONG\AppData\Local\Temp\opencode\lmf_decoder.py")
+spec = importlib.util.spec_from_file_location("lmf", r"C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\lmf_decoder.py")
 lmf = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(lmf)
 decode_lmf = lmf.decode_lmf
@@ -12,9 +12,9 @@ AES_KEY = bytes.fromhex("f5a193d50ade553e9835595f5cd75ddd")
 AES_IV = b"\x00" * 16
 
 files = [
-    r"C:\Users\NGEONG\Videos\VSCODE\mt_dump\assets\0\0000488d2f64199aca0cc7d54e7d11c0.mt",
-    r"C:\Users\NGEONG\Videos\VSCODE\mt_dump\assets\0\00378c64fbd63011a81dccef6bf6e2bd.mt",
-    r"C:\Users\NGEONG\Videos\VSCODE\mt_dump\assets\0\008fea3143557d628ac845a13a254e8a.mt",
+    r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\assets\0\0000488d2f64199aca0cc7d54e7d11c0.mt",
+    r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\assets\0\00378c64fbd63011a81dccef6bf6e2bd.mt",
+    r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\assets\0\008fea3143557d628ac845a13a254e8a.mt",
 ]
 
 for fpath in files:
@@ -54,7 +54,7 @@ for fpath in files:
     print()
     
     # Save to temp file
-    outpath = os.path.join(r"C:\Users\NGEONG\AppData\Local\Temp\opencode", fname + ".dec")
+    outpath = os.path.join(r"C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode", fname + ".dec")
     with open(outpath, "wb") as f:
         f.write(result)
     print(f"Saved to: {outpath}")

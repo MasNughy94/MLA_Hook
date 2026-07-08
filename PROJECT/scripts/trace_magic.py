@@ -1,11 +1,11 @@
-"""
+﻿"""
 Find all callers of the Antm checker function at 0xC82A80.
 Then trace the pipeline: who calls the callers?
 """
 
 import struct
 
-so = open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb').read()
+so = open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb').read()
 
 TEXT_ADDR = 0x3FC000
 TEXT_OFF = 0x3FC000

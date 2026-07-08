@@ -1,4 +1,4 @@
-"""
+﻿"""
 Find where the LMF decompressor (0x5B2400) is actually called.
 Search for BL instructions to it in the ENTIRE text section.
 Also check who calls functions that call it.
@@ -6,7 +6,7 @@ Also check who calls functions that call it.
 
 import struct
 
-with open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     data = f.read()
 
 TEXT_ADDR = 0x3FC000

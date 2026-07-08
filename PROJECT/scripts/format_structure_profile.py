@@ -1,4 +1,4 @@
-"""
+﻿"""
 Deeper analysis: 
 1. Check if the format is Protobuf / FlatBuffers / custom binary table
 2. Look for root pointer, section tables, string table
@@ -7,7 +7,7 @@ Deeper analysis:
 
 import struct, os
 
-samples_dir = r'C:\Users\NGEONG\AppData\Local\Temp\opencode'
+samples_dir = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode'
 files = [
     '0000488d2f64199aca0cc7d54e7d11c0.mt.dec',  # 32K
     '00378c64fbd63011a81dccef6bf6e2bd.mt.dec',  # 96K  

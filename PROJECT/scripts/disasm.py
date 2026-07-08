@@ -1,4 +1,4 @@
-import struct
+﻿import struct
 import os
 
 # Check for capstone and pyelftools
@@ -16,7 +16,7 @@ except ImportError:
     print("ERROR: pyelftools not installed. Install with: pip install pyelftools")
     exit(1)
 
-filepath = r"C:\Users\NGEONG\Videos\MLA\libagame.so"
+filepath = r"C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so"
 
 # Read ELF and find virtual address -> file offset mapping
 with open(filepath, 'rb') as f:

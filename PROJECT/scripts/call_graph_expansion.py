@@ -1,4 +1,4 @@
-"""
+﻿"""
 Build multi-level call graph from CCCrypto::setKey() backward/forward through 5+ levels.
 """
 import struct
@@ -6,7 +6,7 @@ import capstone
 import re, json, sys
 from collections import defaultdict, Counter
 
-LIBAGAME = r"C:\Users\NGEONG\Videos\MLA\libagame.so"
+LIBAGAME = r"C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so"
 
 def read_u64(d, o): return struct.unpack_from("<Q", d, o)[0]
 def read_u32(d, o): return struct.unpack_from("<I", d, o)[0]
@@ -17,7 +17,7 @@ print("Loading ELF...")
 with open(LIBAGAME, "rb") as f:
     elf = f.read()
 
-# ── Parse ELF ────────────────────────────────────────────────
+# â”€â”€ Parse ELF â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 e_shoff = read_u64(elf, 0x28)
 e_shentsize = read_u16(elf, 0x3a)
 e_shnum = read_u16(elf, 0x3c)
@@ -64,7 +64,7 @@ def sym_name(addr):
             return f"{n}+{offset}" if offset else n
     return f"sub_{addr:x}"
 
-# ── Section helpers ──────────────────────────────────────────
+# â”€â”€ Section helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 def get_bytes(addr, size):
     for sn, s in sections.items():
         if s['addr'] <= addr < s['addr'] + s['size']:
@@ -73,7 +73,7 @@ def get_bytes(addr, size):
             return elf[off:end]
     return b''
 
-# ── Capstone ─────────────────────────────────────────────────
+# â”€â”€ Capstone â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 md = capstone.Cs(capstone.CS_ARCH_ARM64, capstone.CS_MODE_ARM)
 md.detail = True
 
@@ -240,7 +240,7 @@ for sn in ['.rodata', '.data']:
             print(f"  Found 4-byte ref 0xceca74 at {hex(addr)} (in {sn})")
 
 # =====================================================================
-# LEVEL 2: Functions that call fromHex (0xcec900) — called by setKey
+# LEVEL 2: Functions that call fromHex (0xcec900) â€” called by setKey
 # =====================================================================
 print("\n=== LEVEL 2: Callers of fromHex (0xcec900) ===")
 # fromHex is: CCCrypto::fromHex(RKSs) = 0xcec900
@@ -429,11 +429,11 @@ if not paths_found:
     print("  NO paths found to targets within 3 levels!")
 
 # =====================================================================
-# LEVEL 4: BLR indirect calls — find all BLR in .text
+# LEVEL 4: BLR indirect calls â€” find all BLR in .text
 # =====================================================================
 print("\n=== LEVEL 4: BLR (indirect call) analysis ===")
 
-# Scan for BLR instructions — these could dispatch to setKey
+# Scan for BLR instructions â€” these could dispatch to setKey
 blr_sites = []
 addr = TEXT_START
 while addr + 4 <= TEXT_END:

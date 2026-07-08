@@ -1,4 +1,4 @@
-"""
+﻿"""
 Extract and analyze all 53 .init_array constructor functions from libagame.so.
 Target: identify which function potentially initializes CCCrypto::m_sKey.
 """
@@ -9,8 +9,8 @@ import re
 import sys
 from pathlib import Path
 
-LIBAGAME = r"C:\Users\NGEONG\Videos\MLA\libagame.so"
-CAPSTONE = r"C:\Users\NGEONG\AppData\Local\Programs\Python\Python312\Lib\site-packages\capstone\lib\x64\capstone.dll"
+LIBAGAME = r"C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so"
+CAPSTONE = r"C:\Users\ADMIN SERVICE\AppData\Local\Programs\Python\Python312\Lib\site-packages\capstone\lib\x64\capstone.dll"
 
 import capstone
 
@@ -36,12 +36,12 @@ def read_cstr(data, offset, maxlen=256):
     end = data.find(b'\x00', offset, offset + maxlen)
     return data[offset:end].decode('ascii', errors='replace') if end > offset else ""
 
-# ── Load ELF ────────────────────────────────────────────────
+# â”€â”€ Load ELF â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 print("Loading libagame.so...")
 with open(LIBAGAME, "rb") as f:
     elf = f.read()
 
-# ── Parse ELF header ────────────────────────────────────────
+# â”€â”€ Parse ELF header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 e_ident = elf[:16]
 ei_class = e_ident[4]  # 2 = 64-bit
 ei_data = e_ident[5]   # 1 = LE
@@ -61,7 +61,7 @@ print(f"  PHDR: offset=0x{e_phoff:x}, num={e_phnum}, entsize={e_phentsize}")
 print(f"  SHDR: offset=0x{e_shoff:x}, num={e_shnum}, entsize={e_shentsize}")
 print(f"  Section string table index: {e_shstrndx}")
 
-# ── Parse section headers ───────────────────────────────────
+# â”€â”€ Parse section headers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 sections = []
 shstrtab_off = e_shoff + e_shstrndx * e_shentsize
 shstrtab_sh_offset = read_u64(elf, shstrtab_off + 0x18)
@@ -97,7 +97,7 @@ for i in range(e_shnum):
 for s in sections:
     print(f"  [{s['name']:20s}] addr=0x{s['addr']:08x} offset=0x{s['offset']:08x} size=0x{s['size']:x}")
 
-# ── Find .init_array section ────────────────────────────────
+# â”€â”€ Find .init_array section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 init_array = next((s for s in sections if s['name'] == '.init_array'), None)
 if not init_array:
     print("ERROR: .init_array not found")
@@ -108,7 +108,7 @@ init_array_start = init_array['addr']
 init_array_end = init_array['addr'] + init_array['size']
 init_array_offset = init_array['offset']
 
-# ── Find .rela.dyn section ──────────────────────────────────
+# â”€â”€ Find .rela.dyn section â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 rela_dyn = next((s for s in sections if s['name'] == '.rela.dyn'), None)
 if not rela_dyn:
     print("ERROR: .rela.dyn not found")
@@ -116,7 +116,7 @@ if not rela_dyn:
 
 print(f".rela.dyn: offset=0x{rela_dyn['offset']:x} size=0x{rela_dyn['size']:x} entsize={rela_dyn['entsize']}")
 
-# ── Extract RELA entries targeting .init_array ──────────────
+# â”€â”€ Extract RELA entries targeting .init_array â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 rela_entries = []
 rela_end = rela_dyn['offset'] + rela_dyn['size']
 r = rela_dyn['offset']
@@ -141,7 +141,7 @@ while r + 24 <= rela_end:
 
 print(f"\nFound {len(rela_entries)} RELA entries targeting .init_array range [0x{init_array_start:x}, 0x{init_array_end:x})")
 
-# ── Verify ordering ─────────────────────────────────────────
+# â”€â”€ Verify ordering â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 rela_entries.sort(key=lambda e: e['r_offset'])
 # Check for gaps and non-function addends
 text_start_candidates = []
@@ -162,7 +162,7 @@ for i, e in enumerate(rela_entries):
 
 print(f"\nOf {len(rela_entries)} entries, {len(text_start_candidates)} have addends in .text range (0x3fc000-0xdf61ec)")
 
-# ── Build function list (only entries with addends in .text or meaningful range) ──
+# â”€â”€ Build function list (only entries with addends in .text or meaningful range) â”€â”€
 funcs = []
 for i, e in enumerate(rela_entries):
     addend_lo = e['r_addend'] & 0xffffffff
@@ -181,7 +181,7 @@ for i, e in enumerate(rela_entries):
     else:
         print(f"  Skipping entry[{i}] addend=0x{addend_lo:x} (not in .text range)")
 
-# ── Determine function sizes ────────────────────────────────
+# â”€â”€ Determine function sizes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # Sort by address
 funcs.sort(key=lambda f: f['addr'])
 
@@ -209,7 +209,7 @@ for i in range(len(funcs)):
 # Restore original order
 funcs.sort(key=lambda f: f['index'])
 
-# ── Try to find symbol names ─────────────────────────────────
+# â”€â”€ Try to find symbol names â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # Check .symtab (if not stripped) or .dynsym
 symtab = next((s for s in sections if s['name'] == '.symtab'), None)
 strtab = next((s for s in sections if s['name'] == '.strtab'), None)
@@ -268,7 +268,7 @@ if dynsym and dynstr:
 
 print(f"Total symbols mapped: {len(symbol_map)}")
 
-# ── Resolve names for our functions ─────────────────────────
+# â”€â”€ Resolve names for our functions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 for f in funcs:
     addr = f['addr']
     if addr in symbol_map:
@@ -292,7 +292,7 @@ print(f"{'='*120}")
 for f in funcs:
     print(f"{f['index']:4d} 0x{f['addr']:08x} {f['size']:6d} {f['name'][:50]}")
 
-# ── Disassemble each function ────────────────────────────────
+# â”€â”€ Disassemble each function â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 md = capstone.Cs(capstone.CS_ARCH_ARM64, capstone.CS_MODE_ARM)
 
 def is_ret(insn):
@@ -436,7 +436,7 @@ def analyze_function(md, elf_data, addr, size, func_idx, all_funcs):
                     'target_name': symbol_map.get(target, {}).get('name', f'sub_{target:x}'),
                 })
         
-        # Check for ADRP (page address loading — usually for global access)
+        # Check for ADRP (page address loading â€” usually for global access)
         elif insn.mnemonic == 'adrp':
             target_match = re.search(r'#0x([0-9a-f]+)', insn.op_str)
             if target_match:
@@ -503,7 +503,7 @@ def analyze_function(md, elf_data, addr, size, func_idx, all_funcs):
     
     return result
 
-# ── Analyze all 53 functions ─────────────────────────────────
+# â”€â”€ Analyze all 53 functions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 print(f"\n{'='*120}")
 print(f"DISASSEMBLING {len(funcs)} INIT FUNCTIONS...")
 print(f"{'='*120}")
@@ -522,7 +522,7 @@ for f in funcs:
         calls_str += f" ... (+{len(result['calls'])-3})"
     print(f"  [{f['index']:2d}] 0x{f['addr']:08x}: {cats[:80]:80s} | {calls_str[:50]}")
 
-# ── Scoring / Ranking ───────────────────────────────────────
+# â”€â”€ Scoring / Ranking â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 print(f"\n{'='*120}")
 print("RANKING BY LIKELIHOOD OF SETKEY INITIALIZATION")
 print(f"{'='*120}")
@@ -619,7 +619,7 @@ for rank, r in enumerate(ranked, 1):
     reasons = '; '.join(r['reasons'][:3])
     print(f"{rank:4d} [{r['index']:2d}] 0x{r['addr']:08x} {r['score']:4d}  {r['name'][:48]:48s} {reasons[:50]}")
 
-# ── Find functions with SCCrypto/m_sKey page access ──────
+# â”€â”€ Find functions with SCCrypto/m_sKey page access â”€â”€â”€â”€â”€â”€
 print(f"\n{'='*120}")
 print("FUNCTIONS ACCESSING m_sKey GOT PAGE (0x11E4000)")
 print(f"{'='*120}")
@@ -628,9 +628,9 @@ if found_mskey:
     for r in found_mskey:
         print(f"  [{r['index']:2d}] 0x{r['addr']:08x} score={r['score']:3d}: {r['name']}")
 else:
-    print("  NONE FOUND — setKey page not statically referenced from .init_array functions")
+    print("  NONE FOUND â€” setKey page not statically referenced from .init_array functions")
 
-# ── Find functions calling into crypto region ──────────
+# â”€â”€ Find functions calling into crypto region â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 print(f"\n{'='*120}")
 print("FUNCTIONS CALLING INTO CRYPTO REGION (0xc82000-0xc83000)")
 print(f"{'='*120}")
@@ -639,9 +639,9 @@ if found_crypto:
     for r in found_crypto:
         print(f"  [{r['index']:2d}] 0x{r['addr']:08x} score={r['score']:3d}: {r['name']}")
 else:
-    print("  NONE FOUND — no direct calls to crypto region")
+    print("  NONE FOUND â€” no direct calls to crypto region")
 
-# ── Output detailed table ────────────────────────────────────
+# â”€â”€ Output detailed table â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 print(f"\n{'='*120}")
 print("DETAILED ANALYSIS TABLE (sorted by index)")
 print(f"{'='*120}")
@@ -665,7 +665,7 @@ for r in results:
             line += "    "
     print(line)
 
-# ── Save detailed output to JSON ────────────────────────────
+# â”€â”€ Save detailed output to JSON â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 total_init_array_entries = len(rela_entries)
 output = {
     'summary': {
@@ -698,7 +698,7 @@ output = {
     } for r in results]
 }
 
-with open(r"C:\Users\NGEONG\AppData\Local\Temp\opencode\init_funcs_analysis.json", "w") as f:
+with open(r"C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\init_funcs_analysis.json", "w") as f:
     json.dump(output, f, indent=2)
 
 print(f"\n\nDetailed analysis saved to init_funcs_analysis.json")

@@ -1,8 +1,8 @@
-import struct, os
+﻿import struct, os
 from unicorn import *
 from unicorn.arm64_const import *
 
-with open(r'C:\Users\NGEONG\Videos\MLA\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     so = bytearray(f.read())
 from Crypto.Cipher import AES
 def dl(d):
@@ -10,7 +10,7 @@ def dl(d):
     c=AES.new(bytes.fromhex('f5a193d50ade553e9835595f5cd75ddd'), AES.MODE_ECB)
     return c.decrypt(pp)[:len(p)]
 
-mt = r'C:\Users\NGEONG\Videos\MLA\MLADVENTURE2\assets\0\0000488d2f64199aca0cc7d54e7d11c0.mt'
+mt = r'C:\Users\ADMIN SERVICE\Videos\MLA\MLADVENTURE2\assets\0\0000488d2f64199aca0cc7d54e7d11c0.mt'
 with open(mt, 'rb') as f:
     raw = f.read()
 dec = dl(raw)

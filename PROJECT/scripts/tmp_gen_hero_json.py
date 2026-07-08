@@ -1,4 +1,4 @@
-"""Generate hero_db schema JSON in semantic_v3 format."""
+﻿"""Generate hero_db schema JSON in semantic_v3 format."""
 import json
 
 # Load tag analysis
@@ -25,7 +25,7 @@ def classify_tag(tag_num, info):
         classifications.append({
             "name": "Reserved_Zero",
             "confidence": 0.95,
-            "evidence": "Always 0 — unused field slot"
+            "evidence": "Always 0 â€” unused field slot"
         })
     
     if uv == 1:
@@ -129,7 +129,7 @@ def classify_tag(tag_num, info):
         classifications.append({
             "name": "Generic_Integer",
             "confidence": 0.35,
-            "evidence": f"{uv} unique values — unstructured integer reference"
+            "evidence": f"{uv} unique values â€” unstructured integer reference"
         })
     
     if not classifications:
@@ -190,7 +190,7 @@ for tag_str in sorted(fa.keys(), key=lambda x: int(x)):
 import os
 from collections import defaultdict
 
-DEC_BATCH = r'C:\Users\NGEONG\Videos\MLA\PROJECT\decrypted\dec_batch'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\decrypted\dec_batch'
 TARGET = '0217cbdae530696836de83aa3c162e1a.mt.dec'
 
 def parse_entries(path):
@@ -252,7 +252,7 @@ output = {
             "file_count": 55,
             "avg_entry_count": round(5716),  # from deep_value_analysis cluster avg
             "cluster_count": 1,
-            "description": "Hero Master DB — central entity registry with 255 tag-based field selectors across 2980 heterogeneous entries",
+            "description": "Hero Master DB â€” central entity registry with 255 tag-based field selectors across 2980 heterogeneous entries",
             "entry_type_catalog": entry_types,
             "fields": fields
         }

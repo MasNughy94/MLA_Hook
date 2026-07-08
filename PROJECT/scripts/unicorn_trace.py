@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Use Unicorn to emulate a snippet of the range decoder to find the truth."""
 import struct
 from Crypto.Cipher import AES
@@ -6,14 +6,14 @@ from unicorn import *
 from unicorn.arm64_const import *
 
 # Load the binary
-so_path = r"C:\Users\NGEONG\Videos\MLA\libagame.so"
+so_path = r"C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so"
 with open(so_path, "rb") as f:
     so_data = f.read()
 
 # AES decrypt and prepare compressed data
 key = bytes.fromhex("f5a193d50ade553e9835595f5cd75ddd")
 iv = b"\x00" * 16
-with open(r"C:\Users\NGEONG\Videos\VSCODE\mt_dump\sample.mt", "rb") as f:
+with open(r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\sample.mt", "rb") as f:
     mt_data = f.read()
 ct = mt_data[0x10:]
 ct = ct[: (len(ct) // 16) * 16]

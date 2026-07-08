@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 Comprehensive .mt file decryption.
 Tests multiple header sizes, key derivations, and cipher modes.
@@ -8,7 +8,7 @@ from Crypto.Cipher import AES
 import hashlib
 
 FIXED_KEY = bytes.fromhex("f5a193d50ade553e9835595f5cd75ddd")
-OUT_DIR = r"C:\Users\NGEONG\Videos\MLA\decrypted_output"
+OUT_DIR = r"C:\Users\ADMIN SERVICE\Videos\MLA\decrypted_output"
 os.makedirs(OUT_DIR, exist_ok=True)
 
 def aes_ecb(data, key):
@@ -139,7 +139,7 @@ def check_results(dec, results, hs, kname, mode):
             results.append(("TEXT", hs, kname, mode, dec))
 
 # Test files from various directories
-base = r"C:\Users\NGEONG\Videos\MLA\mt_dump\assets"
+base = r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\assets"
 all_results = {}
 
 for d in ["0", "1", "5", "a", "e"]:

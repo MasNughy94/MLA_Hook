@@ -1,7 +1,7 @@
-import os
+﻿import os
 
 HDR_SIZE = 69
-DEC_BATCH = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\dec_batch'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\dec_batch'
 TARGET = '0217cbdae530696836de83aa3c162e1a.mt.dec'
 
 with open(os.path.join(DEC_BATCH, TARGET), 'rb') as f:

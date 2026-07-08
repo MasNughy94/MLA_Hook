@@ -1,9 +1,9 @@
-"""
+﻿"""
 Diff analysis of two .mt.dec files.
 """
 import os, struct
 
-samples_dir = r'C:\Users\NGEONG\AppData\Local\Temp\opencode'
+samples_dir = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode'
 fn1 = '0000488d2f64199aca0cc7d54e7d11c0.mt.dec'
 fn2 = '008fea3143557d628ac845a13a254e8a.mt.dec'
 

@@ -1,7 +1,7 @@
-import struct
+﻿import struct
 from capstone import *
 
-so = open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb').read()
+so = open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb').read()
 
 # Check string at 0xdf8b98
 end = so.find(b'\x00', 0xdf8b98)

@@ -1,8 +1,8 @@
-import struct, os
+﻿import struct, os
 from unicorn import *
 from unicorn.arm64_const import *
 
-with open(r'C:\Users\NGEONG\Videos\MLA\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     so = bytearray(f.read())
 
 from Crypto.Cipher import AES
@@ -14,7 +14,7 @@ def decrypt_layer1(data):
     dec = c.decrypt(pp)
     return dec[:len(payload)]
 
-mt_path = r'C:\Users\NGEONG\Videos\MLA\MLADVENTURE2\assets\0\0000488d2f64199aca0cc7d54e7d11c0.mt'
+mt_path = r'C:\Users\ADMIN SERVICE\Videos\MLA\MLADVENTURE2\assets\0\0000488d2f64199aca0cc7d54e7d11c0.mt'
 with open(mt_path, 'rb') as f:
     raw_file = f.read()
 dec = decrypt_layer1(raw_file)
@@ -109,6 +109,6 @@ printable = sum(1 for b in out_buf if 32 <= b < 127)
 print(f'Printable: {printable}/{len(out_buf)}')
 
 if x0 == 0:
-    with open(r'C:\Users\NGEONG\AppData\Local\Temp\opencode\output.bin', 'wb') as f:
+    with open(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\output.bin', 'wb') as f:
         f.write(out_buf)
     print('SUCCESS! Saved to output.bin')

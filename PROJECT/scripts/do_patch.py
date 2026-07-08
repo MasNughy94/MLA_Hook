@@ -1,6 +1,6 @@
-import struct, os, shutil
+﻿import struct, os, shutil
 
-so_path = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\decoded_apk\lib\arm64-v8a\libagame.so'
+so_path = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\decoded_apk\lib\arm64-v8a\libagame.so'
 backup_path = so_path + '.orig'
 
 # Backup if not already backed up

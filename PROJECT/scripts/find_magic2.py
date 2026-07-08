@@ -1,6 +1,6 @@
-import struct
+﻿import struct
 
-so = open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb').read()
+so = open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb').read()
 print(f'libagame.so size: {len(so)} bytes')
 
 patterns = [

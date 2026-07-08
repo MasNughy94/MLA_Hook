@@ -1,7 +1,7 @@
-from capstone import *
+﻿from capstone import *
 import struct
 
-so = open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb').read()
+so = open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb').read()
 
 # List error strings from Lua undump
 for s in [b'bad header', b'bad constant', b'bad code', b'bad description', 

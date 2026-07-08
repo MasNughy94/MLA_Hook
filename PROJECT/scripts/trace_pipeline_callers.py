@@ -1,4 +1,4 @@
-"""
+﻿"""
 0x7D27E8 is a THUNK to a function pointer.
 It returns a C++ object with a vtable.
 Trace: what happens after 0x7D27E8 returns? Find the constructor/callers.
@@ -7,7 +7,7 @@ Also: what is the function pointer that gets stored at the global?
 
 import struct
 
-with open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     data = f.read()
 
 TEXT_ADDR = 0x3FC000

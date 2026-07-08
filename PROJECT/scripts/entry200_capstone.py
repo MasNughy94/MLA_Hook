@@ -1,7 +1,7 @@
-import struct
+﻿import struct
 from capstone import Cs, CS_ARCH_ARM64, CS_MODE_ARM
 
-with open(r'C:\Users\NGEONG\Videos\MLA\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     elf = f.read()
 
 e_shoff = struct.unpack_from('<Q', elf, 0x28)[0]

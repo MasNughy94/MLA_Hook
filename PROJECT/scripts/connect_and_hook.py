@@ -1,4 +1,4 @@
-import frida, sys, time, os
+﻿import frida, sys, time, os
 
 # Wait for gadget to start (25MB init takes time)
 print('Waiting 60s for gadget to initialize...')
@@ -27,7 +27,7 @@ for attempt in range(60):
         print('[+] ATTACHED!')
         
         # Load the crypto hook script
-        with open(r'C:\Users\NGEONG\Videos\MLA\hook_crypto.py', 'r') as f:
+        with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\hook_crypto.py', 'r') as f:
             content = f.read()
         
         # Extract the jscode from hook_crypto.py
@@ -70,7 +70,7 @@ setInterval(function() {
             if msg['type'] == 'send':
                 print('[RECV]', msg['payload'])
                 # Save to file
-                with open(r'C:\Users\NGEONG\AppData\Local\Temp\opencode\captured_data.txt', 'a') as f:
+                with open(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\captured_data.txt', 'a') as f:
                     f.write(str(msg['payload']) + '\n')
             elif msg['type'] == 'error':
                 print('[ERR]', msg)

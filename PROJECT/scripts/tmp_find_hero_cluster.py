@@ -1,9 +1,9 @@
-"""Identify hero entries in the Master DB by looking for entries with class+faction+skill patterns."""
+﻿"""Identify hero entries in the Master DB by looking for entries with class+faction+skill patterns."""
 import os
 from collections import defaultdict, Counter
 
 HDR_SIZE = 69
-DEC_BATCH = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\dec_batch'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\dec_batch'
 TARGET = '0217cbdae530696836de83aa3c162e1a.mt.dec'
 
 def parse_entries(path):

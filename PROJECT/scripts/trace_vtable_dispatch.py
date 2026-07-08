@@ -1,4 +1,4 @@
-"""
+﻿"""
 0x7D27E8 is a thunk dispatching through global pointer.
 Focus on: what does caller 0x414A1C actually do with the returned C++ object?
 Specifically, trace the vtable dispatch to find the real parser.
@@ -6,7 +6,7 @@ Specifically, trace the vtable dispatch to find the real parser.
 
 import struct
 
-with open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     data = f.read()
 
 TEXT_ADDR = 0x3FC000

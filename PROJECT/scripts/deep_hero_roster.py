@@ -1,9 +1,9 @@
-"""Deep analysis of multi-tag entry structures in the hero roster file."""
+﻿"""Deep analysis of multi-tag entry structures in the hero roster file."""
 import os, json
 from collections import defaultdict
 
 HDR_SIZE = 69
-DEC_BATCH = r'C:\Users\NGEONG\Videos\MLA\PROJECT\decrypted\dec_batch'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\decrypted\dec_batch'
 TARGET = '07b5cc5ea4a8d86273be8170720a4587.mt.dec'
 
 def parse_entries(path):

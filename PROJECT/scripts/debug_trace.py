@@ -1,7 +1,7 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Debug trace for the first 30 decode bits."""
 import struct, sys, os
-os.chdir(r'C:\Users\NGEONG\AppData\Local\Temp\opencode')
+os.chdir(r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode')
 sys.path.insert(0, '.')
 
 bit_trace = []
@@ -34,7 +34,7 @@ dec.BitDecoder.init_from_ctx = traced_init
 dec.BitDecoder.decode_bit = traced_decode_bit
 dec.BitDecoder.decode_tree = traced_decode_tree
 
-result = dec.decrypt_mt_file(r'C:\Users\NGEONG\Videos\VSCODE\mt_dump\sample.mt')
+result = dec.decrypt_mt_file(r'C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\sample.mt')
 
 for i, entry in enumerate(bit_trace):
     print(f'{i}: {entry}')

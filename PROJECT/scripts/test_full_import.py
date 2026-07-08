@@ -1,10 +1,10 @@
-"""Full import test - all 10 entity types, with relationship building."""
+﻿"""Full import test - all 10 entity types, with relationship building."""
 import sqlite3, os, sys, time, hashlib
 sys.path.insert(0, 'scripts')
 from mla_diff import parse_entries, stable_id, ENTITY_TYPE_FILES, build_relationships_for_import
 
-DB_PATH = r'C:\Users\NGEONG\Videos\MLA\PROJECT\cache\mla_database.db'
-DEC_BATCH = r'C:\Users\NGEONG\Videos\MLA\PROJECT\decrypted\dec_batch'
+DB_PATH = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\cache\mla_database.db'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\decrypted\dec_batch'
 
 conn = sqlite3.connect(DB_PATH)
 conn.row_factory = sqlite3.Row

@@ -1,6 +1,6 @@
-import struct
+﻿import struct
 
-with open(r'C:\Users\NGEONG\Videos\MLA\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     data = f.read()
 
 # The decompression function uses lookup tables at:
@@ -50,6 +50,6 @@ for addr in [0xf63000, 0xf63400, 0xf63800, 0xf63c00, 0xf64000, 0xf640c0]:
 # Also check function at 0xcf292c (called for initialization before decompress)
 print("\n=== Initialization function at 0xcf292c ===")
 import sys
-sys.path.insert(0, r'C:\Users\NGEONG\Videos\MLA')
+sys.path.insert(0, r'C:\Users\ADMIN SERVICE\Videos\MLA')
 # This function sets up the tables based on the key
 # Let's look at it in the next step

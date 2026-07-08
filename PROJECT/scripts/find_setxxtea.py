@@ -1,6 +1,6 @@
-import struct, re
+﻿import struct, re
 
-so_path = r'C:\Users\NGEONG\Videos\MLA\libagame.so'
+so_path = r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so'
 with open(so_path, 'rb') as f:
     data = f.read()
 

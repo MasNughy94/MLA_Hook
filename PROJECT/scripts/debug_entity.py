@@ -1,7 +1,7 @@
-"""Debug entity lookup."""
+﻿"""Debug entity lookup."""
 import sqlite3, os
 
-db = r'C:\Users\NGEONG\Videos\MLA\PROJECT\cache\mla_database.db'
+db = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\cache\mla_database.db'
 conn = sqlite3.connect(db)
 conn.row_factory = sqlite3.Row
 cur = conn.cursor()

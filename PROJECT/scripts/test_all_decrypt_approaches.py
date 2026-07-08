@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 Comprehensive test of all .mt decryption approaches
 Test all identified keys and algorithms
@@ -6,8 +6,8 @@ Test all identified keys and algorithms
 import os, struct, zlib, hashlib
 from Crypto.Cipher import AES
 
-base = r"C:\Users\NGEONG\Videos\MLA\mt_dump\assets"
-outdir = r"C:\Users\NGEONG\Videos\MLA\decrypted_output"
+base = r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\assets"
+outdir = r"C:\Users\ADMIN SERVICE\Videos\MLA\decrypted_output"
 os.makedirs(outdir, exist_ok=True)
 
 # All key candidates found in the binary

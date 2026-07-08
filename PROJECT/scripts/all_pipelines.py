@@ -1,4 +1,4 @@
-"""
+﻿"""
 Comprehensive search for ALL .mt file loading pipelines.
 Search for:
 1. ".mt" string references
@@ -9,10 +9,10 @@ Search for:
 
 import struct
 
-with open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     agame = f.read()
     
-hades_path = r'C:\Users\NGEONG\Videos\VSCODE\MLADVENTURE2\lib\arm64-v8a\libhades.so'
+hades_path = r'C:\Users\ADMIN SERVICE\Videos\MLA\MLADVENTURE2\lib\arm64-v8a\libhades.so'
 with open(hades_path, 'rb') as f:
     hades = f.read()
 

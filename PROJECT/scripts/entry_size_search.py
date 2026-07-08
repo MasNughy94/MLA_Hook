@@ -1,4 +1,4 @@
-"""
+﻿"""
 Find the entry size via autocorrelation of override record positions.
 If entries have fixed size, override positions relative to entry start should be consistent.
 """
@@ -6,7 +6,7 @@ import os
 from collections import defaultdict, Counter
 import struct
 
-samples_dir = r'C:\Users\NGEONG\AppData\Local\Temp\opencode'
+samples_dir = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode'
 fn1 = '0000488d2f64199aca0cc7d54e7d11c0.mt.dec'
 
 with open(os.path.join(samples_dir, fn1), 'rb') as f:

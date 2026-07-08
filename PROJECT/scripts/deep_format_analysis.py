@@ -1,4 +1,4 @@
-"""
+﻿"""
 Deep binary format analysis.
 Look for section tables, record patterns, repeated structures.
 Focus on detecting the underlying binary serialization format.
@@ -6,7 +6,7 @@ Focus on detecting the underlying binary serialization format.
 
 import struct, os
 
-samples_dir = r'C:\Users\NGEONG\AppData\Local\Temp\opencode'
+samples_dir = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode'
 fn = '0000488d2f64199aca0cc7d54e7d11c0.mt.dec'
 with open(os.path.join(samples_dir, fn), 'rb') as f:
     data = f.read()

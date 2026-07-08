@@ -1,9 +1,9 @@
-"""Test relationship building with Python grouping."""
+﻿"""Test relationship building with Python grouping."""
 import sqlite3, os, sys, time
 sys.path.insert(0, 'scripts')
 from mla_diff import build_relationships_for_import
 
-DB_PATH = r'C:\Users\NGEONG\Videos\MLA\PROJECT\cache\mla_database.db'
+DB_PATH = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\cache\mla_database.db'
 
 conn = sqlite3.connect(DB_PATH)
 conn.row_factory = sqlite3.Row

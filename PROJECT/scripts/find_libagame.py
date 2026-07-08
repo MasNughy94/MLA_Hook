@@ -1,4 +1,4 @@
-import frida, time
+﻿import frida, time
 
 device = frida.get_device("socket", timeout=5)
 session = device.attach(17786)
@@ -115,10 +115,10 @@ send({type: "done"});
 """
 
 # Need to handle UTF-8 in the script properly
-with open(r"C:\Users\NGEONG\AppData\Local\Temp\opencode\find_libagame.js", "w", encoding="utf-8") as f:
+with open(r"C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\find_libagame.js", "w", encoding="utf-8") as f:
     f.write(js)
 
-with open(r"C:\Users\NGEONG\AppData\Local\Temp\opencode\find_libagame.js") as f:
+with open(r"C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\find_libagame.js") as f:
     js_content = f.read()
 
 script = session.create_script(js_content)

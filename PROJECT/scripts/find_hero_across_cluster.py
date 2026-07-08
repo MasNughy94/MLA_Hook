@@ -1,9 +1,9 @@
-"""Search for known HeroIDs across all files in the 55-file cluster."""
+﻿"""Search for known HeroIDs across all files in the 55-file cluster."""
 import os, json
 from collections import defaultdict
 
 HDR_SIZE = 69
-DEC_BATCH = r'C:\Users\NGEONG\Videos\MLA\PROJECT\decrypted\dec_batch'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\decrypted\dec_batch'
 
 KNOWN_HERO_IDS = {2111, 2112, 2113, 5970}
 EXPANDED_IDS = set(range(2000, 5999))  # Full hero ID range to check

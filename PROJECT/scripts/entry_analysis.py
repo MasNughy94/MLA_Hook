@@ -1,4 +1,4 @@
-"""
+﻿"""
 Now that the 3-byte record structure is confirmed, analyze the ENTRY STRUCTURE.
 Find repeating patterns in tag sequences to determine entry boundaries.
 """
@@ -136,7 +136,7 @@ def compare_entry_structures(file1_path, file2_path):
     print(f"File 2: lowercase tags={f2_lower}, uppercase tags={f2_upper}")
 
 if __name__ == '__main__':
-    samples_dir = r'C:\Users\NGEONG\AppData\Local\Temp\opencode'
+    samples_dir = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode'
     fn1 = '0000488d2f64199aca0cc7d54e7d11c0.mt.dec'
     fn2 = '008fea3143557d628ac845a13a254e8a.mt.dec'
     fn3 = '00378c64fbd63011a81dccef6bf6e2bd.mt.dec'

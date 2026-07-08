@@ -1,10 +1,10 @@
-"""
+﻿"""
 Use simple binary patterns to find which method references a fill-array-data payload.
 Instead of full DEX parsing, search for the fill-array-data structure near the target.
 """
 import struct
 
-dex_path = r'C:\Users\NGEONG\Videos\MLA\MLADVENTURE2\classes.dex'
+dex_path = r'C:\Users\ADMIN SERVICE\Videos\MLA\MLADVENTURE2\classes.dex'
 with open(dex_path, 'rb') as f:
     data = f.read()
 
@@ -34,7 +34,7 @@ print()
 print('Total occurrences in classes.dex: %d' % len(occurrences))
 
 # Now check classes2.dex
-dex2_path = r'C:\Users\NGEONG\Videos\MLA\MLADVENTURE2\classes2.dex'
+dex2_path = r'C:\Users\ADMIN SERVICE\Videos\MLA\MLADVENTURE2\classes2.dex'
 with open(dex2_path, 'rb') as f:
     data2 = f.read()
 

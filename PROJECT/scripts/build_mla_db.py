@@ -1,12 +1,12 @@
-"""
+﻿"""
 Build the complete MLA relational database (SQLite).
 Creates schema, imports all parsed entities, builds indexes.
 """
 import os, json, sqlite3, hashlib, time, sys
 from collections import defaultdict
 
-DB_PATH = r'C:\Users\NGEONG\Videos\MLA\PROJECT\cache\mla_database.db'
-DEC_BATCH = r'C:\Users\NGEONG\Videos\MLA\PROJECT\decrypted\dec_batch'
+DB_PATH = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\cache\mla_database.db'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\decrypted\dec_batch'
 HDR_SIZE = 69
 
 def get_conn():

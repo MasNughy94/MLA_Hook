@@ -1,11 +1,11 @@
-"""
+﻿"""
 Simply dump raw hex and decode BL/B targets from the pipeline functions.
 Focus on the call chain from cocos2dx_lua_loader -> 0xC82944 -> ???
 """
 
 import struct
 
-with open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     data = f.read()
 
 TEXT_ADDR = 0x3FC000

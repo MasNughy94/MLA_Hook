@@ -1,0 +1,47 @@
+Initial files in dump dir: 0
+Killing any existing game instance...
+Starting logcat monitor...
+Launching com.moonton.mobilehero...
+  bash arg: -p
+  bash arg: com.moonton.mobilehero
+  bash arg: -c
+  bash arg: android.intent.category.LAUNCHER
+  bash arg: 1
+args: [-p, com.moonton.mobilehero, -c, android.intent.category.LAUNCHER, 1]
+ arg: "-p"
+ arg: "com.moonton.mobilehero"
+ arg: "-c"
+ arg: "android.intent.category.LAUNCHER"
+ arg: "1"
+data="com.moonton.mobilehero"
+data="android.intent.category.LAUNCHER"
+Events injected: 1
+## Network stats: elapsed time=61ms (0ms mobile, 0ms wifi, 61ms not connected)
+Game launched at Sat Jun 27 20:09:59 WIB 2026
+
+Monitoring for 60 seconds...
+----------------------------------------
+[+0s] NEW DUMP! Total: 1 files (+1)
+Timeout reached (60 seconds)
+
+=== Cleaning up ===
+Game killed
+
+============================================
+FINAL SUMMARY
+============================================
+Decompressed files: 0
+
+NO DUMP FILES OBTAINED
+
+Possible issues:
+1. Game crashed on startup (black screen)
+2. Frida-gadget not initialized (config issue)
+3. Game integrity check detected modification
+4. No .mt files were loaded during the monitoring period
+
+Check logcat for clues:
+  adb logcat -d | grep -E 'frida|gadget|Frida|MOBILEHERO|crash|Error'
+
+Monitor log saved to: /storage/emulated/0/MLADVENTURE_DUMP/monitor.log
+Done at Sat Jun 27 20:11:01 WIB 2026

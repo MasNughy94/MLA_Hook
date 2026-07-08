@@ -1,11 +1,11 @@
-"""
+﻿"""
 Final comprehensive identity mapping for all 7,258 Roo files.
 Produces per-file semantic classification and a summary report.
 """
 import json, os
 from collections import Counter, defaultdict
 
-analysis_dir = r'C:\Users\NGEONG\AppData\Local\Temp\opencode\analysis'
+analysis_dir = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode\analysis'
 
 with open(os.path.join(analysis_dir, 'roo_file_catalog.json')) as f:
     catalog = json.load(f)

@@ -1,4 +1,4 @@
-"""
+﻿"""
 MLA Version Import & Diff System.
 Supports importing new game versions and comparing them against previous versions.
 Detects: added/removed/modified entities, schema changes, relationship changes.
@@ -7,9 +7,9 @@ import os, sys, json, sqlite3, hashlib, shutil
 from datetime import datetime
 from collections import defaultdict
 
-DB_PATH = r'C:\Users\NGEONG\Videos\MLA\PROJECT\cache\mla_database.db'
-DEC_BATCH = r'C:\Users\NGEONG\Videos\MLA\PROJECT\decrypted\dec_batch'
-REPORTS_DIR = r'C:\Users\NGEONG\Videos\MLA\PROJECT\reports'
+DB_PATH = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\cache\mla_database.db'
+DEC_BATCH = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\decrypted\dec_batch'
+REPORTS_DIR = r'C:\Users\ADMIN SERVICE\Videos\MLA\PROJECT\reports'
 HDR_SIZE = 69
 
 ENTITY_TYPES = [
@@ -636,18 +636,41 @@ def import_version(conn, version_id, version_label, source_path, run_diff=True):
     
     return import_id
 
+PK_CANDIDATE_TAGS = {
+    'EquipDB':      [0x0C, 0x19, 0x1E, 0x14, 0x1C],
+    'SkillDB':      [0x25, 0x19, 0x1A],
+    'HeroStatDB':   [0x20, 0x46, 0x0A],
+    'HeroRosterDB': [0x17, 0x09, 0x0D],
+    'StageDB':      [0x11, 0x71, 0x18],
+    'MonsterDB':    [0x11, 0x1C, 0x06],
+    'AnimDB':       [0x90, 0x1C, 0x91],
+    'MasterDB':     [0x27, 0x22, 0x80],
+    'ConfigDB':     [0x35, 0x0B, 0x01],
+    'AchieveDB':    [0x10, 0xBF, 0x09],
+}
+
 def build_relationships_for_import(conn, import_id):
-    """Auto-detect relationships for a specific import using Python grouping."""
+    """
+    Auto-detect relationships for a specific import.
+    Rules:
+    - same_entity: hanya untuk entity type SAMA + PK candidate value (1000-9999)
+    - cross_file_ref: untuk entity type BERBEDA yang berbagi nilai
+    - Deterministic: sorted by entity_id, order-independent
+    """
     cur = conn.cursor()
     print(f"\n  Building relationships for import #{import_id}...")
     
-    # Get all candidate field values grouped by value
+    # Hapus relationship lama untuk import ini
+    cur.execute("DELETE FROM relationships WHERE discovered_in_import = ?", (import_id,))
+    conn.commit()
+    
+    # Ambil semua field candidate dengan tag info
     cur.execute("""
-        SELECT f.value, f.entity_id, e.entity_type_id
+        SELECT f.value, f.entity_id, e.entity_type_id, f.tag
         FROM entity_fields f
         JOIN entities e ON f.entity_id = e.id
         WHERE f.import_id = ? AND f.value BETWEEN 1000 AND 65535
-        ORDER BY f.value
+        ORDER BY f.value, f.entity_id
     """, (import_id,))
     
     rows = cur.fetchall()
@@ -655,37 +678,76 @@ def build_relationships_for_import(conn, import_id):
         print("    -> No candidate values found")
         return 0
     
-    # Group by value in Python (avoids dangerous SQL self-join)
+    # Group by value
     value_groups = {}
     for r in rows:
         val = r['value']
         if val not in value_groups:
             value_groups[val] = []
-        value_groups[val].append((r['entity_id'], r['entity_type_id']))
+        value_groups[val].append({
+            'entity_id': r['entity_id'],
+            'entity_type_id': r['entity_type_id'],
+            'tag': r['tag'],
+        })
     
-    # Build relationships for each shared value
-    rel_count = 0
     rel_batch = []
+    rel_count = 0
     
-    for val, entities in value_groups.items():
+    for val in sorted(value_groups.keys()):
+        entities = value_groups[val]
         if len(entities) < 2:
             continue
-        # Create relationships between entities of different types sharing this value
-        for i in range(len(entities)):
-            for j in range(i + 1, len(entities)):
-                src_id, src_type = entities[i]
-                tgt_id, tgt_type = entities[j]
-                if src_type == tgt_type:
-                    continue  # Skip same-type relationships
-                et1 = ENTITY_TYPE_NAMES.get(src_type, 'Unknown')
-                et2 = ENTITY_TYPE_NAMES.get(tgt_type, 'Unknown')
-                rel_batch.append((
-                    src_id, tgt_id, et1, et2,
-                    'cross_file_ref', 0.6, f"Shared value {val}", f"value={val}", import_id
-                ))
-                rel_count += 1
-                if rel_count % 5000 == 0:
-                    print(f"    ... {rel_count} relationships so far")
+        
+        # Group by entity type
+        by_type = defaultdict(list)
+        for ent in entities:
+            by_type[ent['entity_type_id']].append(ent)
+        
+        # --- SAME-TYPE: same_entity (only if PK candidate) ---
+        for type_id, same_type_ents in by_type.items():
+            type_name = ENTITY_TYPE_NAMES.get(type_id, 'Unknown')
+            pk_tags = PK_CANDIDATE_TAGS.get(type_name, [])
+            uses_pk_tag = any(e['tag'] in pk_tags for e in same_type_ents)
+            
+            if 1000 <= val <= 9999 and uses_pk_tag:
+                sorted_ents = sorted(same_type_ents, key=lambda x: x['entity_id'])
+                for i in range(len(sorted_ents)):
+                    for j in range(i + 1, len(sorted_ents)):
+                        src = sorted_ents[i]
+                        tgt = sorted_ents[j]
+                        rel_batch.append((
+                            src['entity_id'], tgt['entity_id'],
+                            type_name, type_name,
+                            'same_entity', 0.7,
+                            f"Shared PK value {val} at tag 0x{src['tag']:02X}",
+                            f"value={val}", import_id
+                        ))
+                        rel_count += 1
+        
+        # --- CROSS-TYPE: cross_file_ref ---
+        type_ids = sorted(by_type.keys())
+        for i in range(len(type_ids)):
+            for j in range(i + 1, len(type_ids)):
+                type_i = type_ids[i]
+                type_j = type_ids[j]
+                name_i = ENTITY_TYPE_NAMES.get(type_i, 'Unknown')
+                name_j = ENTITY_TYPE_NAMES.get(type_j, 'Unknown')
+                
+                ents_i = sorted(by_type[type_i], key=lambda x: x['entity_id'])
+                ents_j = sorted(by_type[type_j], key=lambda x: x['entity_id'])
+                
+                for src_ent in ents_i:
+                    for tgt_ent in ents_j:
+                        rel_batch.append((
+                            src_ent['entity_id'], tgt_ent['entity_id'],
+                            name_i, name_j,
+                            'cross_file_ref', 0.5,
+                            f"Shared value {val}", f"value={val}", import_id
+                        ))
+                        rel_count += 1
+        
+        if rel_count % 5000 == 0:
+            print(f"    ... {rel_count} relationships so far")
     
     if rel_batch:
         conn.execute("BEGIN TRANSACTION")
@@ -697,7 +759,7 @@ def build_relationships_for_import(conn, import_id):
         """, rel_batch)
         conn.commit()
     
-    print(f"    -> {rel_count} relationships built")
+    print(f"    -> {rel_count} relationships built for import #{import_id}")
     return rel_count
 
 # ====================================================================

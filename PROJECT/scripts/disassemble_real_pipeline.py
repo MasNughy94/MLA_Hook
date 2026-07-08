@@ -1,4 +1,4 @@
-"""
+﻿"""
 Disassemble the REAL .mt pipeline function at 0x910E30.
 This is the function that the thunk 0x7D27E8 dispatches to.
 It processes the .mt decryption and returns a C++ object.
@@ -6,7 +6,7 @@ It processes the .mt decryption and returns a C++ object.
 
 import struct
 
-with open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     data = f.read()
 
 # Function at vaddr 0x910E30, file offset 0x910E30

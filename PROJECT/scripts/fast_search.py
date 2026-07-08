@@ -1,4 +1,4 @@
-"""
+﻿"""
 Fast search: find ALL .mt string occurrences and related strings in both libraries.
 Skip code reference searching (too slow).
 """
@@ -21,8 +21,8 @@ def find_all_str(data, needle, max_count=50):
 
 # Load libraries
 libraries = {
-    'libagame.so': open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb').read(),
-    'libhades.so': open(r'C:\Users\NGEONG\Videos\VSCODE\MLADVENTURE2\lib\arm64-v8a\libhades.so', 'rb').read(),
+    'libagame.so': open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb').read(),
+    'libhades.so': open(r'C:\Users\ADMIN SERVICE\Videos\MLA\MLADVENTURE2\lib\arm64-v8a\libhades.so', 'rb').read(),
 }
 
 # Strings to search

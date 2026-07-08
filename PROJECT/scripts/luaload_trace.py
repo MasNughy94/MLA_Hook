@@ -1,4 +1,4 @@
-"""
+﻿"""
 Trace luaLoadBuffer's handling of the decompressed output.
 Look specifically at what happens AFTER the transform function returns
 and when luaL_loadbuffer succeeds/fails.
@@ -6,7 +6,7 @@ and when luaL_loadbuffer succeeds/fails.
 
 import struct
 
-with open(r'C:\Users\NGEONG\Videos\VSCODE\libagame.so', 'rb') as f:
+with open(r'C:\Users\ADMIN SERVICE\Videos\MLA\libagame.so', 'rb') as f:
     data = f.read()
 
 TEXT_ADDR = 0x3FC000

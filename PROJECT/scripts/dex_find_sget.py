@@ -1,6 +1,6 @@
-import struct
+﻿import struct
 
-DEX = r'C:\Users\NGEONG\Videos\MLA\MLADVENTURE2\classes.dex'
+DEX = r'C:\Users\ADMIN SERVICE\Videos\MLA\MLADVENTURE2\classes.dex'
 data = open(DEX, 'rb').read()
 END = len(data)
 TARGET_FIELD = 0xa781

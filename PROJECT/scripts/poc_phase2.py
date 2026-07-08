@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
 PoC Phase 2: The AES decryption works. Now find the zlib stream in the "lmF@" output.
 """
@@ -6,9 +6,9 @@ import struct
 import zlib
 import sys
 
-SAMPLE_MT = r"C:\Users\NGEONG\Videos\VSCODE\mt_dump\sample.mt"
-EXPECTED_LUA = r"C:\Users\NGEONG\Videos\VSCODE\mt_dump\sample.mt.lua"
-SAMPLE_DEC = r"C:\Users\NGEONG\Videos\VSCODE\mt_dump\sample.dec"
+SAMPLE_MT = r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\sample.mt"
+EXPECTED_LUA = r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\sample.mt.lua"
+SAMPLE_DEC = r"C:\Users\ADMIN SERVICE\Videos\MLA\mt_dump\sample.dec"
 
 KEY = bytes.fromhex("f5a193d50ade553e9835595f5cd75ddd")
 IV = b'\x00' * 16

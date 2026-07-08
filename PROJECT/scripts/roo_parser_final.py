@@ -1,4 +1,4 @@
-"""
+﻿"""
 Roo Binary Format Parser
 =========================
 Parses decompressed .mt files (Roo format) into human-readable JSON.
@@ -241,7 +241,7 @@ def analyze_perfect_row_size(body):
 
 
 if __name__ == '__main__':
-    samples_dir = r'C:\Users\NGEONG\AppData\Local\Temp\opencode'
+    samples_dir = r'C:\Users\ADMIN SERVICE\AppData\Local\Temp\opencode'
     output_dir = os.path.join(samples_dir, 'json_output')
     
     main_batch(samples_dir, output_dir)
