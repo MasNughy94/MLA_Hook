@@ -26,17 +26,8 @@ jobs:
       - name: Patch Dobby os_arch_features.h
         run: python3 patches/fix_osarch_features.py
 
-      - name: Cache Dobby build
-        id: cache-dobby
-        uses: actions/cache@v4
-        with:
-          path: mla_hook_module/prebuilt
-          key: ${{ runner.os }}-dobby-v3-${{ hashFiles('Dobby/**') }}
-
-      - name: Build Dobby (static, PIC)
-        if: steps.cache-dobby.outputs.cache-hit != 'true'
+      - name: Build Dobby (shared, PIC)
         run: |
-          sed -i '1i add_compile_options(-fPIC)' Dobby/CMakeLists.txt
           mkdir -p Dobby/build/android
           cd Dobby/build/android
           cmake ../.. \
@@ -47,13 +38,12 @@ jobs:
             -DDOBBY_BUILD_EXAMPLE=OFF \
             -DDOBBY_BUILD_TEST=OFF \
             -DDOBBY_DEBUG=OFF
-          make -j$(nproc) dobby_static
+          make -j$(nproc) dobby
 
-      - name: Copy prebuilt libdobby.a
-        if: steps.cache-dobby.outputs.cache-hit != 'true'
+      - name: Copy libdobby.so
         run: |
           mkdir -p mla_hook_module/prebuilt/arm64-v8a
-          cp Dobby/build/android/libdobby.a mla_hook_module/prebuilt/arm64-v8a/
+          cp Dobby/build/android/libdobby.so mla_hook_module/prebuilt/arm64-v8a/
 
       - name: Build mla_hook with ndk-build
         run: |
