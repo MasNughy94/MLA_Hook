@@ -25,11 +25,14 @@ jobs:
 
       - name: Patch Dobby os_arch_features.h
         run: |
-          sed -i '1s|^|#include <unistd.h>\n#include <sys/mman.h>\n|' Dobby/common/os_arch_features.h
-          sed -i '/^namespace android {/,/^} \/\/ namespace android/{
-/^namespace android {/!{/^} \/\/ namespace android/!d}
-/^namespace android {/c\namespace android {\ninline void make_memory_readable(void *address, size_t size) {\n#if defined(ANDROID)\n  long page_size = sysconf(_SC_PAGESIZE);\n  void *page = (void *)((uintptr_t)address & ~(page_size - 1));\n  mprotect(page, page_size, PROT_READ | PROT_EXEC);\n#endif\n}\n} // namespace android
-}' Dobby/common/os_arch_features.h
+          # Replace OSMemory references with direct syscalls
+          sed -i 's|auto page = (void \*)ALIGN_FLOOR(address, OSMemory::PageSize());|long page_size = sysconf(_SC_PAGESIZE);void *page = (void *)((uintptr_t)address \& ~(page_size - 1));|' Dobby/common/os_arch_features.h
+          sed -i 's|if (!OSMemory::SetPermission(page, OSMemory::PageSize(), kReadExecute)) {|mprotect(page, page_size, PROT_READ | PROT_EXEC);|' Dobby/common/os_arch_features.h
+          sed -i '/^    return;$/d' Dobby/common/os_arch_features.h
+          # Delete the extra } that was the if-block closer (the one before #endif)
+          sed -i '/^  }$/{h;d}; /^#endif/{g;/^  }$/{z;d}}' Dobby/common/os_arch_features.h
+          sed -i '1i #include <unistd.h>' Dobby/common/os_arch_features.h
+          sed -i '2i #include <sys/mman.h>' Dobby/common/os_arch_features.h
 
       - name: Cache Dobby build
         id: cache-dobby
