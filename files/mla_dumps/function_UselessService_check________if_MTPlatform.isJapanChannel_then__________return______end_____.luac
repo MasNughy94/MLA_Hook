@@ -1,0 +1,53 @@
+function UselessService:check()
+    if MTPlatform.isJapanChannel then
+        return
+    end
+    if cc.Native.isAppInstalled then
+        local checkListAnd = {
+            ["com.ss.android.ugc.trill"] = 101,
+            ["com.zhiliaoapp.musically"] = 101,
+            ["com.miHoYo.GenshinImpact"] = 102,
+            ["com.lilithgame.hgame.gp"] = 1,
+            ["com.droidhang.ad"] = 2,
+            ["com.nexters.herowars"] = 3,
+            ["com.westbund.heros.en"] = 4,
+            ["com.stove.epic7.google"] = 5,
+            ["com.com2us.smon.normal.freefull.google.kr.android.common"] = 6,
+            ["com.plarium.raidlegends"] = 7,
+            ["com.google.android.youtube"] = 8,
+            ["com.facebook.katana"] = 9,
+            ["com.instagram.android"] = 11,
+            ["com.topgamesinc.evony"] = 12,
+            ["com.kingsgroup.sos"] = 13,
+            ["com.lilithgame.roc.gp"] = 14,
+            ["com.topwar.gp"] = 15,
+            ["com.onemt.and.kc"] = 16,
+            ["com.kingsgroup.ss.tw"] = 17,
+            ["com.lilithgame.roc.gp.tw"] = 18,
+            ["com.kingsgroup.sos.vn"] = 19,
+            ["com.rok.gp.vn"] = 20,
+            ["com.kingsgroup.ss.xiaomi"] = 21,
+        }
+        local checkListIos = {
+
+        }
+        local result = {}
+        if MTPlatform.isAndroid then
+            for k,v in pairs(checkListAnd) do
+                if cc.Native:isAppInstalled(k) then
+                    result[#result+1] = v
+                end
+            end
+        elseif MTPlatform.isIos then
+            for k,v in pairs(checkListIos) do
+                if cc.Native:isAppInstalled(k) then
+                    result[#result+1] = v
+                end
+            end
+        end
+        if #result > 0 then
+            local checkResult = table.concat(result, ";")
+            ReportService:sendReport("app_install", checkResult)
+        end
+    end
+end

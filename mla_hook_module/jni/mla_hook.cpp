@@ -38,7 +38,6 @@ typedef void  (*lua_rawseti_t)(lua_State *, int, int);
 static void *g_libagame = nullptr;
 static luaL_loadbuffer_t g_orig_luaL_loadbuffer = nullptr;
 static lua_pcall_t g_orig_lua_pcall = nullptr;
-static bool g_mod_injected = false;
 
 // Resolved Lua API functions
 static struct {
@@ -324,15 +323,21 @@ static void execute_lua_string(lua_State *L, const char *code) {
 }
 
 //=============================================================================
-// Hook: lua_pcall
+// Hook: lua_pcall — inject mod once when Lua environment is stable
 //=============================================================================
 static int g_pcall_count = 0;
+static bool g_mod_injected = false;
 
 static int lua_pcall_hook(lua_State *L, int nargs, int nresults, int errfunc) {
     g_pcall_count++;
-    if (g_pcall_count % 500 == 0) {
-        LOGI("pcall count: %d", g_pcall_count);
+
+    // Inject after Lua is stabilized: on 1000th pcall or when we detect HeroSelectHelper
+    if (!g_mod_injected && g_pcall_count > 500) {
+        g_mod_injected = true;
+        LOGI("[MLA_MOD] Injecting MOD_LUA_SCRIPT at pcall #%d", g_pcall_count);
+        execute_lua_string(L, MOD_LUA_SCRIPT);
     }
+
     return g_orig_lua_pcall(L, nargs, nresults, errfunc);
 }
 
@@ -392,8 +397,6 @@ static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
 
         if (dump) {
             dump_script(name, buff, sz);
-            // Inject mod after loading a formation script
-            execute_lua_string(L, MOD_LUA_SCRIPT);
             return ret;
         }
 
@@ -414,10 +417,6 @@ static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
                     LOGI("  %s", line);
                 }
             }
-            if (sz > 100000) {
-                LOGI("Injecting mod code after unnamed script (%zu bytes)", sz);
-                execute_lua_string(L, MOD_LUA_SCRIPT);
-            }
             return ret;
         }
 
@@ -435,16 +434,9 @@ static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
 
         if (strstr(basename, "main") || strstr(basename, "init") || strstr(basename, "App") ||
             strstr(basename, "start") || strstr(basename, "boot") || strstr(basename, "login")) {
-            LOGI("Injecting mod code after %s", name);
-            execute_lua_string(L, MOD_LUA_SCRIPT);
+            LOGI("Found startup script: %s", name);
         }
 
-        // Fallback: inject once unconditionally after first successful loadbuffer
-        if (!g_mod_injected) {
-            g_mod_injected = true;
-            LOGI("[MLA_MOD] Fallback inject after first loadbuffer: %s", n);
-            execute_lua_string(L, MOD_LUA_SCRIPT);
-        }
     }
     return ret;
 }
