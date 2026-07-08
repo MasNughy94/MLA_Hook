@@ -88,6 +88,9 @@ __pycache__/
 .vscode/
 *.swp
 
+# === IDA Pro large database files ===
+*.gbf
+
 # === System ===
 Thumbs.db
 .DS_Store
