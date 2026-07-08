@@ -17,23 +17,24 @@ jobs:
           submodules: recursive
           fetch-depth: 1
 
-      - name: Setup NDK r25c (compatible with Dobby)
+      - name: Setup NDK r25c
         run: |
           wget -q https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
           unzip -q android-ndk-r25c-linux.zip
           echo "ANDROID_NDK_HOME=$PWD/android-ndk-r25c" >> $GITHUB_ENV
 
-      - name: Patch Dobby source for compatibility
+      - name: Patch Dobby circular include (OSMemory defined after usage)
         run: |
-          # Add OSMemory include to os_arch_features.h
-          sed -i '/#include "PlatformUnifiedInterface\/platform.h"/a #include "PlatformUnifiedInterface/osMemory.h"' \
+          # OSMemory is defined in platform.h AFTER the dobby/common.h include.
+          # os_arch_features.h includes platform.h but OSMemory isn't visible yet
+          # due to circular include. Replace OSMemory usage with direct syscalls.
+          sed -i 's/auto page = (void \*)ALIGN_FLOOR(address, OSMemory::PageSize());/long page_size = sysconf(_SC_PAGESIZE);\nauto page = (void *)((uintptr_t)address \& ~(page_size - 1));/' \
             Dobby/common/os_arch_features.h
-          # Fix ProcessRuntime.cc lambda comparison (member function vs member variable)
-          sed -i 's/return (a.start() < b.start())/return (a.start < b.start)/' \
-            Dobby/source/Backend/UserMode/PlatformUtil/Linux/ProcessRuntime.cc 2>/dev/null || true
-          # Fix RuntimeModule: add load_address if missing
-          sed -i 's/\/\/ push to vector$/module.load_address = module.base;\n        \/\/ push to vector/' \
-            Dobby/source/Backend/UserMode/PlatformUtil/Linux/ProcessRuntime.cc 2>/dev/null || true
+          sed -i 's/if (!OSMemory::SetPermission(page, OSMemory::PageSize(), kReadExecute)) {/mprotect(page, page_size, PROT_READ | PROT_EXEC);/' \
+            Dobby/common/os_arch_features.h
+          # Add missing includes
+          sed -i '1i#include <unistd.h>\n#include <sys\/mman.h>' \
+            Dobby/common/os_arch_features.h
 
       - name: Cache Dobby build
         id: cache-dobby
