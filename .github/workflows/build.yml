@@ -33,9 +33,10 @@ jobs:
           path: mla_hook_module/prebuilt
           key: ${{ runner.os }}-dobby-v2-${{ hashFiles('Dobby/**') }}
 
-      - name: Build Dobby (static)
+      - name: Build Dobby (static, PIC)
         if: steps.cache-dobby.outputs.cache-hit != 'true'
         run: |
+          sed -i '1i add_compile_options(-fPIC)' Dobby/CMakeLists.txt
           mkdir -p Dobby/build/android
           cd Dobby/build/android
           cmake ../.. \
