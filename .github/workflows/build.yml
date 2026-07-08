@@ -23,10 +23,10 @@ jobs:
           unzip -q android-ndk-r25c-linux.zip
           echo "ANDROID_NDK_HOME=$PWD/android-ndk-r25c" >> $GITHUB_ENV
 
-      - name: Patch Dobby os_arch_features.h
+      - name: Patch Dobby
         run: python3 patches/fix_osarch_features.py
 
-      - name: Build Dobby (shared, PIC)
+      - name: Build Dobby (shared)
         run: |
           mkdir -p Dobby/build/android
           cd Dobby/build/android
@@ -40,12 +40,12 @@ jobs:
             -DDOBBY_DEBUG=OFF
           make -j$(nproc) dobby
 
-      - name: Copy libdobby.so
+      - name: Copy libs
         run: |
           mkdir -p mla_hook_module/prebuilt/arm64-v8a
           cp Dobby/build/android/libdobby.so mla_hook_module/prebuilt/arm64-v8a/
 
-      - name: Build mla_hook with ndk-build
+      - name: Build mla_hook
         run: |
           cd mla_hook_module
           $ANDROID_NDK_HOME/ndk-build NDK_PROJECT_PATH=. APP_BUILD_SCRIPT=jni/Android.mk -j$(nproc)
