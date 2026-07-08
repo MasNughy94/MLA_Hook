@@ -23,12 +23,19 @@ jobs:
           ndk-version: r26b
           link-to-sdk: true
 
+      - name: Patch Dobby assembly for Clang 18+ (NDK r27)
+        run: |
+          sed -i 's/adrp TMP_REG_0, cdecl(common_closure_bridge_handler)@PAGE/adrp x17, cdecl(common_closure_bridge_handler)/' \
+            Dobby/source/TrampolineBridge/ClosureTrampolineBridge/arm64/closure_bridge_arm64.asm
+          sed -i 's/add TMP_REG_0, TMP_REG_0, cdecl(common_closure_bridge_handler)@PAGEOFF/add x17, x17, :lo12:cdecl(common_closure_bridge_handler)/' \
+            Dobby/source/TrampolineBridge/ClosureTrampolineBridge/arm64/closure_bridge_arm64.asm
+
       - name: Cache Dobby build
         id: cache-dobby
         uses: actions/cache@v4
         with:
           path: mla_hook_module/prebuilt
-          key: ${{ runner.os }}-dobby-${{ hashFiles('Dobby/**') }}
+          key: ${{ runner.os }}-dobby-v2-${{ hashFiles('Dobby/**') }}
 
       - name: Build Dobby (static)
         if: steps.cache-dobby.outputs.cache-hit != 'true'
