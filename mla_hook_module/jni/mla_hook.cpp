@@ -38,6 +38,7 @@ typedef void  (*lua_rawseti_t)(lua_State *, int, int);
 static void *g_libagame = nullptr;
 static luaL_loadbuffer_t g_orig_luaL_loadbuffer = nullptr;
 static lua_pcall_t g_orig_lua_pcall = nullptr;
+static bool g_mod_injected = false;
 
 // Resolved Lua API functions
 static struct {
@@ -232,6 +233,50 @@ static const char MOD_LUA_SCRIPT[] =
     "    end\n"
     "    log('[MLA_FORMATION] Scan complete.')\n"
     "  end\n"
+    "\n"
+    "  -- BYPASS MAX HERO LIMIT (5 -> 10)\n"
+    "  local function patch_helper(tbl, name)\n"
+    "    if type(tbl) ~= 'table' then return false end\n"
+    "    local ok = false\n"
+    "    if type(tbl.isHeroSelectedEnough) == 'function' then\n"
+    "      tbl.isHeroSelectedEnough = function(self, bTips)\n"
+    "        log('[MLA_SLOT] isHeroSelectedEnough bypassed')\n"
+    "        return true\n"
+    "      end\n"
+    "      log('[MLA_SLOT] Patched ' .. name .. '.isHeroSelectedEnough -> true')\n"
+    "      ok = true\n"
+    "    end\n"
+    "    if type(tbl.hasArrangeFullTips) == 'function' then\n"
+    "      tbl.hasArrangeFullTips = function(self)\n"
+    "        return false\n"
+    "      end\n"
+    "      log('[MLA_SLOT] Patched ' .. name .. '.hasArrangeFullTips -> false')\n"
+    "    end\n"
+    "    if type(tbl.setMaxSelectCount) == 'function' then\n"
+    "      local orig = tbl.setMaxSelectCount\n"
+    "      tbl.setMaxSelectCount = function(self, c)\n"
+    "        c = math.max(c or 0, 10)\n"
+    "        return orig(self, c)\n"
+    "      end\n"
+    "      log('[MLA_SLOT] Patched ' .. name .. '.setMaxSelectCount -> max(10)')\n"
+    "    end\n"
+    "    return ok\n"
+    "  end\n"
+    "  for _, m in ipairs({ 'HeroSelectHelper', 'CommonArrangeHelper' }) do\n"
+    "    if patch_helper(_G[m], '_G.' .. m) then end\n"
+    "  end\n"
+    "  for _, mn in ipairs(MODULES) do\n"
+    "    local ok, tbl = pcall(function() return _G[mn] end)\n"
+    "    if ok and type(tbl) == 'table' then\n"
+    "      for k, v in pairs(tbl) do\n"
+    "        local ks = tostring(k)\n"
+    "        if ks == 'HeroSelectHelper' or ks == 'CommonArrangeHelper' then\n"
+    "          patch_helper(v, mn .. '.' .. ks)\n"
+    "        end\n"
+    "      end\n"
+    "    end\n"
+    "  end\n"
+    "  log('[MLA_SLOT] Hero limit bypass initialized')\n"
     "end\n";
 
 //=============================================================================
@@ -391,6 +436,13 @@ static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
         if (strstr(basename, "main") || strstr(basename, "init") || strstr(basename, "App") ||
             strstr(basename, "start") || strstr(basename, "boot") || strstr(basename, "login")) {
             LOGI("Injecting mod code after %s", name);
+            execute_lua_string(L, MOD_LUA_SCRIPT);
+        }
+
+        // Fallback: inject once unconditionally after first successful loadbuffer
+        if (!g_mod_injected) {
+            g_mod_injected = true;
+            LOGI("[MLA_MOD] Fallback inject after first loadbuffer: %s", n);
             execute_lua_string(L, MOD_LUA_SCRIPT);
         }
     }
