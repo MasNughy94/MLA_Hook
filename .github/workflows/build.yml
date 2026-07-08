@@ -23,18 +23,45 @@ jobs:
           unzip -q android-ndk-r25c-linux.zip
           echo "ANDROID_NDK_HOME=$PWD/android-ndk-r25c" >> $GITHUB_ENV
 
-      - name: Patch Dobby circular include (OSMemory defined after usage)
+      - name: Patch Dobby os_arch_features.h (OSMemory circular include)
         run: |
-          # OSMemory is defined in platform.h AFTER the dobby/common.h include.
-          # os_arch_features.h includes platform.h but OSMemory isn't visible yet
-          # due to circular include. Replace OSMemory usage with direct syscalls.
-          sed -i 's/auto page = (void \*)ALIGN_FLOOR(address, OSMemory::PageSize());/long page_size = sysconf(_SC_PAGESIZE);\nauto page = (void *)((uintptr_t)address \& ~(page_size - 1));/' \
-            Dobby/common/os_arch_features.h
-          sed -i 's/if (!OSMemory::SetPermission(page, OSMemory::PageSize(), kReadExecute)) {/mprotect(page, page_size, PROT_READ | PROT_EXEC);/' \
-            Dobby/common/os_arch_features.h
-          # Add missing includes
-          sed -i '1i#include <unistd.h>\n#include <sys\/mman.h>' \
-            Dobby/common/os_arch_features.h
+          python3 -c "
+import re
+with open('Dobby/common/os_arch_features.h', 'r') as f:
+    content = f.read()
+
+# Replace the android::make_memory_readable function body
+# Replace OSMemory usage with direct syscalls
+old = '''namespace android {
+inline void make_memory_readable(void *address, size_t size) {
+#if defined(ANDROID)
+  auto page = (void *)ALIGN_FLOOR(address, OSMemory::PageSize());
+  if (!OSMemory::SetPermission(page, OSMemory::PageSize(), kReadExecute)) {
+    return;
+  }
+#endif
+}
+} // namespace android'''
+
+new = '''namespace android {
+inline void make_memory_readable(void *address, size_t size) {
+#if defined(ANDROID)
+  long page_size = sysconf(_SC_PAGESIZE);
+  void *page = (void *)((uintptr_t)address & ~(page_size - 1));
+  mprotect(page, page_size, PROT_READ | PROT_EXEC);
+#endif
+}
+} // namespace android'''
+
+content = content.replace(old, new)
+
+# Add includes
+content = '#include <unistd.h>\n#include <sys/mman.h>\n' + content
+
+with open('Dobby/common/os_arch_features.h', 'w') as f:
+    f.write(content)
+print('Patched os_arch_features.h successfully')
+"
 
       - name: Cache Dobby build
         id: cache-dobby
