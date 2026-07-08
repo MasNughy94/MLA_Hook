@@ -17,18 +17,11 @@ jobs:
           submodules: recursive
           fetch-depth: 1
 
-      - name: Set up NDK
-        uses: nttld/setup-ndk@v1
-        with:
-          ndk-version: r26b
-          link-to-sdk: true
-
-      - name: Patch Dobby assembly for Clang 18+ (NDK r27)
+      - name: Setup NDK r25c (compatible with Dobby)
         run: |
-          sed -i 's/adrp TMP_REG_0, cdecl(common_closure_bridge_handler)@PAGE/adrp x17, cdecl(common_closure_bridge_handler)/' \
-            Dobby/source/TrampolineBridge/ClosureTrampolineBridge/arm64/closure_bridge_arm64.asm
-          sed -i 's/add TMP_REG_0, TMP_REG_0, cdecl(common_closure_bridge_handler)@PAGEOFF/add x17, x17, :lo12:cdecl(common_closure_bridge_handler)/' \
-            Dobby/source/TrampolineBridge/ClosureTrampolineBridge/arm64/closure_bridge_arm64.asm
+          wget -q https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
+          unzip -q android-ndk-r25c-linux.zip
+          echo "ANDROID_NDK_HOME=$PWD/android-ndk-r25c" >> $GITHUB_ENV
 
       - name: Cache Dobby build
         id: cache-dobby
