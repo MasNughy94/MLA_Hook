@@ -126,23 +126,34 @@ static void execute_lua_string(lua_State *L, const char *code) {
 }
 
 //=============================================================================
-// Hook: lua_pcall — inject mod once when Lua environment is stable
+// Shared state
 //=============================================================================
 static int g_pcall_count = 0;
-static bool g_mod_injected = false;
+static bool g_mod_injected = false;      // set true when ready to inject (triggered by loadbuffer or pcall)
+static bool g_mod_injected_pcall = false; // set true after MOD script was actually executed
 
+//=============================================================================
+// Hook: lua_pcall — inject mod (fallback if not already injected by loadbuffer)
+//=============================================================================
 static int lua_pcall_hook(lua_State *L, int nargs, int nresults, int errfunc) {
     g_pcall_count++;
 
-    // Inject MOD_LUA_SCRIPT once at pcall #500 (sets up MLA_MOD flag)
-    if (!g_mod_injected && g_pcall_count > 500) {
-        g_mod_injected = true;
+    // If mod already injected by loadbuffer hook, skip
+    if (g_mod_injected_pcall) {
+        return g_orig_lua_pcall(L, nargs, nresults, errfunc);
+    }
+
+    // Flag ready for injection at pcall #50 (much earlier than old #500!)
+    if (g_mod_injected && g_pcall_count > 50) {
+        g_mod_injected_pcall = true;
         LOGI("[MLA_MOD] Injecting MOD_LUA_SCRIPT at pcall #%d", g_pcall_count);
         execute_lua_string(L, MOD_LUA_SCRIPT);
     }
 
-    // Retry helper patching every 100 pcalls after #500 until both are patched
-    if (g_mod_injected && g_pcall_count > 500 && g_pcall_count % 100 == 0) {
+    // Retry once more at #500 in case the first attempt was too early
+    if (!g_mod_injected_pcall && g_pcall_count > 500) {
+        g_mod_injected_pcall = true;
+        LOGI("[MLA_MOD] Injecting MOD_LUA_SCRIPT (retry) at pcall #%d", g_pcall_count);
         execute_lua_string(L, MOD_LUA_SCRIPT);
     }
 
@@ -150,101 +161,123 @@ static int lua_pcall_hook(lua_State *L, int nargs, int nresults, int errfunc) {
 }
 
 //=============================================================================
-// Hook: luaL_loadbuffer — dump scripts matching formation/slot/lineup keywords
 //=============================================================================
+// Bytecode patching: replace "isHeroNotOwned" with "getHeroSelected" in buffer
+// Both are 14 chars, no size field change needed
+//=============================================================================
+#define PATCH_FROM "isHeroNotOwned"
+#define PATCH_TO   "getHeroSelected"
+#define PATCH_LEN  14
+
+// Simple buffer search (no memmem dependency)
+static const char* memfind(const char *haystack, size_t hlen, const char *needle, size_t nlen) {
+    if (nlen == 0) return haystack;
+    if (hlen < nlen) return nullptr;
+    for (size_t i = 0; i <= hlen - nlen; i++) {
+        if (memcmp(haystack + i, needle, nlen) == 0) return haystack + i;
+    }
+    return nullptr;
+}
+
+// Scan buffer for "isHeroNotOwned" and patch to "getHeroSelected"
+// Returns: number of patches applied, -1 if no patch needed
+static int patch_bytecode(const char **out_buf, const char *in_buf, size_t sz) {
+    if (!memfind(in_buf, sz, PATCH_FROM, PATCH_LEN)) return -1;
+
+    char *patched = (char *)malloc(sz);
+    if (!patched) return -1;
+    memcpy(patched, in_buf, sz);
+
+    int patched_count = 0;
+    size_t pos = 0;
+    while (pos + PATCH_LEN <= sz) {
+        if (memcmp(patched + pos, PATCH_FROM, PATCH_LEN) == 0) {
+            // Verify Lua string constant entry: type(1) + size(4) + content
+            // type byte at pos-5 must be 4 (string), size at pos-4 must be 15 (14+null)
+            if (pos >= 5) {
+                uint32_t str_size;
+                memcpy(&str_size, patched + pos - 4, sizeof(uint32_t));
+                if (str_size == PATCH_LEN + 1 && (uint8_t)patched[pos - 5] == 4) {
+                    memcpy(patched + pos, PATCH_TO, PATCH_LEN);
+                    patched_count++;
+                    pos += PATCH_LEN;
+                    continue;
+                }
+            }
+        }
+        pos++;
+    }
+
+    if (patched_count == 0) {
+        free(patched);
+        return -1;
+    }
+
+    LOGI("[MLA_PATCH] Patched %d occurrence(s) of '%s' -> '%s' in [%zu bytes]",
+         patched_count, PATCH_FROM, PATCH_TO, sz);
+    *out_buf = patched;
+    return patched_count;
+}
+
+//=============================================================================
+// Hook: luaL_loadbuffer — patch bytecode + inject mod early
+//=============================================================================
+static int g_load_count = 0;
+
 static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
                                  const char *name) {
+    g_load_count++;
+
+    // Skip reflection/self scripts
     if (name && strstr(name, "UpdateAllService")) {
         return g_orig_luaL_loadbuffer(L, buff, sz, name);
     }
 
-    const char *n = name ? name : "?";
-    if (sz > 0 && sz < 256) {
-        LOGI("load: %s (%zu bytes)", n, sz);
-    } else {
-        LOGI("load: [%zu bytes]", sz);
-    }
+    // STEP 1: Patch bytecode — replace "isHeroNotOwned" -> "getHeroSelected"
+    const char *patched_buf = nullptr;
+    int patch_result = patch_bytecode(&patched_buf, buff, sz);
+    const char *load_buf = (patch_result >= 0) ? patched_buf : buff;
 
-    int ret = g_orig_luaL_loadbuffer(L, buff, sz, name);
-
-    if (ret == 0) {
-        if (name) {
-            if (strncmp(name, "if not MLA_MOD", 14) == 0) return ret;
-            if (strncmp(name, "do local _", 10) == 0) return ret;
-        }
-
-        // Formation/lineup/slot keywords for dumping
-        const char *FORMATION_KEYWORDS[] = {
-            "formation", "Formation", "FORMATION",
-            "lineup", "Lineup", "LINEUP",
-            "slot", "Slot", "SLOT",
-            "deploy", "Deploy", "DEPLOY",
-            "position", "Position",
-            "team", "Team", "TEAM",
-            "battle", "Battle", "BATTLE",
-            "result", "Result",
-            "fight", "Fight",
-            "arena", "Arena",
-            "pvp", "Pvp", "PVP",
-            "campaign", "Campaign",
-            nullptr
-        };
-
+    // STEP 2: Early mod injection — inject when we see key helper scripts
+    if (!g_mod_injected && name) {
         const char *basename = name;
         const char *slash = strrchr(name, '/');
         if (slash) basename = slash + 1;
 
-        bool dump = false;
-        for (int i = 0; FORMATION_KEYWORDS[i]; i++) {
-            if (strstr(basename, FORMATION_KEYWORDS[i])) {
-                dump = true;
-                LOGI("=== FORMATION MATCH: %s (%zu bytes) ===", name, sz);
+        // Trigger injection when any hero/formation/resonance script is loaded
+        const char *EARLY_TRIGGERS[] = {
+            "HeroSelectHelper", "CommonArrangeHelper",
+            "PowerResonanceHelper", "Resonance",
+            "formation", "Formation", "hero", "Hero",
+            "lineup", "Lineup", "arrange", "Arrange",
+            "slot", "Slot", nullptr
+        };
+        for (int i = 0; EARLY_TRIGGERS[i]; i++) {
+            if (strstr(basename, EARLY_TRIGGERS[i])) {
+                g_mod_injected = true;
+                LOGI("[MLA_MOD] Early inject at '%s' (load #%d)", basename, g_load_count);
                 break;
             }
         }
+    }
 
-        if (dump) {
-            dump_script(name, buff, sz);
-            return ret;
-        }
+    // STEP 3: Call original loader with potentially patched buffer
+    // Inject MOD_LUA_SCRIPT immediately after loading a matching script
+    int ret = g_orig_luaL_loadbuffer(L, load_buf, sz, name);
 
-        // Unnamed large scripts
-        if (!name || name[0] == '\0') {
-            if (sz > 1024) {
-                size_t dump = sz > 512 ? 512 : sz;
-                LOGI("=== Unnamed script (%zu bytes) - first %zu bytes ===", sz, dump);
-                char line[1024];
-                for (size_t i = 0; i < dump; i += 128) {
-                    size_t remain = dump - i;
-                    size_t copy = remain > 127 ? 127 : remain;
-                    memcpy(line, buff + i, copy);
-                    line[copy] = '\0';
-                    for (size_t j = 0; j < copy; j++) {
-                        if (line[j] < 32 && line[j] != '\n' && line[j] != '\t') line[j] = '.';
-                    }
-                    LOGI("  %s", line);
-                }
-            }
-            return ret;
-        }
+    // Clean up patched buffer copy
+    if (patch_result >= 0) free((void *)patched_buf);
 
-        // Also dump battle/result/fight/vip scripts (original behavior)
-        if (strstr(basename, "battle") || strstr(basename, "Battle") ||
-            strstr(basename, "result") || strstr(basename, "Result") ||
-            strstr(basename, "fight") || strstr(basename, "Fight") ||
-            strstr(basename, "vip") || strstr(basename, "Vip") || strstr(basename, "VIP") ||
-            strstr(basename, "shop") || strstr(basename, "Shop") ||
-            strstr(basename, "gacha") || strstr(basename, "Gacha") ||
-            strstr(basename, "gashapon") || strstr(basename, "Gashapon")) {
-            LOGI("=== Dumping %s (%zu bytes) ===", name, sz);
-            dump_script(name, buff, sz);
-        }
+    // STEP 4: If ret==0 and we flagged early inject, execute MOD now
+    if (ret == 0 && g_mod_injected && !g_mod_injected_pcall) {
+        LOGI("[MLA_MOD] Injecting MOD_LUA_SCRIPT at load #%d", g_load_count);
+        execute_lua_string(L, MOD_LUA_SCRIPT);
+        g_mod_injected_pcall = true;
+    }
 
-        if (strstr(basename, "main") || strstr(basename, "init") || strstr(basename, "App") ||
-            strstr(basename, "start") || strstr(basename, "boot") || strstr(basename, "login")) {
-            LOGI("Found startup script: %s", name);
-        }
-
+    // Reduced logging to avoid spam
+    if (ret == 0 && name && g_load_count < 100 && (g_load_count % 20 == 0)) {
+        LOGI("load: %s (%zu bytes)", name, sz);
     }
     return ret;
 }
