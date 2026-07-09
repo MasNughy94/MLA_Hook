@@ -1031,4 +1031,111 @@ REKOMENDASI REVERSE ENGINEERING BERIKUTNYA:
 
   6. Jika semua berhasil: dokumentasikan step-by-step untuk reproduksi.
 
+===============================================================================
+SESSION 7 (9 JUL 2026): DOBBY BINARY PATCH + POWER RESONANCE BYPASS
+===============================================================================
+
+FOKUS 1: FIX BUG _G (LUA 5.1 COMPATIBILITY)
+
+  Root cause: Script sebelumnya menggunakan variabel global `_G` yang hanya ada
+  di Lua 5.2+. Di Lua 5.1 (Cocos2d-x), `_G` adalah nil. Akibatnya script error
+  silent dan TIDAK PERNAH dijalankan. Semua override functions tidak bekerja.
+
+  Fix: Akses global table langsung via nama variabel tanpa `_G.` prefix.
+  Contoh: `HeroSelectHelper.isHeroSelectedEnough = function()...end`
+
+FOKUS 2: POWER RESONANCE SYSTEM BYPASS
+
+  Masalah: UI mendeploy hero campuran (Order/Chaos/Starfield) tapi aura
+  resonance (passive attribute) tidak aktif karena PowerResonanceHelper
+  mengecek kondisi camp composition.
+
+  Analisis call chain:
+    HeroSelectHelper.getArrangeCampAuraID (HeroSelectHelper.lua:685-708)
+      → PowerResonanceHelper.getAuraIDByHeroIDs (resonance.lua:600+)
+        → PowerResonanceHelper.getAuraIDByStCamp (resonance.lua:600+)
+          → PowerResonanceHelper.checkAuraCondition(stCamp, condition, index, count)
+
+  checkAuraCondition return false untuk komposisi camp yang tidak sesuai,
+  menyebabkan getAuraIDByStCamp melanjutkan ke ID aura berikutnya (default 0 = no aura).
+
+  Fix: Override checkAuraCondition:
+    prh.checkAuraCondition = function() return true end
+  Ini membuat getAuraIDByStCamp selalu menggunakan ID aura pertama yang valid
+  (biasanya yang terkuat, misalnya Order+Chaos+Starfield aura).
+
+FOKUS 3: BINARY PATCHING (DOBBY COMPILATION ALTERNATIVE)
+
+  Masalah: Dobby source code tidak bisa dikompilasi dengan NDK r27:
+    1. RuntimeModule::load_address tidak ditemukan (private member)
+    2. OSMemory::ErrorCode enum tidak cocok
+    3. std::is_same_v dengan tipe yang tidak sesuai
+  Penyebab: NDK r27 menggunakan LLVM libc++ terbaru yang tidak kompatibel
+  dengan Dobby's inline assembly/platform-specific code.
+
+  Solusi: Binary patching langsung di .so file via hex editor.
+    1. Cari offset mod_lua_script di libmla_hook.so
+       - Scan pattern: "if not MLA_MOD" (string literal)
+       - Ditemukan di offset: 0xFF30 (65328)
+    2. Zero out 1005 bytes (0x3ED) dari offset script
+    3. Write 539 bytes script baru + null terminator
+    4. Update size field di struct LUA_SCRIPT_SIZE (offset 0xFE04)
+       Dari: 43 0E 00 00 (3651 bytes)
+       Menjadi: 1B 02 00 00 (539 bytes)
+
+  Tool: HxD atau PowerShell (Set-Content -Encoding Byte)
+  File: libmla_hook.so original (261880 bytes)
+
+FOKUS 4: APK BUILD & SIGN PIPELINE
+
+  Karena tidak bisa inject .so via MT Manager (no root), alternatifnya:
+  1. Ganti libmla_hook.so di APK decoded (apk_clean/lib/arm64-v8a/)
+  2. Build ulang APK via apktool b (gagal karena format manual extraction)
+  3. Alternatif: extract base_final.apk via 7z → replace .so → remove META-INF
+     → zipalign 4-byte → apksigner v1+v2+v3 dengan debug.keystore
+
+  Keystore: C:\Users\NGEONG\Videos\MLA\GAMEPROJECT\output\debug.keystore
+  Alias: debug
+  Password: android
+
+  Pipeline sukses: aligned.apk terverifikasi (v1 + v2 + v3 schemes).
+
+FOKUS 5: CURRENT STATUS ON DEVICE (Game Jalan)
+
+  Dari logcat (02:16-02:26 WIB):
+    - MLA_Hook luaL_loadbuffer hook BERFUNGSI (ribuan "load: [539 bytes]" log)
+    - TIDAK ADA log "[MLA_MOD] Injecting MOD_LUA_SCRIPT at pcall #%d"
+    - TIDAK ADA log "Lua mod error"
+    - TIDAK ADA log "lua_pcall hooked"
+    - Kesimpulan: lua_pcall DobbyHook GAGAL atau tidak terpasang
+
+  Analisis lua_pcall hook failure:
+    1. DobbyHook dipanggil di initialize() setelah dlsym("lua_pcall")
+    2. Return value tidak dicek (hanya LOGI sukses, tidak ada LOGI gagal)
+    3. luaL_loadbuffer hook BERHASIL (lihat log)
+    4. Kemungkinan: DobbyHook return non-zero untuk lua_pcall
+       (berbeda dengan luaL_loadbuffer yang sukses)
+    5. Atau: lua_pcall sudah di-hook oleh sistem lain (anti-cheat?)
+
+  Summary: Mod (PowerResonance bypass + duplicate hero) BELUM AKTIF.
+  luaL_loadbuffer hook jalan, tapi lua_pcall hook (yang inject script) tidak.
+
+STATUS SAAT INI:
+  ✓ PowerResonanceHelper call chain fully mapped
+  ✓ checkAuraCondition override written dan sudah di binary patch
+  ✓ _G bug fixed (direct global access)
+  × lua_pcall hook tidak berfungsi → script tidak di-inject
+  × Mod belum aktif di game running
+
+NEXT STEPS:
+  1. Debug lua_pcall hook failure
+     - Enable LOGW untuk DobbyHook return value
+     - Cek apakah lua_pcall bisa di-resolve dengan benar
+     - Coba hook method alternatif (luaL_loadstring, lua_settop)
+  2. Atau deploy APK patched (aligned.apk sudah siap)
+     - Install via adb install -r --bypass-low-target-sdk-block
+     - Test apakah mod script ter-inject via APK baru
+  3. Analisis apakah anti-cheat blocking DobbyHook
+
+===============================================================================
 END OF SESSION HANDOVER FULL DOCUMENT

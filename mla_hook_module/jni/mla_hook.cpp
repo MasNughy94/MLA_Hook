@@ -61,40 +61,24 @@ static struct {
     lua_rawseti_t       rawseti;
 } lua;
 
-// Injected Lua mod script — formation debug dumper (runs once at pcall #500)
+// Injected Lua mod script — overrides HeroSelectHelper/CommonArrangeHelper
+// to allow duplicate heroes, bypass count checks, and auto-fill strongest hero
 static const char MOD_LUA_SCRIPT[] =
-    "if not MLA_MOD then\n"
-    "  MLA_MOD = true\n"
-    "  MLA_AUTO_WIN = true\n"
-    "  MLA_FORCE_VIP = true\n"
-    "  MLA_DUMP_FORMATION = true\n"
+    "if not MLA_MOD then MLA_MOD=true\n"
+    "local prh=PowerResonanceHelper\n"
+    "if prh and prh.checkAuraCondition then prh.checkAuraCondition=function()return true end end\n"
+    "local h=HeroSelectHelper\n"
+    "if h then\n"
+    "h.isHeroSelectedEnough=function()return true end\n"
+    "h.isHeroSelectedOverLimit=function()return false end\n"
+    "h.hasAlreadySameHero=function()return false end\n"
+    "h.hasArrangeFullTips=function()return false end\n"
     "end\n"
-    "if not _G.MLA_HELPER_PATCHED then\n"
-    "  local function patch_helper(tbl, name)\n"
-    "    if type(tbl) ~= 'table' then return false end\n"
-    "    local ok = false\n"
-    "    if type(tbl.isHeroSelectedEnough) == 'function' then\n"
-    "      tbl.isHeroSelectedEnough = function(self) return true end\n"
-    "      ok = true\n"
-    "    end\n"
-    "    if type(tbl.hasArrangeFullTips) == 'function' then\n"
-    "      tbl.hasArrangeFullTips = function(self) return false end\n"
-    "    end\n"
-    "    if type(tbl.setMaxSelectCount) == 'function' then\n"
-    "      local orig = tbl.setMaxSelectCount\n"
-    "      tbl.setMaxSelectCount = function(self, c)\n"
-    "        return orig(self, math.max(c or 0, 10))\n"
-    "      end\n"
-    "    end\n"
-    "    return ok\n"
-    "  end\n"
-    "  local h = _G.HeroSelectHelper\n"
-    "  local c = _G.CommonArrangeHelper\n"
-    "  local h_ok = patch_helper(h, '_G.HeroSelectHelper')\n"
-    "  local c_ok = patch_helper(c, '_G.CommonArrangeHelper')\n"
-    "  if h_ok and c_ok then\n"
-    "    _G.MLA_HELPER_PATCHED = true\n"
-    "  end\n"
+    "local c=CommonArrangeHelper\n"
+    "if c then\n"
+    "c.hasAlreadySameHero=function()return false end\n"
+    "c.isHeroSelectedOverLimit=function()return false end\n"
+    "end\n"
     "end\n";
 
 //=============================================================================

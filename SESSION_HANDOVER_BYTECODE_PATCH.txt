@@ -870,5 +870,89 @@ REKOMENDASI REVERSE ENGINEERING BERIKUTNYA:
    muncul di battle. Mungkin ada validation di server side.
 
 ================================================================================
+===============================================================================
+SESSION 7 (9 JUL 2026): DOBBY BINARY PATCH + POWER RESONANCE BYPASS
+===============================================================================
+
+  Sesi ini fokus pada bypass DUPLICATE HERO (slot limit + UI block) dan
+  POWER RESONANCE SYSTEM (camp aura attribute).
+
+FOKUS BARU: POWER RESONANCE SYSTEM
+
+  PowerResonance adalah system yang memberikan bonus attribute (aura)
+  berdasarkan komposisi camp hero di formasi (Order/Chaos/Starfield/Elemental).
+
+  Call chain untuk mendapatkan aura ID:
+    HeroSelectHelper.getArrangeCampAuraID(self)
+      → PowerResonanceHelper.getAuraIDByHeroIDs(self, heroIds)
+        → PowerResonanceHelper.getAuraIDByStCamp(self, stCamp, isUseOldAura)
+          → iterate PowerResonance.get("Attribute").resonanceConditionSorted
+          → tiap kondisi: checkAuraCondition(stCamp, vCondition, index, iTotalNum)
+          → return auraID pertama yang condition-nya true
+
+  checkAuraCondition adalah fungsi kritis yang memvalidasi apakah komposisi
+  camp cocok dengan kondisi aura tertentu (misalnya "3 Order + 2 Chaos").
+  Jika return false → skip ke aura berikutnya → default aura 0 (no bonus).
+
+  Strategi bypass: Override checkAuraCondition return true selalu.
+  Efek: Aura pertama (terkuat) selalu terpilih, semua bonus resonance aktif.
+
+FOKUS 2: FIX MOD_LUA_SCRIPT
+
+  1. Hapus `_G.` prefix (tidak kompatibel Lua 5.1):
+     OLD: _G.HeroSelectHelper.isHeroSelectedEnough = ...
+     NEW: HeroSelectHelper.isHeroSelectedEnough = ...
+
+  2. Tambah override PowerResonanceHelper.checkAuraCondition
+
+  3. Script baru panjang: 539 bytes (sebelumnya 3651 bytes karena auto-win)
+
+FOKUS 3: BINARY PATCHING
+
+  Karena Dobby source code gagal dikompilasi dengan NDK r27 (error
+  RuntimeModule::load_address, OSMemory::ErrorCode), alternatifnya:
+  binary patching langsung di libmla_hook.so.
+
+  Offset: 0xFF30 (65328 decimal)
+  Size lama: 3651 bytes (0xE43)
+  Size baru: 539 bytes (0x21B)
+  Method: HxD hex editor
+
+  Langkah detail:
+    1. Buka libmla_hook.so di HxD
+    2. Cari offset 65328, zero out dari offset 65328 sampai 66332 (0x3ED bytes)
+    3. Paste 539 bytes script baru
+    4. Update LUA_SCRIPT_SIZE di offset 0xFE04 dari 3651 ke 539
+
+FOKUS 4: APK DEPLOYMENT
+
+  Karena device tidak root, deploy via APK rebuild:
+    1. Copy patched .so ke apk_temp/lib/arm64-v8a/
+    2. Build via apktool + zipalign + apksigner (debug keystore)
+    3. Install via adb install -r --bypass-low-target-sdk-block
+
+  Status: aligned.apk sudah di-sign, siap install.
+
+FOKUS 5: CURRENT RUNNING GAME STATE
+
+  Game sedang aktif (PID 21059). Dari logcat:
+    - luaL_loadbuffer hook: WORKING
+    - lua_pcall hook: NOT WORKING (mod script tidak ter-inject)
+    - Tidak ada error log Lua
+
+  Kemungkinan penyebab lua_pcall hook failure:
+    - DobbyHook return non-zero untuk lua_pcall (tapi sukses untuk luaL_loadbuffer)
+    - lua_pcall symbol mungkin tidak ada di libagame.so
+    - Anti-cheat blocking hook pada lua_pcall
+
+STATUS:
+  ✓ PowerResonance call chain mapped
+  ✓ checkAuraCondition override fix
+  ✓ _G bug fixed
+  ✓ Binary patched
+  ✓ APK signed siap deploy
+  × lua_pcall hook tidak aktif → mod tidak jalan
+
+===============================================================================
 END OF SESSION HANDOVER DOCUMENT
 ================================================================================
