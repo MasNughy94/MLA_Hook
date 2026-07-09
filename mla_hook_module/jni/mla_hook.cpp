@@ -3,6 +3,7 @@
 
 #include <cstring>
 #include <cstdio>
+#include <cstdlib>
 #include <dlfcn.h>
 
 namespace mla {
