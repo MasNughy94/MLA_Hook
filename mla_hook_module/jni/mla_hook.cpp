@@ -150,12 +150,10 @@ static void dump_script(const char *name, const char *buff, size_t sz) {
 //=============================================================================
 static void execute_lua_string(lua_State *L, const char *code) {
     if (!L || !code) return;
+    if (g_mod_injected_pcall) return;
 
-    // Skip if MLA_MOD already exists (injected only once per Lua state)
-    lua.getfield(L, -10001, "MLA_MOD");
-    bool exists = lua.type(L, -1) != 0; // LUA_TNIL = 0
-    lua.settop(L, lua.gettop(L) - 1);
-    if (exists) return;
+    LOGI("[MLA_MOD] Injecting MOD_LUA_SCRIPT");
+    g_mod_injected_pcall = true;
 
     if (lua.loadstring(L, code) != 0) {
         lua.settop(L, lua.gettop(L) - 1);
@@ -170,22 +168,17 @@ static void execute_lua_string(lua_State *L, const char *code) {
 // Shared state
 //=============================================================================
 static int g_pcall_count = 0;
-static bool g_mod_injected = true;       // always ready to inject (pcall hook will trigger)
-static bool g_mod_injected_pcall = false; // set true after MOD script was actually executed
+static bool g_mod_injected = false;
+static bool g_mod_injected_pcall = false;
 
 //=============================================================================
 // Hook: lua_pcall â€” inject mod (fallback if not already injected by loadbuffer)
 //=============================================================================
 static int lua_pcall_hook(lua_State *L, int nargs, int nresults, int errfunc) {
     g_pcall_count++;
-
-    // Inject at pcall #50 (much earlier than old #500!)
-    // execute_lua_string checks MLA_MOD guard internally, so it's safe to call multiple times
-    if (g_pcall_count == 50) {
-        LOGI("[MLA_MOD] Injecting MOD_LUA_SCRIPT at pcall #%d", g_pcall_count);
+    if (g_pcall_count == 500) {
         execute_lua_string(L, MOD_LUA_SCRIPT);
     }
-
     return g_orig_lua_pcall(L, nargs, nresults, errfunc);
 }
 
@@ -251,87 +244,25 @@ static int patch_bytecode(const char **out_buf, const char *in_buf, size_t sz) {
 //=============================================================================
 // Hook: luaL_loadbuffer â€” patch bytecode + inject mod early
 //=============================================================================
-static int g_load_count = 0;
-
 static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
                                  const char *name) {
-    g_load_count++;
-
-    // Skip reflection/self scripts
-    if (name && strstr(name, "UpdateAllService")) {
-        return g_orig_luaL_loadbuffer(L, buff, sz, name);
-    }
 
     // STEP 1: Patch bytecode â€” replace "isHeroNotOwned" -> "getHeroSelected"
     const char *patched_buf = nullptr;
     int patch_result = patch_bytecode(&patched_buf, buff, sz);
     const char *load_buf = (patch_result >= 0) ? patched_buf : buff;
 
-    // STEP 2: Early mod injection â€” inject when we see key helper scripts
-    if (!g_mod_injected && name) {
-        const char *basename = name;
-        const char *slash = strrchr(name, '/');
-        if (slash) basename = slash + 1;
-
-        // Trigger injection when any hero/formation/resonance/idle/tower script is loaded
-        const char *EARLY_TRIGGERS[] = {
-            "HeroSelectHelper", "CommonArrangeHelper",
-            "PowerResonanceHelper", "Resonance",
-            "IdleHelper", "IdleMoudle",
-            "HeroComposeMainPanel", "HeroCompose",
-            "CrystalTowerDream", "CrystalTower",
-            "formation", "Formation", "hero", "Hero",
-            "lineup", "Lineup", "arrange", "Arrange",
-            "slot", "Slot", nullptr
-        };
-        for (int i = 0; EARLY_TRIGGERS[i]; i++) {
-            if (strstr(basename, EARLY_TRIGGERS[i])) {
-                g_mod_injected = true;
-                LOGI("[MLA_MOD] Early inject at '%s' (load #%d)", basename, g_load_count);
-                break;
-            }
-        }
-    }
-
-    // STEP 3: Call original loader with potentially patched buffer
-    // Inject MOD_LUA_SCRIPT immediately after loading a matching script
+    // STEP 2: Call original loader with potentially patched buffer
     int ret = g_orig_luaL_loadbuffer(L, load_buf, sz, name);
 
     // Clean up patched buffer copy
     if (patch_result >= 0) free((void *)patched_buf);
 
-    // STEP 4: If ret==0 and mod is active, try to inject (execute_lua_string checks MLA_MOD guard internally)
-    if (ret == 0 && g_mod_injected) {
-        LOGI("[MLA_MOD] Injecting MOD_LUA_SCRIPT at load #%d", g_load_count);
+    // STEP 3: Inject MOD_LUA_SCRIPT (execute_lua_string guards via g_mod_injected_pcall)
+    if (ret == 0) {
         execute_lua_string(L, MOD_LUA_SCRIPT);
     }
 
-    // KEYWORD ANALYSIS: dump script content when it contains target keywords
-    if (ret == 0 && buff && sz > 0) {
-        const char *KEYWORDS[] = {
-            "babel", "Babel", "tower", "Tower",
-            "fuse", "Fuse", "idle", "Idle",
-            "reward", "Reward", "getReward", "showReward",
-            "getDropActionGold", "getDropActionHero",
-            "claimIdleReward", "canAddToMaterial",
-            "isMaterialFull", "onClickCompose",
-            "exchangeHybridPiece", "getTowerTblData",
-            nullptr
-        };
-        for (int ki = 0; KEYWORDS[ki]; ki++) {
-            if (memfind(buff, sz, KEYWORDS[ki], strlen(KEYWORDS[ki]))) {
-                LOGI("[ANALYZE] === Script contains '%s' at load #%d (%s, %zu bytes) ===",
-                     KEYWORDS[ki], g_load_count, name ? name : "?", sz);
-                dump_script(KEYWORDS[ki], buff, sz);
-                break;
-            }
-        }
-    }
-
-    // Reduced logging to avoid spam
-    if (ret == 0 && name && g_load_count < 100 && (g_load_count % 20 == 0)) {
-        LOGI("load: %s (%zu bytes)", name, sz);
-    }
     return ret;
 }
 
@@ -423,8 +354,6 @@ void cleanup() {
 
 __attribute__((constructor))
 static void on_load() {
-    FILE *f = fopen("/data/local/tmp/mlahook_init.txt", "w");
-    if (f) { fprintf(f, "on_load called\n"); fclose(f); }
     mla::initialize();
 }
 
