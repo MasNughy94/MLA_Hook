@@ -423,6 +423,9 @@ void cleanup() {
 
 __attribute__((constructor))
 static void on_load() {
+    FILE *f = fopen("/data/local/tmp/mlahook_init.txt", "w");
+    if (f) { fprintf(f, "on_load called PID=%d\n", getpid()); fclose(f); }
+    // Crash intentionally to confirm execution if init fails
     mla::initialize();
 }
 
