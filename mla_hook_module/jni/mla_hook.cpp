@@ -62,24 +62,60 @@ static struct {
     lua_rawseti_t       rawseti;
 } lua;
 
-// Injected Lua mod script — overrides HeroSelectHelper/CommonArrangeHelper
-// to allow duplicate heroes, bypass count checks, and auto-fill strongest hero
+// Injected Lua mod script — overrides hero selection, fuse, idle reward, tower
+// All class names are globals registered by MLA's module system
 static const char MOD_LUA_SCRIPT[] =
     "if not MLA_MOD then MLA_MOD=true\n"
-    "local prh=PowerResonanceHelper\n"
-    "if prh and prh.checkAuraCondition then prh.checkAuraCondition=function()return true end end\n"
+
+    // === ORIGINAL: HeroSelectHelper + CommonArrangeHelper overrides ===
     "local h=HeroSelectHelper\n"
     "if h then\n"
     "h.isHeroSelectedEnough=function()return true end\n"
-    "h.isHeroSelectedOverLimit=function()return false end\n"
-    "h.hasAlreadySameHero=function()return false end\n"
-    "h.hasArrangeFullTips=function()return false end\n"
+    "h.isHeroSelectedOverLimit=function()return nil end\n"
+    "h.hasAlreadySameHero=function()return nil end\n"
+    "h.hasArrangeFullTips=function()return nil end\n"
     "end\n"
     "local c=CommonArrangeHelper\n"
     "if c then\n"
-    "c.hasAlreadySameHero=function()return false end\n"
-    "c.isHeroSelectedOverLimit=function()return false end\n"
+    "c.hasAlreadySameHero=function()return nil end\n"
+    "c.isHeroSelectedOverLimit=function()return nil end\n"
+    "c.isHeroNotOwned=function()return nil end\n"
+    "c.isNotOwnedHeroSelected=function()return nil end\n"
     "end\n"
+
+    // === NEW FEATURE 1: DOUBLE IDLE REWARD ===
+    "local ih=IdleHelper\n"
+    "if ih then\n"
+    "ih.getDropActionGoldRandom=function()return 999999 end\n"
+    "ih.getDropActionHeroExpRandom=function()return 99999 end\n"
+    "ih.getDropActionTeamExpRandom=function()return 99999 end\n"
+    "ih.hasReward=function()return true end\n"
+    "ih.isRewardTimeFull=function()return true end\n"
+    "ih.getIdleMaxTime=function()return 86400 end\n"
+    "end\n"
+
+    // === NEW FEATURE 2: FUSION BYPASS (any hero as material) ===
+    "local hc=HeroComposeMainPanel\n"
+    "if hc then\n"
+    "hc.canAddToMaterial=function()return true end\n"
+    "hc.isMaterialFull=function()return false end\n"
+    "hc.checkMaterialFull=function()return false end\n"
+    "end\n"
+
+    // === NEW FEATURE 3: DOUBLE TOWER REWARD ===
+    "local tc=CrystalTowerDreamMainPanel\n"
+    "if tc and tc.getReward then\n"
+    "local gr=tc.getReward\n"
+    "tc.getReward=function(s,...)\n"
+    "local r=gr(s,...)\n"
+    "if type(r)=='table'then\n"
+    "for _,v in pairs(r)do\n"
+    "if type(v)=='table'and v.amount then v.amount=v.amount*2\n"
+    "elseif type(v)=='table'and v.count then v.count=v.count*2 end\n"
+    "end end\n"
+    "return r end\n"
+    "end\n"
+
     "end\n";
 
 //=============================================================================
@@ -130,7 +166,7 @@ static void execute_lua_string(lua_State *L, const char *code) {
 // Shared state
 //=============================================================================
 static int g_pcall_count = 0;
-static bool g_mod_injected = false;      // set true when ready to inject (triggered by loadbuffer or pcall)
+static bool g_mod_injected = true;       // always ready to inject (pcall hook will trigger)
 static bool g_mod_injected_pcall = false; // set true after MOD script was actually executed
 
 //=============================================================================
@@ -245,10 +281,13 @@ static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
         const char *slash = strrchr(name, '/');
         if (slash) basename = slash + 1;
 
-        // Trigger injection when any hero/formation/resonance script is loaded
+        // Trigger injection when any hero/formation/resonance/idle/tower script is loaded
         const char *EARLY_TRIGGERS[] = {
             "HeroSelectHelper", "CommonArrangeHelper",
             "PowerResonanceHelper", "Resonance",
+            "IdleHelper", "IdleMoudle",
+            "HeroComposeMainPanel", "HeroCompose",
+            "CrystalTowerDream", "CrystalTower",
             "formation", "Formation", "hero", "Hero",
             "lineup", "Lineup", "arrange", "Arrange",
             "slot", "Slot", nullptr
@@ -274,6 +313,28 @@ static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
         LOGI("[MLA_MOD] Injecting MOD_LUA_SCRIPT at load #%d", g_load_count);
         execute_lua_string(L, MOD_LUA_SCRIPT);
         g_mod_injected_pcall = true;
+    }
+
+    // KEYWORD ANALYSIS: dump script content when it contains target keywords
+    if (ret == 0 && buff && sz > 0) {
+        const char *KEYWORDS[] = {
+            "babel", "Babel", "tower", "Tower",
+            "fuse", "Fuse", "idle", "Idle",
+            "reward", "Reward", "getReward", "showReward",
+            "getDropActionGold", "getDropActionHero",
+            "claimIdleReward", "canAddToMaterial",
+            "isMaterialFull", "onClickCompose",
+            "exchangeHybridPiece", "getTowerTblData",
+            nullptr
+        };
+        for (int ki = 0; KEYWORDS[ki]; ki++) {
+            if (memfind(buff, sz, KEYWORDS[ki], strlen(KEYWORDS[ki]))) {
+                LOGI("[ANALYZE] === Script contains '%s' at load #%d (%s, %zu bytes) ===",
+                     KEYWORDS[ki], g_load_count, name ? name : "?", sz);
+                dump_script(KEYWORDS[ki], buff, sz);
+                break;
+            }
+        }
     }
 
     // Reduced logging to avoid spam
@@ -327,11 +388,16 @@ bool initialize() {
 
     void *pcall = dlsym(g_libagame, "lua_pcall");
     if (pcall) {
-        if (DobbyHook(pcall,
-                      (dobby_dummy_func_t)lua_pcall_hook,
-                      (dobby_dummy_func_t *)&g_orig_lua_pcall) == 0) {
-            LOGI("lua_pcall hooked");
+        int ret = DobbyHook(pcall,
+                            (dobby_dummy_func_t)lua_pcall_hook,
+                            (dobby_dummy_func_t *)&g_orig_lua_pcall);
+        if (ret == 0) {
+            LOGI("lua_pcall hooked at %p", pcall);
+        } else {
+            LOGW("lua_pcall DobbyHook failed: ret=%d", ret);
         }
+    } else {
+        LOGW("Cannot find lua_pcall (dlsym returned null)");
     }
 
     void *loadbuffer = dlsym(g_libagame, "luaL_loadbuffer");
