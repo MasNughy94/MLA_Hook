@@ -146,6 +146,13 @@ static void dump_script(const char *name, const char *buff, size_t sz) {
 }
 
 //=============================================================================
+// Shared state
+//=============================================================================
+static int g_pcall_count = 0;
+static bool g_mod_injected = false;
+static bool g_mod_injected_pcall = false;
+
+//=============================================================================
 // Execute a Lua string on the given state
 //=============================================================================
 static void execute_lua_string(lua_State *L, const char *code) {
@@ -163,13 +170,6 @@ static void execute_lua_string(lua_State *L, const char *code) {
         lua.settop(L, lua.gettop(L) - 1);
     }
 }
-
-//=============================================================================
-// Shared state
-//=============================================================================
-static int g_pcall_count = 0;
-static bool g_mod_injected = false;
-static bool g_mod_injected_pcall = false;
 
 //=============================================================================
 // Hook: lua_pcall â€” inject mod (fallback if not already injected by loadbuffer)
