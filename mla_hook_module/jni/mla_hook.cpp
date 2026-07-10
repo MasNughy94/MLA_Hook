@@ -62,7 +62,7 @@ static struct {
     lua_rawseti_t       rawseti;
 } lua;
 
-// Injected Lua mod script — overrides hero selection, fuse, idle reward, tower
+// Injected Lua mod script â€” overrides hero selection, fuse, idle reward, tower
 // All class names are globals registered by MLA's module system
 static const char MOD_LUA_SCRIPT[] =
     "if not MLA_MOD then MLA_MOD=true\n"
@@ -151,13 +151,17 @@ static void dump_script(const char *name, const char *buff, size_t sz) {
 static void execute_lua_string(lua_State *L, const char *code) {
     if (!L || !code) return;
 
+    // Skip if MLA_MOD already exists (injected only once per Lua state)
+    lua.getfield(L, -10001, "MLA_MOD");
+    bool exists = lua.type(L, -1) != 0; // LUA_TNIL = 0
+    lua.settop(L, lua.gettop(L) - 1);
+    if (exists) return;
+
     if (lua.loadstring(L, code) != 0) {
         lua.settop(L, lua.gettop(L) - 1);
         return;
     }
     if (lua.pcall(L, 0, 0, 0) != 0) {
-        const char *err = lua.tostring(L, -1);
-        if (err) LOGW("Lua mod error: %s", err);
         lua.settop(L, lua.gettop(L) - 1);
     }
 }
@@ -170,27 +174,15 @@ static bool g_mod_injected = true;       // always ready to inject (pcall hook w
 static bool g_mod_injected_pcall = false; // set true after MOD script was actually executed
 
 //=============================================================================
-// Hook: lua_pcall — inject mod (fallback if not already injected by loadbuffer)
+// Hook: lua_pcall â€” inject mod (fallback if not already injected by loadbuffer)
 //=============================================================================
 static int lua_pcall_hook(lua_State *L, int nargs, int nresults, int errfunc) {
     g_pcall_count++;
 
-    // If mod already injected by loadbuffer hook, skip
-    if (g_mod_injected_pcall) {
-        return g_orig_lua_pcall(L, nargs, nresults, errfunc);
-    }
-
-    // Flag ready for injection at pcall #50 (much earlier than old #500!)
-    if (g_mod_injected && g_pcall_count > 50) {
-        g_mod_injected_pcall = true;
+    // Inject at pcall #50 (much earlier than old #500!)
+    // execute_lua_string checks MLA_MOD guard internally, so it's safe to call multiple times
+    if (g_pcall_count == 50) {
         LOGI("[MLA_MOD] Injecting MOD_LUA_SCRIPT at pcall #%d", g_pcall_count);
-        execute_lua_string(L, MOD_LUA_SCRIPT);
-    }
-
-    // Retry once more at #500 in case the first attempt was too early
-    if (!g_mod_injected_pcall && g_pcall_count > 500) {
-        g_mod_injected_pcall = true;
-        LOGI("[MLA_MOD] Injecting MOD_LUA_SCRIPT (retry) at pcall #%d", g_pcall_count);
         execute_lua_string(L, MOD_LUA_SCRIPT);
     }
 
@@ -257,7 +249,7 @@ static int patch_bytecode(const char **out_buf, const char *in_buf, size_t sz) {
 }
 
 //=============================================================================
-// Hook: luaL_loadbuffer — patch bytecode + inject mod early
+// Hook: luaL_loadbuffer â€” patch bytecode + inject mod early
 //=============================================================================
 static int g_load_count = 0;
 
@@ -270,12 +262,12 @@ static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
         return g_orig_luaL_loadbuffer(L, buff, sz, name);
     }
 
-    // STEP 1: Patch bytecode — replace "isHeroNotOwned" -> "getHeroSelected"
+    // STEP 1: Patch bytecode â€” replace "isHeroNotOwned" -> "getHeroSelected"
     const char *patched_buf = nullptr;
     int patch_result = patch_bytecode(&patched_buf, buff, sz);
     const char *load_buf = (patch_result >= 0) ? patched_buf : buff;
 
-    // STEP 2: Early mod injection — inject when we see key helper scripts
+    // STEP 2: Early mod injection â€” inject when we see key helper scripts
     if (!g_mod_injected && name) {
         const char *basename = name;
         const char *slash = strrchr(name, '/');
@@ -308,11 +300,10 @@ static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
     // Clean up patched buffer copy
     if (patch_result >= 0) free((void *)patched_buf);
 
-    // STEP 4: If ret==0 and we flagged early inject, execute MOD now
-    if (ret == 0 && g_mod_injected && !g_mod_injected_pcall) {
+    // STEP 4: If ret==0 and mod is active, try to inject (execute_lua_string checks MLA_MOD guard internally)
+    if (ret == 0 && g_mod_injected) {
         LOGI("[MLA_MOD] Injecting MOD_LUA_SCRIPT at load #%d", g_load_count);
         execute_lua_string(L, MOD_LUA_SCRIPT);
-        g_mod_injected_pcall = true;
     }
 
     // KEYWORD ANALYSIS: dump script content when it contains target keywords
