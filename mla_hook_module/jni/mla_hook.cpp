@@ -403,13 +403,16 @@ void cleanup() {
 
 __attribute__((constructor))
 static void on_load() {
-    // Write marker file FIRST, before anything else
-    FILE *f = fopen("/data/local/tmp/mla_hook_loaded.txt", "w");
+    // Write marker file for debugging
+    FILE *f = fopen("/data/data/com.moonton.mobilehero/mla_hook_loaded.txt", "w");
     if (f) {
         fputs("MLA_Hook constructor running\n", f);
         fprintf(f, "libagame handle: %p\n", (void*)dlopen("libagame.so", RTLD_NOLOAD));
         fclose(f);
     }
+    // Also try /data/local/tmp (may fail on SELinux)
+    f = fopen("/data/local/tmp/mla_hook_loaded.txt", "w");
+    if (f) { fclose(f); }
     mla::initialize();
 }
 
