@@ -9,6 +9,42 @@
 namespace mla {
 
 //=============================================================================
+// Deferred initialization support
+//=============================================================================
+#include <pthread.h>
+#include <unistd.h>
+
+static volatile bool g_inited = false;
+
+// Forward declaration
+bool initialize();
+
+static void* deferred_init_thread(void*) {
+    // Wait for libagame.so to finish loading
+    sleep(3);
+
+    FILE *f = fopen("/data/data/com.moonton.mobilehero/mla_deferred.txt", "w");
+    if (f) { fprintf(f, "deferred init starting, pid=%d\n", getpid()); fclose(f); }
+
+    bool ok = mla::initialize();
+
+    f = fopen("/data/data/com.moonton.mobilehero/mla_deferred.txt", "a");
+    if (f) { fprintf(f, "deferred init result: %d\n", ok); fclose(f); }
+
+    g_inited = true;
+    return nullptr;
+}
+
+static void start_deferred_init() {
+    pthread_t thread;
+    pthread_attr_t attr;
+    pthread_attr_init(&attr);
+    pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
+    pthread_create(&thread, &attr, deferred_init_thread, nullptr);
+    pthread_attr_destroy(&attr);
+}
+
+//=============================================================================
 // Lua API type definitions (Lua 5.1, as used by Cocos2d-x)
 //=============================================================================
 typedef struct lua_State lua_State;
@@ -319,69 +355,70 @@ static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
 // Initialize
 //=============================================================================
 bool initialize() {
-    // Write debug marker
     FILE *f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "w");
     if (f) { fputs("initialize() started\n", f); fclose(f); }
 
-    // Use RTLD_DEFAULT — we're loaded as DT_NEEDED of libagame.so,
-    // so all its symbols are visible.  Don't dlopen("libagame.so") because
-    // we are running DURING its loading (constructor order), causing deadlock.
-    lua.settop      = (lua_settop_t)     dlsym(RTLD_DEFAULT, "lua_settop");
-    lua.gettop      = (lua_gettop_t)     dlsym(RTLD_DEFAULT, "lua_gettop");
-    lua.pushstring  = (lua_pushstring_t) dlsym(RTLD_DEFAULT, "lua_pushstring");
-    lua.pushinteger = (lua_pushinteger_t)dlsym(RTLD_DEFAULT, "lua_pushinteger");
-    lua.pushboolean = (lua_pushboolean_t)dlsym(RTLD_DEFAULT, "lua_pushboolean");
-    lua.getfield    = (lua_getfield_t)   dlsym(RTLD_DEFAULT, "lua_getfield");
-    lua.setfield    = (lua_setfield_t)   dlsym(RTLD_DEFAULT, "lua_setfield");
-    lua.tostring    = (lua_tostring_t)   dlsym(RTLD_DEFAULT, "lua_tostring");
-    lua.loadstring  = (luaL_loadstring_t)dlsym(RTLD_DEFAULT, "luaL_loadstring");
-    lua.pcall       = (lua_pcall_t)      dlsym(RTLD_DEFAULT, "lua_pcall");
-    lua.gettable    = (lua_gettable_t)   dlsym(RTLD_DEFAULT, "lua_gettable");
-    lua.settable    = (lua_settable_t)   dlsym(RTLD_DEFAULT, "lua_settable");
-    lua.next        = (lua_next_t)       dlsym(RTLD_DEFAULT, "lua_next");
-    lua.pushnil     = (lua_pushnil_t)    dlsym(RTLD_DEFAULT, "lua_pushnil");
-    lua.type        = (lua_type_t)       dlsym(RTLD_DEFAULT, "lua_type");
-    lua.getmetatable = (lua_getmetatable_t)dlsym(RTLD_DEFAULT, "lua_getmetatable");
-    lua.rawgeti     = (lua_rawgeti_t)    dlsym(RTLD_DEFAULT, "lua_rawgeti");
-    lua.rawseti     = (lua_rawseti_t)    dlsym(RTLD_DEFAULT, "lua_rawseti");
+    // Now that libagame.so is fully loaded, we can dlopen it safely
+    g_libagame = dlopen("libagame.so", RTLD_NOLOAD);
+    if (!g_libagame) {
+        f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "a");
+        if (f) { fprintf(f, "dlopen NOLOAD failed, trying RTLD_NOW\n"); fclose(f); }
+        g_libagame = dlopen("libagame.so", RTLD_NOW);
+    }
+    if (!g_libagame) {
+        f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "a");
+        if (f) { fprintf(f, "FAILED: dlopen libagame.so: %s\n", dlerror()); fclose(f); }
+        return false;
+    }
+
+    lua.settop      = (lua_settop_t)     dlsym(g_libagame, "lua_settop");
+    lua.gettop      = (lua_gettop_t)     dlsym(g_libagame, "lua_gettop");
+    lua.pushstring  = (lua_pushstring_t) dlsym(g_libagame, "lua_pushstring");
+    lua.pushinteger = (lua_pushinteger_t)dlsym(g_libagame, "lua_pushinteger");
+    lua.pushboolean = (lua_pushboolean_t)dlsym(g_libagame, "lua_pushboolean");
+    lua.getfield    = (lua_getfield_t)   dlsym(g_libagame, "lua_getfield");
+    lua.setfield    = (lua_setfield_t)   dlsym(g_libagame, "lua_setfield");
+    lua.tostring    = (lua_tostring_t)   dlsym(g_libagame, "lua_tostring");
+    lua.loadstring  = (luaL_loadstring_t)dlsym(g_libagame, "luaL_loadstring");
+    lua.pcall       = (lua_pcall_t)      dlsym(g_libagame, "lua_pcall");
+    lua.gettable    = (lua_gettable_t)   dlsym(g_libagame, "lua_gettable");
+    lua.settable    = (lua_settable_t)   dlsym(g_libagame, "lua_settable");
+    lua.next        = (lua_next_t)       dlsym(g_libagame, "lua_next");
+    lua.pushnil     = (lua_pushnil_t)    dlsym(g_libagame, "lua_pushnil");
+    lua.type        = (lua_type_t)       dlsym(g_libagame, "lua_type");
+    lua.getmetatable = (lua_getmetatable_t)dlsym(g_libagame, "lua_getmetatable");
+    lua.rawgeti     = (lua_rawgeti_t)    dlsym(g_libagame, "lua_rawgeti");
+    lua.rawseti     = (lua_rawseti_t)    dlsym(g_libagame, "lua_rawseti");
 
     f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "a");
-    if (f) { fprintf(f, "dlsym complete: settop=%p pcall=%p loadstring=%p\n", (void*)lua.settop, (void*)lua.pcall, (void*)lua.loadstring); fclose(f); }
+    if (f) { fprintf(f, "dlsym: settop=%p pcall=%p loadstring=%p\n", (void*)lua.settop, (void*)lua.pcall, (void*)lua.loadstring); fclose(f); }
 
     if (!lua.settop || !lua.pushstring || !lua.loadstring || !lua.pcall) {
         f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "a");
-        if (f) { fprintf(f, "FAILED: essential Lua symbols not resolved\n"); fclose(f); }
+        if (f) { fprintf(f, "FAILED: essential symbols\n"); fclose(f); }
         return false;
     }
 
-    void *pcall = (void*)lua.pcall;
-    if (pcall) {
-        int ret = DobbyHook(pcall,
-                            (dobby_dummy_func_t)lua_pcall_hook,
-                            (dobby_dummy_func_t *)&g_orig_lua_pcall);
-        f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "a");
-        if (f) { fprintf(f, "DobbyHook lua_pcall ret=%d (0=OK)\n", ret); fclose(f); }
-    }
+    void *pcall = dlsym(g_libagame, "lua_pcall");
+    int ret = DobbyHook(pcall,
+                        (dobby_dummy_func_t)lua_pcall_hook,
+                        (dobby_dummy_func_t *)&g_orig_lua_pcall);
+    f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "a");
+    if (f) { fprintf(f, "DobbyHook lua_pcall ret=%d\n", ret); fclose(f); }
 
-    void *loadbuffer = dlsym(RTLD_DEFAULT, "luaL_loadbuffer");
-    if (!loadbuffer) {
-        f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "a");
-        if (f) { fprintf(f, "FAILED: luaL_loadbuffer not found\n"); fclose(f); }
-        return false;
-    }
-
+    void *loadbuffer = dlsym(g_libagame, "luaL_loadbuffer");
     if (DobbyHook(loadbuffer,
                   (dobby_dummy_func_t)luaL_loadbuffer_hook,
                   (dobby_dummy_func_t *)&g_orig_luaL_loadbuffer) != 0) {
         f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "a");
-        if (f) { fprintf(f, "FAILED: DobbyHook luaL_loadbuffer failed\n"); fclose(f); }
+        if (f) { fprintf(f, "FAILED: DobbyHook loadbuffer\n"); fclose(f); }
     } else {
         f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "a");
         if (f) { fprintf(f, "SUCCESS: both hooks installed\n"); fclose(f); }
     }
 
     f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "a");
-    if (f) { fprintf(f, "initialize() completed\n"); fclose(f); }
+    if (f) { fprintf(f, "initialize() done\n"); fclose(f); }
     return true;
 }
 
@@ -393,10 +430,9 @@ void cleanup() {
 
 __attribute__((constructor))
 static void on_load() {
-    // Marker: constructor running
     FILE *f = fopen("/data/data/com.moonton.mobilehero/mla_hook_loaded.txt", "w");
-    if (f) { fputs("MLA_Hook constructor running\n", f); fclose(f); }
-    mla::initialize();
+    if (f) { fputs("MLA_Hook constructor running - deferring init\n", f); fclose(f); }
+    mla::start_deferred_init();
 }
 
 __attribute__((destructor))
