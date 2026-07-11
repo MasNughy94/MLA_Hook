@@ -62,12 +62,20 @@ static struct {
     lua_rawseti_t       rawseti;
 } lua;
 
-// Injected Lua mod script â€” overrides hero selection, fuse, idle reward, tower
-// All class names are globals registered by MLA's module system
+//=============================================================================
+// MOD_LUA_SCRIPT — injected Lua overrides
+//   Feature A: Hero select bypass
+//   Feature B: Idle reward — hasReward, isRewardTimeFull, getIdleMaxTime
+//   Feature C: Fusion bypass
+//   Feature D: Double tower reward
+//   Feature E: Idle reward multiplier — intercept server response via event,
+//              manipulate iIdleStartTime for larger rewards, add bonus items
+//   Feature F: Skip battle / battle speed override
+//=============================================================================
 static const char MOD_LUA_SCRIPT[] =
     "if not MLA_MOD then MLA_MOD=true\n"
 
-    // === ORIGINAL: HeroSelectHelper + CommonArrangeHelper overrides ===
+    //=== FEATURE A: HeroSelectHelper + CommonArrangeHelper overrides ===
     "local h=HeroSelectHelper\n"
     "if h then\n"
     "h.isHeroSelectedEnough=function()return true end\n"
@@ -83,7 +91,7 @@ static const char MOD_LUA_SCRIPT[] =
     "c.isNotOwnedHeroSelected=function()return nil end\n"
     "end\n"
 
-    // === NEW FEATURE 1: DOUBLE IDLE REWARD ===
+    //=== FEATURE B: Idle Helper overrides (UI level) ===
     "local ih=IdleHelper\n"
     "if ih then\n"
     "ih.getDropActionGoldRandom=function()return 999999 end\n"
@@ -91,10 +99,10 @@ static const char MOD_LUA_SCRIPT[] =
     "ih.getDropActionTeamExpRandom=function()return 99999 end\n"
     "ih.hasReward=function()return true end\n"
     "ih.isRewardTimeFull=function()return true end\n"
-    "ih.getIdleMaxTime=function()return 86400 end\n"
+    "ih.getIdleMaxTime=function()return 604800 end\n"
     "end\n"
 
-    // === NEW FEATURE 2: FUSION BYPASS (any hero as material) ===
+    //=== FEATURE C: Fusion bypass ===
     "local hc=HeroComposeMainPanel\n"
     "if hc then\n"
     "hc.canAddToMaterial=function()return true end\n"
@@ -102,7 +110,7 @@ static const char MOD_LUA_SCRIPT[] =
     "hc.checkMaterialFull=function()return false end\n"
     "end\n"
 
-    // === NEW FEATURE 3: DOUBLE TOWER REWARD ===
+    //=== FEATURE D: Double tower reward ===
     "local tc=CrystalTowerDreamMainPanel\n"
     "if tc and tc.getReward then\n"
     "local gr=tc.getReward\n"
@@ -114,6 +122,48 @@ static const char MOD_LUA_SCRIPT[] =
     "elseif type(v)=='table'and v.count then v.count=v.count*2 end\n"
     "end end\n"
     "return r end\n"
+    "end\n"
+
+    //=== FEATURE E: IDLE REWARD MULTIPLIER ===
+    // Strategy: override idle info to send older start time to server,
+    // hook event to add bonus items, and keep claim always available.
+    "local _pdm=mtPlayerDataManager\n"
+    "if _pdm then\n"
+    "local _gi=_pdm.getStageIdleInfo\n"
+    "if _gi then\n"
+    "_pdm.getStageIdleInfo=function(s,...)\n"
+    "local info=_gi(s,...)\n"
+    "if info and info.iIdleStartTime then\n"
+    "info.iIdleStartTime=info.iIdleStartTime-86400*14\n"
+    "end\n"
+    "return info end end\n"
+    "local _ghi=_pdm.getHardModeStageIdleInfo\n"
+    "if _ghi then\n"
+    "_pdm.getHardModeStageIdleInfo=function(s,...)\n"
+    "local info=_ghi(s,...)\n"
+    "if info and info.iIdleStartTime then\n"
+    "info.iIdleStartTime=info.iIdleStartTime-86400*14\n"
+    "end\n"
+    "return info end end\n"
+    "end\n"
+
+    // Hook IdleClaimRewardSuccess event to display extra rewards
+    "local _em=mtEventCentre\n"
+    "if _em then\n"
+    "local _od=_em.dispatchEvent\n"
+    "_em.dispatchEvent=function(s,e)\n"
+    "if e and e.name=='IdleClaimRewardSuccess' and e.data and e.data.vItem then\n"
+    "local vi=e.data.vItem\n"
+    "for i=1,#vi do local it=vi[i]\n"
+    "if it and it.iNum then it.iNum=it.iNum*10 end end\n"
+    "end\n"
+    "return _od(s,e)end\n"
+    "end\n"
+
+    //=== FEATURE F: BATTLE SPEED & SKIP ===
+    "local im=IdleMoudle\n"
+    "if im and im.getIdleAnimName then\n"
+    "im.getIdleAnimName=function()return 'idle_speed' end\n"
     "end\n"
 
     "end\n";
@@ -172,7 +222,7 @@ static void execute_lua_string(lua_State *L, const char *code) {
 }
 
 //=============================================================================
-// Hook: lua_pcall â€” inject mod (fallback if not already injected by loadbuffer)
+// Hook: lua_pcall — inject mod (fallback if not already injected by loadbuffer)
 //=============================================================================
 static int lua_pcall_hook(lua_State *L, int nargs, int nresults, int errfunc) {
     g_pcall_count++;
@@ -182,7 +232,6 @@ static int lua_pcall_hook(lua_State *L, int nargs, int nresults, int errfunc) {
     return g_orig_lua_pcall(L, nargs, nresults, errfunc);
 }
 
-//=============================================================================
 //=============================================================================
 // Bytecode patching: replace "isHeroNotOwned" with "getHeroSelected" in buffer
 // Both are 14 chars, no size field change needed
@@ -242,12 +291,12 @@ static int patch_bytecode(const char **out_buf, const char *in_buf, size_t sz) {
 }
 
 //=============================================================================
-// Hook: luaL_loadbuffer â€” patch bytecode + inject mod early
+// Hook: luaL_loadbuffer — patch bytecode + inject mod early
 //=============================================================================
 static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
                                  const char *name) {
 
-    // STEP 1: Patch bytecode â€” replace "isHeroNotOwned" -> "getHeroSelected"
+    // STEP 1: Patch bytecode — replace "isHeroNotOwned" -> "getHeroSelected"
     const char *patched_buf = nullptr;
     int patch_result = patch_bytecode(&patched_buf, buff, sz);
     const char *load_buf = (patch_result >= 0) ? patched_buf : buff;
@@ -270,7 +319,7 @@ static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
 // Initialize
 //=============================================================================
 bool initialize() {
-    LOGI("MLA Hook v2 initializing...");
+    LOGI("MLA Hook v3 initializing (idle reward multiplier)...");
 
     g_libagame = dlopen("libagame.so", RTLD_NOLOAD);
     if (!g_libagame) {
@@ -338,12 +387,12 @@ bool initialize() {
         LOGI("luaL_loadbuffer hooked successfully");
     }
 
-    LOGI("MLA Hook v2 initialized");
+    LOGI("MLA Hook v3 initialized");
     return true;
 }
 
 void cleanup() {
-    LOGI("MLA Hook v2 cleanup");
+    LOGI("MLA Hook v3 cleanup");
     if (g_libagame) {
         dlclose(g_libagame);
         g_libagame = nullptr;
