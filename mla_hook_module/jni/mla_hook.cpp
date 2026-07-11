@@ -403,6 +403,13 @@ void cleanup() {
 
 __attribute__((constructor))
 static void on_load() {
+    // Write marker file FIRST, before anything else
+    FILE *f = fopen("/data/local/tmp/mla_hook_loaded.txt", "w");
+    if (f) {
+        fputs("MLA_Hook constructor running\n", f);
+        fprintf(f, "libagame handle: %p\n", (void*)dlopen("libagame.so", RTLD_NOLOAD));
+        fclose(f);
+    }
     mla::initialize();
 }
 
