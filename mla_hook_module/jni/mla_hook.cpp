@@ -111,20 +111,33 @@ static struct {
 static const char MOD_LUA_SCRIPT[] =
     "if not MLA_MOD then MLA_MOD=true\n"
 
-    //=== FEATURE A: HeroSelectHelper + CommonArrangeHelper overrides ===
-    "local h=HeroSelectHelper\n"
-    "if h then\n"
-    "h.isHeroSelectedEnough=function()return true end\n"
-    "h.isHeroSelectedOverLimit=function()return nil end\n"
-    "h.hasAlreadySameHero=function()return nil end\n"
-    "h.hasArrangeFullTips=function()return nil end\n"
+    //=== FEATURE A: Unlock all heroes + skins ===
+    "local hh=HeroHelper\n"
+    "if hh and hh.isHeroOwned then\n"
+    "hh.isHeroOwned=function()return true end\n"
     "end\n"
-    "local c=CommonArrangeHelper\n"
-    "if c then\n"
-    "c.hasAlreadySameHero=function()return nil end\n"
-    "c.isHeroSelectedOverLimit=function()return nil end\n"
-    "c.isHeroNotOwned=function()return nil end\n"
-    "c.isNotOwnedHeroSelected=function()return nil end\n"
+    "if hh and hh.getHero then\n"
+    "local _gh=hh.getHero\n"
+    "hh.getHero=function(s,i)\n"
+    "local h=_gh(s,i)\n"
+    "if not h and i then\n"
+    "h={iHeroId=i,iStar=10,iLevel=250,iBreakLevel=15,\n"
+    "iRank=8,iSkinId=0,iEvolutionStage=5,iStep=3,\n"
+    "iSkillLevel=1,iPotential=100,isUnlock=true}\n"
+    "end\n"
+    "return h end\n"
+    "end\n"
+    "local sd=SkillDisplayHelper\n"
+    "if sd and sd.hasSkin then\n"
+    "sd.hasSkin=function()return true end\n"
+    "end\n"
+    "local bm=BattleManager\n"
+    "if bm and bm.hasSkin then\n"
+    "bm.hasSkin=function()return true end\n"
+    "end\n"
+    "local fa=FirstChargeActivity\n"
+    "if fa and fa.hasHero then\n"
+    "fa.hasHero=function()return true end\n"
     "end\n"
 
     //=== FEATURE B: Idle Helper overrides (UI level) ===
@@ -205,37 +218,9 @@ static const char MOD_LUA_SCRIPT[] =
     "end\n";
 
 //=============================================================================
-// Dump first N bytes of a buffer to logcat
-//=============================================================================
-static void dump_script(const char *name, const char *buff, size_t sz) {
-    if (!buff || sz == 0) return;
-    size_t dump = sz > 1024 ? 1024 : sz;
-    char line[512];
-    for (size_t i = 0; i < dump; i += 64) {
-        int pos = 0;
-        pos += snprintf(line + pos, sizeof(line) - pos, "[%.4zx] ", i);
-        for (size_t j = 0; j < 64 && i + j < dump; j++) {
-            pos += snprintf(line + pos, sizeof(line) - pos, "%02x",
-                           (unsigned char)buff[i + j]);
-            if ((j + 1) % 16 == 0) pos += snprintf(line + pos, sizeof(line) - pos, " ");
-        }
-        pos += snprintf(line + pos, sizeof(line) - pos, "  |");
-        for (size_t j = 0; j < 64 && i + j < dump; j++) {
-            unsigned char c = buff[i + j];
-            pos += snprintf(line + pos, sizeof(line) - pos, "%c",
-                           c >= 32 && c <= 126 ? c : '.');
-        }
-        pos += snprintf(line + pos, sizeof(line) - pos, "|");
-        LOGI("  %s", line);
-    }
-    if (sz > dump) LOGI("  ... (%zu bytes total)", sz);
-}
-
-//=============================================================================
 // Shared state
 //=============================================================================
 static int g_pcall_count = 0;
-static bool g_mod_injected = false;
 static bool g_mod_injected_pcall = false;
 
 //=============================================================================
@@ -262,128 +247,27 @@ static void execute_lua_string(lua_State *L, const char *code) {
 //=============================================================================
 static int lua_pcall_hook(lua_State *L, int nargs, int nresults, int errfunc) {
     g_pcall_count++;
-    // Inject mod at count 3000 (game should be initialized by then)
-    // Re-inject every 50000 calls to catch reloaded contexts
-    if ((g_pcall_count % 50000 == 0 && !g_mod_injected_pcall) || 
-        g_pcall_count == 3000) {
-        g_mod_injected_pcall = false;  // Allow injection
+    if (g_pcall_count == 3000 || g_pcall_count % 50000 == 0) {
+        g_mod_injected_pcall = false;
         execute_lua_string(L, MOD_LUA_SCRIPT);
     }
     return g_orig_lua_pcall(L, nargs, nresults, errfunc);
 }
 
 //=============================================================================
-// Bytecode patching: replace "isHeroNotOwned" with "getHeroSelected" in buffer
-// Both are 14 chars, no size field change needed
-//=============================================================================
-#define PATCH_FROM "isHeroNotOwned"
-#define PATCH_TO   "getHeroSelected"
-#define PATCH_LEN  14
-
-// Simple buffer search (no memmem dependency)
-static const char* memfind(const char *haystack, size_t hlen, const char *needle, size_t nlen) {
-    if (nlen == 0) return haystack;
-    if (hlen < nlen) return nullptr;
-    for (size_t i = 0; i <= hlen - nlen; i++) {
-        if (memcmp(haystack + i, needle, nlen) == 0) return haystack + i;
-    }
-    return nullptr;
-}
-
-// Scan buffer for "isHeroNotOwned" and patch to "getHeroSelected"
-// Returns: number of patches applied, -1 if no patch needed
-static int patch_bytecode(const char **out_buf, const char *in_buf, size_t sz) {
-    if (!memfind(in_buf, sz, PATCH_FROM, PATCH_LEN)) return -1;
-
-    char *patched = (char *)malloc(sz);
-    if (!patched) return -1;
-    memcpy(patched, in_buf, sz);
-
-    int patched_count = 0;
-    size_t pos = 0;
-    while (pos + PATCH_LEN <= sz) {
-        if (memcmp(patched + pos, PATCH_FROM, PATCH_LEN) == 0) {
-            // Verify Lua string constant entry: type(1) + size(4) + content
-            // type byte at pos-5 must be 4 (string), size at pos-4 must be 15 (14+null)
-            if (pos >= 5) {
-                uint32_t str_size;
-                memcpy(&str_size, patched + pos - 4, sizeof(uint32_t));
-                if (str_size == PATCH_LEN + 1 && (uint8_t)patched[pos - 5] == 4) {
-                    memcpy(patched + pos, PATCH_TO, PATCH_LEN);
-                    patched_count++;
-                    pos += PATCH_LEN;
-                    continue;
-                }
-            }
-        }
-        pos++;
-    }
-
-    if (patched_count == 0) {
-        free(patched);
-        return -1;
-    }
-
-    LOGI("[MLA_PATCH] Patched %d occurrence(s) of '%s' -> '%s' in [%zu bytes]",
-         patched_count, PATCH_FROM, PATCH_TO, sz);
-    *out_buf = patched;
-    return patched_count;
-}
-
-//=============================================================================
-// Hook: luaL_loadbuffer — patch bytecode + inject mod early
+// Hook: luaL_loadbuffer — call original loader (no bytecode patching)
 //=============================================================================
 static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
                                  const char *name) {
-    // Debug: count calls
-    static int lb_count = 0;
-    lb_count++;
-    if (lb_count % 100 == 0) {
-        FILE *f = fopen("/data/data/com.moonton.mobilehero/mla_lb_count.txt", "a");
-        if (f) { fprintf(f, "loadbuffer count: %d name=%s\n", lb_count, name ? name : "null"); fclose(f); }
-    }
-    if (lb_count == 1) {
-        FILE *f = fopen("/data/data/com.moonton.mobilehero/mla_lb_first.txt", "w");
-        if (f) { fprintf(f, "First loadbuffer: name=%s sz=%zu\n", name ? name : "null", sz); fclose(f); }
-    }
-
-    // STEP 1: Patch bytecode — replace "isHeroNotOwned" -> "getHeroSelected"
-    const char *patched_buf = nullptr;
-    int patch_result = patch_bytecode(&patched_buf, buff, sz);
-    const char *load_buf = (patch_result >= 0) ? patched_buf : buff;
-
-    // STEP 2: Call original loader with potentially patched buffer
-    int ret = g_orig_luaL_loadbuffer(L, load_buf, sz, name);
-
-    // Clean up patched buffer copy
-    if (patch_result >= 0) free((void *)patched_buf);
-
-    // NOTE: Injection is done via lua_pcall_hook at count 3000+ to ensure
-    // game globals are available. We don't inject here because the first
-    // loadbuffer runs too early (before mtPlayerDataManager exists).
-
-    return ret;
+    return g_orig_luaL_loadbuffer(L, buff, sz, name);
 }
 
 //=============================================================================
 // Initialize
 //=============================================================================
 bool initialize() {
-    FILE *f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "w");
-    if (f) { fputs("initialize() started\n", f); fclose(f); }
-
-    // Now that libagame.so is fully loaded, we can dlopen it safely
-    g_libagame = dlopen("libagame.so", RTLD_NOLOAD);
-    if (!g_libagame) {
-        f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "a");
-        if (f) { fprintf(f, "dlopen NOLOAD failed, trying RTLD_NOW\n"); fclose(f); }
-        g_libagame = dlopen("libagame.so", RTLD_NOW);
-    }
-    if (!g_libagame) {
-        f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "a");
-        if (f) { fprintf(f, "FAILED: dlopen libagame.so: %s\n", dlerror()); fclose(f); }
-        return false;
-    }
+    g_libagame = dlopen("libagame.so", RTLD_NOW);
+    if (!g_libagame) return false;
 
     lua.settop      = (lua_settop_t)     dlsym(g_libagame, "lua_settop");
     lua.gettop      = (lua_gettop_t)     dlsym(g_libagame, "lua_gettop");
@@ -404,35 +288,18 @@ bool initialize() {
     lua.rawgeti     = (lua_rawgeti_t)    dlsym(g_libagame, "lua_rawgeti");
     lua.rawseti     = (lua_rawseti_t)    dlsym(g_libagame, "lua_rawseti");
 
-    f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "a");
-    if (f) { fprintf(f, "dlsym: settop=%p pcall=%p loadstring=%p\n", (void*)lua.settop, (void*)lua.pcall, (void*)lua.loadstring); fclose(f); }
-
-    if (!lua.settop || !lua.pushstring || !lua.loadstring || !lua.pcall) {
-        f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "a");
-        if (f) { fprintf(f, "FAILED: essential symbols\n"); fclose(f); }
+    if (!lua.settop || !lua.pushstring || !lua.loadstring || !lua.pcall)
         return false;
-    }
 
     void *pcall = dlsym(g_libagame, "lua_pcall");
-    int ret = DobbyHook(pcall,
-                        (dobby_dummy_func_t)lua_pcall_hook,
-                        (dobby_dummy_func_t *)&g_orig_lua_pcall);
-    f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "a");
-    if (f) { fprintf(f, "DobbyHook lua_pcall ret=%d\n", ret); fclose(f); }
+    DobbyHook(pcall, (dobby_dummy_func_t)lua_pcall_hook,
+              (dobby_dummy_func_t *)&g_orig_lua_pcall);
 
     void *loadbuffer = dlsym(g_libagame, "luaL_loadbuffer");
-    if (DobbyHook(loadbuffer,
-                  (dobby_dummy_func_t)luaL_loadbuffer_hook,
-                  (dobby_dummy_func_t *)&g_orig_luaL_loadbuffer) != 0) {
-        f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "a");
-        if (f) { fprintf(f, "FAILED: DobbyHook loadbuffer\n"); fclose(f); }
-    } else {
-        f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "a");
-        if (f) { fprintf(f, "SUCCESS: both hooks installed\n"); fclose(f); }
-    }
+    if (loadbuffer)
+        DobbyHook(loadbuffer, (dobby_dummy_func_t)luaL_loadbuffer_hook,
+                  (dobby_dummy_func_t *)&g_orig_luaL_loadbuffer);
 
-    f = fopen("/data/data/com.moonton.mobilehero/mla_init_marker.txt", "a");
-    if (f) { fprintf(f, "initialize() done\n"); fclose(f); }
     return true;
 }
 
