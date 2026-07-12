@@ -262,12 +262,11 @@ static void execute_lua_string(lua_State *L, const char *code) {
 //=============================================================================
 static int lua_pcall_hook(lua_State *L, int nargs, int nresults, int errfunc) {
     g_pcall_count++;
-    // Debug: log every 1000 calls
-    if (g_pcall_count % 1000 == 0) {
-        FILE *f = fopen("/data/data/com.moonton.mobilehero/mla_pcall_count.txt", "a");
-        if (f) { fprintf(f, "pcall count: %d\n", g_pcall_count); fclose(f); }
-    }
-    if (g_pcall_count == 500) {
+    // Inject mod at count 3000 (game should be initialized by then)
+    // Re-inject every 50000 calls to catch reloaded contexts
+    if ((g_pcall_count % 50000 == 0 && !g_mod_injected_pcall) || 
+        g_pcall_count == 3000) {
+        g_mod_injected_pcall = false;  // Allow injection
         execute_lua_string(L, MOD_LUA_SCRIPT);
     }
     return g_orig_lua_pcall(L, nargs, nresults, errfunc);
@@ -359,14 +358,9 @@ static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
     // Clean up patched buffer copy
     if (patch_result >= 0) free((void *)patched_buf);
 
-    // STEP 3: Inject MOD_LUA_SCRIPT (execute_lua_string guards via g_mod_injected_pcall)
-    if (ret == 0) {
-        if (lb_count == 1) {
-            FILE *f = fopen("/data/data/com.moonton.mobilehero/mla_lb_first_inject.txt", "w");
-            if (f) { fprintf(f, "Injecting on first loadbuffer\n"); fclose(f); }
-        }
-        execute_lua_string(L, MOD_LUA_SCRIPT);
-    }
+    // NOTE: Injection is done via lua_pcall_hook at count 3000+ to ensure
+    // game globals are available. We don't inject here because the first
+    // loadbuffer runs too early (before mtPlayerDataManager exists).
 
     return ret;
 }
