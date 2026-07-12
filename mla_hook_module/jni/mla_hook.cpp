@@ -262,6 +262,11 @@ static void execute_lua_string(lua_State *L, const char *code) {
 //=============================================================================
 static int lua_pcall_hook(lua_State *L, int nargs, int nresults, int errfunc) {
     g_pcall_count++;
+    // Debug: log every 1000 calls
+    if (g_pcall_count % 1000 == 0) {
+        FILE *f = fopen("/data/data/com.moonton.mobilehero/mla_pcall_count.txt", "a");
+        if (f) { fprintf(f, "pcall count: %d\n", g_pcall_count); fclose(f); }
+    }
     if (g_pcall_count == 500) {
         execute_lua_string(L, MOD_LUA_SCRIPT);
     }
@@ -331,6 +336,17 @@ static int patch_bytecode(const char **out_buf, const char *in_buf, size_t sz) {
 //=============================================================================
 static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
                                  const char *name) {
+    // Debug: count calls
+    static int lb_count = 0;
+    lb_count++;
+    if (lb_count % 100 == 0) {
+        FILE *f = fopen("/data/data/com.moonton.mobilehero/mla_lb_count.txt", "a");
+        if (f) { fprintf(f, "loadbuffer count: %d name=%s\n", lb_count, name ? name : "null"); fclose(f); }
+    }
+    if (lb_count == 1) {
+        FILE *f = fopen("/data/data/com.moonton.mobilehero/mla_lb_first.txt", "w");
+        if (f) { fprintf(f, "First loadbuffer: name=%s sz=%zu\n", name ? name : "null", sz); fclose(f); }
+    }
 
     // STEP 1: Patch bytecode — replace "isHeroNotOwned" -> "getHeroSelected"
     const char *patched_buf = nullptr;
@@ -345,6 +361,10 @@ static int luaL_loadbuffer_hook(lua_State *L, const char *buff, size_t sz,
 
     // STEP 3: Inject MOD_LUA_SCRIPT (execute_lua_string guards via g_mod_injected_pcall)
     if (ret == 0) {
+        if (lb_count == 1) {
+            FILE *f = fopen("/data/data/com.moonton.mobilehero/mla_lb_first_inject.txt", "w");
+            if (f) { fprintf(f, "Injecting on first loadbuffer\n"); fclose(f); }
+        }
         execute_lua_string(L, MOD_LUA_SCRIPT);
     }
 
